@@ -1,0 +1,17 @@
+[Unit]
+Description=TactileLatent native sensor autoencoder training queue
+After=default.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/codrincrismariu/Documents/TactileLatent
+ExecStart=/home/codrincrismariu/Documents/TactileLatent/.venv/bin/python -u scripts/train_acquisition_autoencoders.py --config configs/acquisition_autoencoders_v1.json
+Environment=OMP_NUM_THREADS=4
+Environment=OPENBLAS_NUM_THREADS=1
+Environment=PYTHONUNBUFFERED=1
+StandardOutput=append:/home/codrincrismariu/Documents/TactileLatent/processing/acquisition_teachers_v1/train.log
+StandardError=append:/home/codrincrismariu/Documents/TactileLatent/processing/acquisition_teachers_v1/train.log
+TimeoutStopSec=30
+
+[Install]
+WantedBy=default.target

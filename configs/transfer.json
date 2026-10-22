@@ -1,0 +1,42 @@
+{
+  "schema": "tactilelatent-transfer-v2",
+  "source": "ftp_motiontrans",
+  "protocol": "motiontrans",
+  "hidden_dims": [
+    512,
+    512,
+    512
+  ],
+  "head_seeds": [
+    45,
+    46,
+    47
+  ],
+  "split_seed": 45,
+  "learning_rates": [
+    0.0003,
+    0.001,
+    0.003
+  ],
+  "epochs": 100,
+  "patience": 10,
+  "weight_decay": 0.0001,
+  "bootstrap_replicates": 5000,
+  "standardization": "fit_episode_only",
+  "selection": "tune_episodes_only_then_all_training_refit",
+  "output": "processing/evaluations/core_v2_motiontrans",
+  "dataset_probe": {
+    "seed": 45,
+    "epochs": 100,
+    "patience": 10,
+    "train_clips_per_source": 1000,
+    "tune_clips_per_source": 128,
+    "standardization": "fit_episode_only",
+    "hidden_dims": [
+      512
+    ]
+  },
+  "batch_size": 256,
+  "dropout": 0.1,
+  "tune_fraction": 0.1
+}

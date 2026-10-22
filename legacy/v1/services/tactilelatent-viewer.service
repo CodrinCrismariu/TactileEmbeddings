@@ -1,0 +1,17 @@
+[Unit]
+Description=TactileLatent reconstruction viewer
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/codrincrismariu/Documents/TactileLatent
+ExecStart=/home/codrincrismariu/Documents/TactileLatent/.venv/bin/python -u scripts/view_egotouch_autoencoder.py --manifest processing/joint_alignment/manifest.json --host 0.0.0.0 --port 8080
+Environment=OMP_NUM_THREADS=2
+Environment=OPENBLAS_NUM_THREADS=1
+Restart=on-failure
+RestartSec=30
+Nice=0
+
+[Install]
+WantedBy=default.target

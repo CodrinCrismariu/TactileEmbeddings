@@ -1,0 +1,18 @@
+[Unit]
+Description=Verified bimanual mirror teachers and paired code preparation
+After=network-online.target
+
+[Service]
+Type=oneshot
+TimeoutStartSec=infinity
+RemainAfterExit=yes
+WorkingDirectory=/home/codrincrismariu/Documents/TactileLatent
+ExecStart=/home/codrincrismariu/Documents/TactileLatent/.venv/bin/python -u scripts/prepare_bimanual_mirror.py
+ExecStartPost=/home/codrincrismariu/Documents/TactileLatent/.venv/bin/python -u scripts/verify_bimanual_mirror.py
+Environment=OMP_NUM_THREADS=4
+Environment=OPENBLAS_NUM_THREADS=1
+Restart=no
+Nice=10
+
+[Install]
+WantedBy=default.target

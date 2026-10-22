@@ -1,13 +1,41 @@
-# Downloaded datasets and generated experiment artifacts (kept locally).
+# Local task work and protected recovery (kept on disk, never automatic cleanup).
+/ai_work/scratch/
+/ai_work/refactor/
+/ai_work/backups/
+
+# Large local research assets and generated experiment artifacts.
 /datasets/
 /processing/
+/mano_models/
 /data/
 /outputs/
 /artifacts/
 /checkpoints/
-/download_logs/
+/logs/
 
-# Local model weights, numeric caches, sensor recordings, and download archives.
+# Environments, bytecode, package/test caches and build products.
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+/build/
+/dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+.ipynb_checkpoints/
+
+# Local weights, sensor recordings, numeric caches and acquired archives.
 *.pt
 *.pth
 *.ckpt
@@ -35,29 +63,7 @@
 *.part
 *.partial
 
-# Python environments, bytecode, packaging, and test/tool caches.
-.venv/
-venv/
-env/
-__pycache__/
-*.py[cod]
-*.egg-info/
-.eggs/
-/build/
-/dist/
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-.tox/
-.nox/
-.cache/
-.coverage
-.coverage.*
-htmlcov/
-coverage.xml
-.ipynb_checkpoints/
-
-# Runtime logs, PID files, and local downloader status.
+# Runtime records belong in run/processing folders or logs/, not repository root.
 *.log
 *.log.*
 nohup.out
@@ -65,9 +71,8 @@ nohup.out
 *.pid.lock
 *.sock
 events.out.tfevents.*
-/0
 
-# Local credentials and environment overrides. Keep shareable templates.
+# Credentials and machine/editor-specific files; shareable templates stay visible.
 .env
 .env.*
 !.env.example
@@ -76,8 +81,6 @@ events.out.tfevents.*
 .pypirc
 *.pem
 *.key
-
-# Editor/OS files. Dependency lockfiles remain tracked.
 .vscode/
 .idea/
 *.swp

@@ -1,0 +1,2352 @@
+{
+  "backup_manifest_sha256": "efc217826401caad3554d0c7c5b3ab03e10aedc4a6a6460650ee41061579e9ea",
+  "files": {
+    "/home/codrincrismariu/Documents/TactileLatent/configs/acquisition_autoencoders_v1.json": {
+      "archived_path": "configs/acquisition_autoencoders_v1.json",
+      "mode": 436,
+      "sha256": "d7a03d9153249ca190cd44b255c6e20a5d178f7ff758d7387960e9d5d71a7302"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/bimanual_mirror_policy_v1.json": {
+      "archived_path": "configs/bimanual_mirror_policy_v1.json",
+      "mode": 436,
+      "sha256": "71a32cba8f0976259270fb3c25a26bbc5a5b49433511c512912cf428f24c350b"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/bimanual_mirror_policy_v2.json": {
+      "archived_path": "configs/bimanual_mirror_policy_v2.json",
+      "mode": 436,
+      "sha256": "62dbee1fe65b2460cb82238ce47a7a4e0a259b9ff780d7276836d263b401b495"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/bimanual_mirror_policy_v3.json": {
+      "archived_path": "configs/bimanual_mirror_policy_v3.json",
+      "mode": 436,
+      "sha256": "77aa6a0e9eedc5422db280f20354cae1121f4cbfc736dbb5d13087e4c617b142"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/data_queue_active.json": {
+      "archived_path": "configs/data_queue_active.json",
+      "mode": 436,
+      "sha256": "3da3d44e8225646eef0505ba7048b0c06b6d113bc61533067aa0700b0825f68f"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/data_queue_v2.json": {
+      "archived_path": "configs/data_queue_v2.json",
+      "mode": 436,
+      "sha256": "5548442d70ae8886ef4dcae5680c5f0515d86c62b3e0bcbd2fb45234eddffbe5"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/egotouch_ae_search_v2.json": {
+      "archived_path": "configs/egotouch_ae_search_v2.json",
+      "mode": 436,
+      "sha256": "c7787db3a8e2dae7491fb0a02763252693c7530b79310230c91a6e39625178e4"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/egotouch_ae_search_v3.json": {
+      "archived_path": "configs/egotouch_ae_search_v3.json",
+      "mode": 436,
+      "sha256": "f030ddfc5ce96fa38d083fcb8a68c25217f54b59df3e3377d1c1860f4e7c252a"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/egotouch_ae_search_v4.json": {
+      "archived_path": "configs/egotouch_ae_search_v4.json",
+      "mode": 436,
+      "sha256": "b7cec204fb7c9260df42ec6778647efc313d845e1dabf7d49fb10a00433f096f"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/egotouch_vae_image_only_latent32.json": {
+      "archived_path": "configs/egotouch_vae_image_only_latent32.json",
+      "mode": 436,
+      "sha256": "58ccfd5b5808aefb7e48f403fd912da7099d4e5c58bca5d7869e5499252a549c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/feel_display_v1.json": {
+      "archived_path": "configs/feel_display_v1.json",
+      "mode": 436,
+      "sha256": "ad826eb162269a93cab3d549831b484b9c2dafe7a9b3342e8abbc7a925755c63"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/freetacman_camera_roles.json": {
+      "archived_path": "configs/freetacman_camera_roles.json",
+      "mode": 436,
+      "sha256": "744d717dbe16b3825aa047563e43e37784dea06b2dc205f0bbe3db056d99f629"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/invariance_16d_control.json": {
+      "archived_path": "configs/invariance_16d_control.json",
+      "mode": 436,
+      "sha256": "75bb9afa2231afd6f2bd0c81071656e761637a29dfe98666bb293bf9821aa014"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/invariance_16d_meta.json": {
+      "archived_path": "configs/invariance_16d_meta.json",
+      "mode": 436,
+      "sha256": "4fd30c5ee4ce66f92b2eeb123ffca73aad42fa46c6bc72b15d79c3e5a384fa98"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/invariance_16d_meta_control.json": {
+      "archived_path": "configs/invariance_16d_meta_control.json",
+      "mode": 436,
+      "sha256": "a99896a2b63ef764cedeb92b5964e51bc47cd95f929177fe07a2f1d34ffd88c7"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/invariance_16d_relational.json": {
+      "archived_path": "configs/invariance_16d_relational.json",
+      "mode": 436,
+      "sha256": "d01376d1012a370d9bff86d27b3a2deb095d6c60c2e2c6a1da4657985cd69e43"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/invariance_16d_trajectory.json": {
+      "archived_path": "configs/invariance_16d_trajectory.json",
+      "mode": 436,
+      "sha256": "a9675fbd4eb83da37157071f0ba1a24951fb634fb47353e1553b28368354f587"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_16d_deterministic_control.json": {
+      "archived_path": "configs/joint_16d_deterministic_control.json",
+      "mode": 436,
+      "sha256": "af0c2bb9f66735988a83f7f6dcc3c7a1e1cfdab64b40cbebc6e4a62eb0f0fb60"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_alignment_holdout_motiontrans.json": {
+      "archived_path": "configs/joint_alignment_holdout_motiontrans.json",
+      "mode": 436,
+      "sha256": "ae3ab006c5209f607ccc41089cf3401fe13deb36bb7c508aeef9b7197ce5a288"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_alignment_holdout_motiontrans_200.json": {
+      "archived_path": "configs/joint_alignment_holdout_motiontrans_200.json",
+      "mode": 436,
+      "sha256": "e73cc4a523f8c9ede58b12da2b8f30eefd1f2e336d2b598434a290e0de04e86e"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_all_alternating_fresh_8k_50ep.json": {
+      "archived_path": "configs/joint_all_alternating_fresh_8k_50ep.json",
+      "mode": 436,
+      "sha256": "507074c55828ab852ca9f53f860bcf6e1ab58d0e80e994055fabb2fd8849b51b"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_all_alternating_smoke.json": {
+      "archived_path": "configs/joint_all_alternating_smoke.json",
+      "mode": 436,
+      "sha256": "29d9af2146101b45d48fd734046648c1b39e2dda551554d869a555972a2f60de"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_all_grl_fresh_8k_50ep.json": {
+      "archived_path": "configs/joint_all_grl_fresh_8k_50ep.json",
+      "mode": 436,
+      "sha256": "a991cc607e2c52ff5837184d73213aed8e89e2388abcaf4c9db8a734ca539cab"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_all_grl_smoke.json": {
+      "archived_path": "configs/joint_all_grl_smoke.json",
+      "mode": 436,
+      "sha256": "6560618ff2020c47acdd567abb2a43341d2e87180946436b9594c3fcd51c9431"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_all_holdout_motiontrans_fresh_8k_50ep.json": {
+      "archived_path": "configs/joint_all_holdout_motiontrans_fresh_8k_50ep.json",
+      "mode": 436,
+      "sha256": "8ea4c96b6030d3216cbf6461225e7cd87f973f000aab1043d2054171c82a8fac"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_all_holdout_motiontrans_smoke.json": {
+      "archived_path": "configs/joint_all_holdout_motiontrans_smoke.json",
+      "mode": 436,
+      "sha256": "95d6840bcfcb55dae32c7e7761667c084b2c87a8711231c43281580d1c41dfcb"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_all_holdout_vla_8k_50ep.json": {
+      "archived_path": "configs/joint_all_holdout_vla_8k_50ep.json",
+      "mode": 436,
+      "sha256": "7979a1f912857cb729b8097877b974d398d264c5238738a108eab1a35ae2cc25"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_all_holdout_vla_smoke.json": {
+      "archived_path": "configs/joint_all_holdout_vla_smoke.json",
+      "mode": 436,
+      "sha256": "9cf6a4376d5afe7743afc166b8895c989ec9492de3de7b858e16264940ab1499"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_all_holdout_vla_vae32.json": {
+      "archived_path": "configs/joint_all_holdout_vla_vae32.json",
+      "mode": 436,
+      "sha256": "dc6f4b3ac8c2338c70097f89a656759ee647853cfebf15b7542a6eb601693daf"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_all_sam_holdout_motiontrans_fresh_8k_50ep.json": {
+      "archived_path": "configs/joint_all_sam_holdout_motiontrans_fresh_8k_50ep.json",
+      "mode": 436,
+      "sha256": "f3c0cd785940d7aaf20f8ce0eefd0cb296e820f10888ad0877f13484354563dc"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_six_smoke.json": {
+      "archived_path": "configs/joint_six_smoke.json",
+      "mode": 436,
+      "sha256": "4395a91f6a8758bf02d2f3dc4d5531e91cb6ef1b7ae190fc1937224fe489bfa6"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_six_vae32.json": {
+      "archived_path": "configs/joint_six_vae32.json",
+      "mode": 436,
+      "sha256": "5c0e50ee4bf84e179da92d60dedd64ad7b534a938fdb28fdadf96d55cf54c745"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_vjepa21_all_sources_32d_mirror.json": {
+      "archived_path": "configs/joint_vjepa21_all_sources_32d_mirror.json",
+      "mode": 436,
+      "sha256": "366d8232ed0b65c35b6c634be2146e73a02c8c524ddc7f825d382118596d398c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_vjepa21_all_sources_32d_mirror_v2.json": {
+      "archived_path": "configs/joint_vjepa21_all_sources_32d_mirror_v2.json",
+      "mode": 436,
+      "sha256": "e496a6511edd7c7815e6e87530c7392fb5e8f92a4fdf5503abcbd2cc8f3c5a21"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_vjepa21_pair_32d_cached_v1.json": {
+      "archived_path": "configs/joint_vjepa21_pair_32d_cached_v1.json",
+      "mode": 436,
+      "sha256": "db8a85c9dfa618dd985db2fa113207b15445f7af74cca20410c97782caad380e"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_vjepa21_pair_32d_v1.json": {
+      "archived_path": "configs/joint_vjepa21_pair_32d_v1.json",
+      "mode": 436,
+      "sha256": "d66084e81083ad558bada047d1bbb138910387f0f378f73ef1ef35b746d92cec"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_vjepa21_spatial_current_128d.json": {
+      "archived_path": "configs/joint_vjepa21_spatial_current_128d.json",
+      "mode": 436,
+      "sha256": "a4d92731440527eebd3a003f81563b27f044e0da5e48fd658a21245a29e85c38"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_vjepa21_spatial_current_32d.json": {
+      "archived_path": "configs/joint_vjepa21_spatial_current_32d.json",
+      "mode": 436,
+      "sha256": "00e6ee69c11e17a91e77533b71ac526cdee9b53aa6a6196deedb879d92ed9f4d"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_vjepa21_spatial_current_32d_mirror.json": {
+      "archived_path": "configs/joint_vjepa21_spatial_current_32d_mirror.json",
+      "mode": 436,
+      "sha256": "29af0d6356be003edcb425c52bb45aad50b544c896b6bf44b4abfaec27a8eaf3"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_vjepa21_spatial_expanded_32d.json": {
+      "archived_path": "configs/joint_vjepa21_spatial_expanded_32d.json",
+      "mode": 436,
+      "sha256": "afb3e0a3929bbf69030742aa361cdf3fb1597aed25ed762c99d424642389984f"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_vjepa21_spatial_expanded_32d_mirror.json": {
+      "archived_path": "configs/joint_vjepa21_spatial_expanded_32d_mirror.json",
+      "mode": 436,
+      "sha256": "daa63c6cd18eeb58d81985210505447b4a6b2855512a4a01cdda38436ed77a71"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_vjepa21_spatial_expanded_32d_mirror_v2.json": {
+      "archived_path": "configs/joint_vjepa21_spatial_expanded_32d_mirror_v2.json",
+      "mode": 436,
+      "sha256": "7a4159de7dc4dc4b49238253e5fe47ec6f8ee225fdea960ea13e8add9f29b2ad"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_vjepa21_spatial_live_32d.json": {
+      "archived_path": "configs/joint_vjepa21_spatial_live_32d.json",
+      "mode": 436,
+      "sha256": "98a3ec23017cd00e5ac4bcbfc49068dde13f803fbbf1f7c718d71248e39576d8"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_vjepa21_spatial_marker_codes_32d.json": {
+      "archived_path": "configs/joint_vjepa21_spatial_marker_codes_32d.json",
+      "mode": 436,
+      "sha256": "b6029d94ee9ec0def9e3b39454ac3fd91012267d5d328df43471d982b382c865"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_vjepa21_spatial_markers_32d.json": {
+      "archived_path": "configs/joint_vjepa21_spatial_markers_32d.json",
+      "mode": 436,
+      "sha256": "cfcbee11fa5717fa6a95071ea06665f27b089b87b6578cc0eceb373914f81ab4"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/joint_vjepa21_spatial_storage_32d.json": {
+      "archived_path": "configs/joint_vjepa21_spatial_storage_32d.json",
+      "mode": 436,
+      "sha256": "fcdeff7b7aa44d16636f4f504ab1548a5b4ae27fac55fc3e0f583d80265d3d66"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/marker_autoencoders_v1.json": {
+      "archived_path": "configs/marker_autoencoders_v1.json",
+      "mode": 436,
+      "sha256": "90bbc76bf57c70602ee8be5795d91c0bf57da230a29fc4245ee00cf17b212cb8"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/marker_freetacman_available_16d.json": {
+      "archived_path": "configs/marker_freetacman_available_16d.json",
+      "mode": 436,
+      "sha256": "ea5d380624331664a45dc11b7ed1cf95f3148cbf2a201c47f904f6d40cfe3482"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/marker_freetacman_available_32d.json": {
+      "archived_path": "configs/marker_freetacman_available_32d.json",
+      "mode": 436,
+      "sha256": "e34c9927a4b30a7c0083cee91318f7c57683cb157c1c65e3c85f843c01577c9d"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/mirror_adapted_teachers_v4.json": {
+      "archived_path": "configs/mirror_adapted_teachers_v4.json",
+      "mode": 436,
+      "sha256": "71bf828ae99b9d622cea6b82ce55e41b744d3a88aa0527d288eefc0fb874e93d"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/mirror_balanced_training_v3.json": {
+      "archived_path": "configs/mirror_balanced_training_v3.json",
+      "mode": 436,
+      "sha256": "f89a10b73528b7205b57ff9c3508dca0d2ed9f4201378396cf6824d77810195b"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/motiontrans_direct_smoke.json": {
+      "archived_path": "configs/motiontrans_direct_smoke.json",
+      "mode": 436,
+      "sha256": "228bb710ffccb326ac51ca057b63ee66101813a8fc03bca0894de66910c68753"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/motiontrans_direct_vae32_50ep.json": {
+      "archived_path": "configs/motiontrans_direct_vae32_50ep.json",
+      "mode": 436,
+      "sha256": "678ff6da20b02684a8e72056724f7df70b1f7b693955cccb121ef5b1ac6eb120"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/sensor_autoencoder_search_native_four.json": {
+      "archived_path": "configs/sensor_autoencoder_search_native_four.json",
+      "mode": 436,
+      "sha256": "000fdd747b8d2e96ceaf465d97324677224c931b507051d36fb89144e5bb6853"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/sensor_autoencoder_search_native_four_reconstruction.json": {
+      "archived_path": "configs/sensor_autoencoder_search_native_four_reconstruction.json",
+      "mode": 436,
+      "sha256": "f1d29998274dd88201c4ae574b266d7f2e0ed754370f7a2c6a9f534d49789e34"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/sensor_autoencoder_search_native_two_reconstruction.json": {
+      "archived_path": "configs/sensor_autoencoder_search_native_two_reconstruction.json",
+      "mode": 436,
+      "sha256": "129c8a9601aa7b952cdd607a8e22f209b17cf3d47227628b6bd906a3bdd0adc0"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/sensor_autoencoder_search_native_v2.json": {
+      "archived_path": "configs/sensor_autoencoder_search_native_v2.json",
+      "mode": 436,
+      "sha256": "9d2172b6de0ff59b21554a5238685b265b3a594b244a3d1b0a24cdfee45235b2"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/sensor_autoencoder_search_v1.json": {
+      "archived_path": "configs/sensor_autoencoder_search_v1.json",
+      "mode": 436,
+      "sha256": "959e3771c1fef13b000feb9e69bbc368668a74245fbae4175418fac03d2ffef0"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/vjepa_live_teacher_normalization.json": {
+      "archived_path": "configs/vjepa_live_teacher_normalization.json",
+      "mode": 436,
+      "sha256": "7feb97ba62e31b80da5906637ad816febbbe96e8e82633438cb27b2e2f7cc3a7"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/vla_touch_direct_smoke.json": {
+      "archived_path": "configs/vla_touch_direct_smoke.json",
+      "mode": 436,
+      "sha256": "587559083c014a4616a2d78a061ed132a552cff6402a2223fa40fd52340ff457"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/configs/vla_touch_direct_vae32_50ep.json": {
+      "archived_path": "configs/vla_touch_direct_vae32_50ep.json",
+      "mode": 436,
+      "sha256": "f7c62c8a13cc8cf60c70d801fcd2e7f4de942b1647812a5e3623415aa1a4d7f0"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/README.md": {
+      "archived_path": "scripts/README.md",
+      "mode": 436,
+      "sha256": "10c7f32f325d58ed9a3adf524b625f4957da54309d31313322f4c36c11de828a"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/after_rgb_migration.py": {
+      "archived_path": "scripts/after_rgb_migration.py",
+      "mode": 436,
+      "sha256": "9d00d0ff1f66cc6634ee232035cb3ece58a085d611bcf702e7cd45bf2bc1c1ab"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/analyze_marker_dynamics.py": {
+      "archived_path": "scripts/analyze_marker_dynamics.py",
+      "mode": 436,
+      "sha256": "31212367ba5485f3a6978d1825c17ef7fa9feccc31881904b3a72cbdf2ee60ac"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/archive/README.md": {
+      "archived_path": "scripts/archive/README.md",
+      "mode": 436,
+      "sha256": "7130071cc10dbe4d56ebfd5096f341975f3a1eae582d3d91b84a949d5ec8bc0c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/archive/audit_saved_visual_video.py": {
+      "archived_path": "scripts/archive/audit_saved_visual_video.py",
+      "mode": 436,
+      "sha256": "3e92e77254927d8db4ea40e0011e8ca0ef15a3fd422a2c8549f643fe15094f44"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/archive/audit_visual_video_quality.py": {
+      "archived_path": "scripts/archive/audit_visual_video_quality.py",
+      "mode": 436,
+      "sha256": "2f008c7e342351e898db16dbcf757c556da51d3ba4edd1a1cc160b13fc7e74a0"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/archive/compare_sam_motiontrans.py": {
+      "archived_path": "scripts/archive/compare_sam_motiontrans.py",
+      "mode": 436,
+      "sha256": "4bad4b610aa63eed2e3789d2c71510f0a3b7b6e5a24e7a77e3208c5d098b9862"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/archive/download_egotouch_worker.sh": {
+      "archived_path": "scripts/archive/download_egotouch_worker.sh",
+      "mode": 509,
+      "sha256": "6cc439a6f129a65241fcd3b33d74280b6b62d812479df535ebf71bdd3d1f3348"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/audit_baihu_autoencoder_repair.py": {
+      "archived_path": "scripts/audit_baihu_autoencoder_repair.py",
+      "mode": 436,
+      "sha256": "8e41707dee33f4b16c572c41e057dff591d4cd1d51545f71a37139ba763a3b84"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/audit_bimanual_mirror_mappings.py": {
+      "archived_path": "scripts/audit_bimanual_mirror_mappings.py",
+      "mode": 436,
+      "sha256": "2110abfd6e47181fc7f84519e79daddc23ed2e3342c1dcecadd0950c8b5ecae2"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/audit_compressed_vjepa_predictions.py": {
+      "archived_path": "scripts/audit_compressed_vjepa_predictions.py",
+      "mode": 436,
+      "sha256": "6a5495464a1ce49302aa7769d9ccec2699f903d15c25c977c6db0247a3ab1a48"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/audit_ftp_extra_schema.py": {
+      "archived_path": "scripts/audit_ftp_extra_schema.py",
+      "mode": 436,
+      "sha256": "ca48358dede4e630742903d4e9568f870eadb0b0f6ed5fe21473986fe5235a9e"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/audit_joint_sources.py": {
+      "archived_path": "scripts/audit_joint_sources.py",
+      "mode": 436,
+      "sha256": "27e7bda9a37cc6046d97a3a3096dfe6e8664a8d3ff3ee2b1f0833a6486377895"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/audit_marker_dynamics.py": {
+      "archived_path": "scripts/audit_marker_dynamics.py",
+      "mode": 436,
+      "sha256": "0f919175b8d77cacc1666ad221c2b5898567a2928a263e03b7cf4270854b8a67"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/audit_marker_temporal_inputs.py": {
+      "archived_path": "scripts/audit_marker_temporal_inputs.py",
+      "mode": 436,
+      "sha256": "6933d17eb87fb554594c5df2a49f35e67c9df7dccae6a0b9374cd8a10466aff9"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/audit_mirror_previews.py": {
+      "archived_path": "scripts/audit_mirror_previews.py",
+      "mode": 436,
+      "sha256": "9112ce737c09eb4ac579477cf1691faaa1fa66a7257fa3b9459803a2eb348aae"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/audit_opentouch_format.py": {
+      "archived_path": "scripts/audit_opentouch_format.py",
+      "mode": 436,
+      "sha256": "7fdbe58398764a9b7fba4487587065856c5571aeb83499c9a55912e445019ff7"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/audit_saved_visual_resize.py": {
+      "archived_path": "scripts/audit_saved_visual_resize.py",
+      "mode": 436,
+      "sha256": "fa7ba1ff04d38a8769be2dfd7f4ec0d116b13f7693874ad1a64caf68d74fc140"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/audit_saved_visual_video.py": {
+      "archived_path": "scripts/audit_saved_visual_video.py",
+      "mode": 436,
+      "sha256": "5067617897c04035d3b4286e4629c702e6a607e2a9ceeeaf570b71dd37073008"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/audit_visual_video_quality.py": {
+      "archived_path": "scripts/audit_visual_video_quality.py",
+      "mode": 436,
+      "sha256": "44d0bef2437e231cdc8ab13fdbf83efd37c57af67adbc1db78b64eda3e681871"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/audit_vla_touch_dataset_order.py": {
+      "archived_path": "scripts/audit_vla_touch_dataset_order.py",
+      "mode": 436,
+      "sha256": "b6c8689a73f112875d660a553be18a49c077119baf5c53906f43f96f309056c5"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/audit_vla_touch_order.py": {
+      "archived_path": "scripts/audit_vla_touch_order.py",
+      "mode": 436,
+      "sha256": "12999f593ee2cf88dd39f33ccd0b6b76f8a3ec1eec7e831a5850c3c80454abf4"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/benchmark_vjepa_pair.py": {
+      "archived_path": "scripts/benchmark_vjepa_pair.py",
+      "mode": 436,
+      "sha256": "70ce1dab29a7e65274b404214df4042ac8daac9b9d0f8d79c51313a5510f77d0"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/build_zero_references.py": {
+      "archived_path": "scripts/build_zero_references.py",
+      "mode": 436,
+      "sha256": "90ba1f324bb3c5ec301f4514b26ec149e5f67fc2061664d34af70bc0c7869368"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/cache_sensor_codes.py": {
+      "archived_path": "scripts/cache_sensor_codes.py",
+      "mode": 436,
+      "sha256": "6bce544572d0cd6227cb5b35b6a194386f2bf758c6dfe275f5a2fa6a5effb90c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/cache_sensor_targets.py": {
+      "archived_path": "scripts/cache_sensor_targets.py",
+      "mode": 436,
+      "sha256": "9d605aa89cb0852099550cac6208ee72fdc636847abc43ef56cb2484aaa611c1"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/cache_vjepa_clips.sh": {
+      "archived_path": "scripts/cache_vjepa_clips.sh",
+      "mode": 509,
+      "sha256": "61881ed8db38ba91e76b64d5dda127146f36a1fc3b24d6d744ed6668eed3686e"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/cleanup_storage.py": {
+      "archived_path": "scripts/cleanup_storage.py",
+      "mode": 436,
+      "sha256": "311924800feaff361a7c99ddbe4b93281811b789b2b971b2cc30d05b4e912f37"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/compare_alternating_baseline.py": {
+      "archived_path": "scripts/compare_alternating_baseline.py",
+      "mode": 436,
+      "sha256": "a1a8467f19afefcbbbfcc60e149c0389f25a360a953187f6b26b2dd1816848af"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/compare_current_vjepa_sources.py": {
+      "archived_path": "scripts/compare_current_vjepa_sources.py",
+      "mode": 436,
+      "sha256": "54775c8fea23811933b1709ecc603d0f6302c23c5b07051f4c8406c035fc3178"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/compare_sam_motiontrans.py": {
+      "archived_path": "scripts/compare_sam_motiontrans.py",
+      "mode": 436,
+      "sha256": "dc72026492ba860451df3b9db4b193c2a2955352710a10a9f8931fab705d5e93"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/compare_vla_touch_three_way.py": {
+      "archived_path": "scripts/compare_vla_touch_three_way.py",
+      "mode": 436,
+      "sha256": "0edaf303b05f4d44a72fb9fc1fc78d7c68af149ff358c9c5d7a6c331455c435e"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/complete_baihu_teacher.py": {
+      "archived_path": "scripts/complete_baihu_teacher.py",
+      "mode": 436,
+      "sha256": "d6d36d3096f56028ccfb204a31f29cf7a218c19aa5e01b52b8367c69bb2a79ab"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/diagnose_vjepa_learning.py": {
+      "archived_path": "scripts/diagnose_vjepa_learning.py",
+      "mode": 436,
+      "sha256": "f0dd926d82c4884ef47641285747609060186d463f60b54e8f1fe09d6360cd30"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/download_egotouch.sh": {
+      "archived_path": "scripts/download_egotouch.sh",
+      "mode": 509,
+      "sha256": "0ba1f07ed9f033c9a6b67107b27d61576827133c25366d5e270d6fbc2e1b2399"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/download_feeling_success.py": {
+      "archived_path": "scripts/download_feeling_success.py",
+      "mode": 436,
+      "sha256": "0b38d53910ebd81aaed1fdafe97cd25f640e6a7db5a376bf4e6312441d897d28"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/download_feeling_success.sh": {
+      "archived_path": "scripts/download_feeling_success.sh",
+      "mode": 436,
+      "sha256": "3afb96281c2e0e04301d653e733a4eadb7218fac6e19c73ad0bfb1803b67ff5b"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/download_ftp_extra.py": {
+      "archived_path": "scripts/download_ftp_extra.py",
+      "mode": 436,
+      "sha256": "c75ea788c330deb56612e9999e4a061b39cece505f3208c4a0203de60a6b3075"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/evaluate_16d_pair.py": {
+      "archived_path": "scripts/evaluate_16d_pair.py",
+      "mode": 436,
+      "sha256": "78cd6ba411e063d91b273a8bafc029ec5938d5e0fc6d2b03bc795028bbab4eb5"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/evaluate_alignment_checkpoint_sweep.py": {
+      "archived_path": "scripts/evaluate_alignment_checkpoint_sweep.py",
+      "mode": 436,
+      "sha256": "b5f76370436c2850ac8a8c6761042fd01805a8cb168c67acd4697288633b6729"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/evaluate_continuation_holdout.py": {
+      "archived_path": "scripts/evaluate_continuation_holdout.py",
+      "mode": 436,
+      "sha256": "f8444ae8ac0c273843c03bf5db08486c0f467af35a8095697224da6b527d68aa"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/evaluate_current_sam_motiontrans.py": {
+      "archived_path": "scripts/evaluate_current_sam_motiontrans.py",
+      "mode": 436,
+      "sha256": "ee8825941ab8a426a99584ef54f057166731611c1303c83995ed76f9f4861f8a"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/evaluate_egotouch_vae_uncertainty.sh": {
+      "archived_path": "scripts/evaluate_egotouch_vae_uncertainty.sh",
+      "mode": 436,
+      "sha256": "4fd81de8dcc3a3ccc7f59ffeb8ccf3d6e0527cf762153831a884346fffbfad21"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/evaluate_fgw_current.py": {
+      "archived_path": "scripts/evaluate_fgw_current.py",
+      "mode": 436,
+      "sha256": "1b6095cdc71f220a4424b6f758ba5158f0dc04a9b2962d73fe2e062af0d19479"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/evaluate_invariance_holdout.py": {
+      "archived_path": "scripts/evaluate_invariance_holdout.py",
+      "mode": 436,
+      "sha256": "085b9fa200e693b5037684bac13af0689bc94b3307a566e0ce1a20f7d2a07b06"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/evaluate_previous_vjepa_current_targets.py": {
+      "archived_path": "scripts/evaluate_previous_vjepa_current_targets.py",
+      "mode": 436,
+      "sha256": "2ad9eb89958d082c3c2ff99a54b7331cb68c1f31b77d78a35d3d7673c6a1ba2d"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/evaluate_representation_screen.py": {
+      "archived_path": "scripts/evaluate_representation_screen.py",
+      "mode": 436,
+      "sha256": "f10b54f696ad329ea0927bf61392e24be66768ba4b480bf4b5164de1ad65056c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/evaluate_vjepa_current_motiontrans.py": {
+      "archived_path": "scripts/evaluate_vjepa_current_motiontrans.py",
+      "mode": 436,
+      "sha256": "cd21e6d902efe4fe13dd243e61abfbb3558dfc5f38f028d065b28399ce5f2e3b"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/evaluate_vjepa_marker_comparison.py": {
+      "archived_path": "scripts/evaluate_vjepa_marker_comparison.py",
+      "mode": 436,
+      "sha256": "2867423b6f97801843b8eb9158a1471657f4cf234cc61b66f3e153c47bb637ac"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/evaluate_vjepa_marker_epoch.py": {
+      "archived_path": "scripts/evaluate_vjepa_marker_epoch.py",
+      "mode": 436,
+      "sha256": "7ae4bda014c293f98da7288244e1028f3f430a9be0a26263257835450ec55609"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/evaluate_vjepa_motiontrans.py": {
+      "archived_path": "scripts/evaluate_vjepa_motiontrans.py",
+      "mode": 436,
+      "sha256": "dffb7bcc56be9b79cea7deccdff5ba06948409a676e964cd40b1af0db9095928"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/evaluate_vjepa_motiontrans_epochs.py": {
+      "archived_path": "scripts/evaluate_vjepa_motiontrans_epochs.py",
+      "mode": 436,
+      "sha256": "63fe98056422ae4a057607b02399487edb0a2e5bf5785996f455102baaba50d6"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/evaluate_vjepa_spatial_motiontrans.py": {
+      "archived_path": "scripts/evaluate_vjepa_spatial_motiontrans.py",
+      "mode": 436,
+      "sha256": "3df14b6bd5246de79f1aaa05623dd0fc9c583dacfb2d18e64b3bf4c616d65379"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/expand_datasets.py": {
+      "archived_path": "scripts/expand_datasets.py",
+      "mode": 436,
+      "sha256": "77527ae1eacecf4655d1587a9fc47312ef647e046826ca607e88cb17a1eec46e"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/extend_fgw_pilot.py": {
+      "archived_path": "scripts/extend_fgw_pilot.py",
+      "mode": 436,
+      "sha256": "8c74889c3352fedec8be9cc3a0cb583507f89a79455a0e554957e034c5a318d6"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/extend_joint_alignment.py": {
+      "archived_path": "scripts/extend_joint_alignment.py",
+      "mode": 436,
+      "sha256": "0ed1142af3edaa53feb2d82fa1a24b57813546d7fe880d4ac6a2338d54c70074"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/extend_vjepa_markers.py": {
+      "archived_path": "scripts/extend_vjepa_markers.py",
+      "mode": 436,
+      "sha256": "ca0b951d4793dd8f806b822541163730f898e1546064c4e8a9a1fb3b24f81e7a"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/finalize_rgb_migration.py": {
+      "archived_path": "scripts/finalize_rgb_migration.py",
+      "mode": 436,
+      "sha256": "9cd776e186581cd797ae02f0103a772237a6dcc4b1fc45d73302982e101ab0f7"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/finish_alignment_and_evaluate_motiontrans.py": {
+      "archived_path": "scripts/finish_alignment_and_evaluate_motiontrans.py",
+      "mode": 436,
+      "sha256": "20f472c82888f67ea16fb046ea50aa7a8a72d007aa2c57bfdc858a31de728075"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/finish_continuation_and_probe.py": {
+      "archived_path": "scripts/finish_continuation_and_probe.py",
+      "mode": 436,
+      "sha256": "1c4f2682d65eedc7d8b2e84c1f8f669760736976ee7e3a4ba76cdff12573e306"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/handover_sensor_autoencoder_search.py": {
+      "archived_path": "scripts/handover_sensor_autoencoder_search.py",
+      "mode": 436,
+      "sha256": "b8a5ae842f1920beb0c3e9d9782d85c4042784be9dabb7722b92c45d58aa5ff0"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/index_ftp_archives.py": {
+      "archived_path": "scripts/index_ftp_archives.py",
+      "mode": 436,
+      "sha256": "0a3e48ae4d169f8c1fea2032cce06b68ec2cb74a9045faade424c4d187dffdc8"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/inspect_ftp_remote.py": {
+      "archived_path": "scripts/inspect_ftp_remote.py",
+      "mode": 436,
+      "sha256": "eea8c389e0c05fb56648d2e19689d0b3d83b4ec0bef117ca1d6f03ce6aac6bb1"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/investigate_baihu_autoencoder.py": {
+      "archived_path": "scripts/investigate_baihu_autoencoder.py",
+      "mode": 436,
+      "sha256": "7d969577246e905fa0b8f515e9ec177025f0145398fd19d8c3555092d5f356ae"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/launch_joint_sam.py": {
+      "archived_path": "scripts/launch_joint_sam.py",
+      "mode": 436,
+      "sha256": "c5d59f34a6270d857412442aa56e8eac1676127534a43dbd89188c9c93d0492c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/migrate_jepa_rgb.py": {
+      "archived_path": "scripts/migrate_jepa_rgb.py",
+      "mode": 436,
+      "sha256": "de050b3a34fff5d2ed073cfd82e8c97d4cc715d06f1a48ac97f176a1fa6992e1"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/monitor_bimanual_mirror.py": {
+      "archived_path": "scripts/monitor_bimanual_mirror.py",
+      "mode": 436,
+      "sha256": "5cda7c9d6a3550ff6f6f68967187ff9791861f8886892a1f5c841526e6e139d7"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/monitor_data_expansion.py": {
+      "archived_path": "scripts/monitor_data_expansion.py",
+      "mode": 436,
+      "sha256": "402c9445567d903121278a7d59e3940db16ab32466da7d27097a2676389fb041"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/monitor_storage_migration.py": {
+      "archived_path": "scripts/monitor_storage_migration.py",
+      "mode": 436,
+      "sha256": "52d331ee7370e69b980e8ee68ff7fa31f9bf0a343cfd5c26fd59a77fb09276fe"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/plot_fgw_study.py": {
+      "archived_path": "scripts/plot_fgw_study.py",
+      "mode": 436,
+      "sha256": "3c430e8d702813714c4f6343be266c125fb22d5e916a41900c0f915d680ee309"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/plot_motiontrans_checkpoint_sweep.py": {
+      "archived_path": "scripts/plot_motiontrans_checkpoint_sweep.py",
+      "mode": 436,
+      "sha256": "da64c58c55596157f2a5fc7d4d8577fa0242f147a033b8acc30b96a39c54e482"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/plot_vjepa_motiontrans_epochs.py": {
+      "archived_path": "scripts/plot_vjepa_motiontrans_epochs.py",
+      "mode": 436,
+      "sha256": "26cfbff5537171e9db8c4b8d427351cda4958ffd3c0a1ef6eefb913413142916"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/prepare_all_mirrored_teachers.py": {
+      "archived_path": "scripts/prepare_all_mirrored_teachers.py",
+      "mode": 436,
+      "sha256": "f7957cec30ec25591662e5c2e6fb74ed68f4a5727b98b9790656bf7e194ee5d8"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/prepare_bimanual_mirror.py": {
+      "archived_path": "scripts/prepare_bimanual_mirror.py",
+      "mode": 436,
+      "sha256": "f39159c5ffc2bfa8226ddffe72e7b6212b78769ebba67376c6411b0bee0407fe"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/prepare_egopressure_task_selection.py": {
+      "archived_path": "scripts/prepare_egopressure_task_selection.py",
+      "mode": 436,
+      "sha256": "0138bf8a7447fa5ad8367cc23081d5c5a107dca41ce235f26f521c275ab26b71"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/prepare_gel_mirror.py": {
+      "archived_path": "scripts/prepare_gel_mirror.py",
+      "mode": 436,
+      "sha256": "e853005b0fc4b850046e0312598005a2aa055ce6c538bae521b3a3fd079e8284"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/prepare_joint_acquisitions.py": {
+      "archived_path": "scripts/prepare_joint_acquisitions.py",
+      "mode": 436,
+      "sha256": "82c79c56e7919471f81afcf76cc70020192744d06f44e4a4549533b13f6cfae5"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/prepare_joint_alignment.py": {
+      "archived_path": "scripts/prepare_joint_alignment.py",
+      "mode": 436,
+      "sha256": "6392228f39e83dbbf71c54b79b60f556794cea7d6ea643f142df369665b842f0"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/prepare_marker_targets.py": {
+      "archived_path": "scripts/prepare_marker_targets.py",
+      "mode": 436,
+      "sha256": "e684bc305909c685c592c51d641bab3d118943e708ed4ca7f0947f92fd5e8f33"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/prepare_relational_floors.py": {
+      "archived_path": "scripts/prepare_relational_floors.py",
+      "mode": 436,
+      "sha256": "79f7b0a08f0967e5152b957abfaa0e6d26ff967526589aee02b064c4a5a374fa"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/pretrain_egotouch_autoencoder.py": {
+      "archived_path": "scripts/pretrain_egotouch_autoencoder.py",
+      "mode": 436,
+      "sha256": "949a8491e54b12498bcd1e7a2bf24580932438e6e666acd2232fbc47efd0773c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/pretrain_sensor_autoencoder.py": {
+      "archived_path": "scripts/pretrain_sensor_autoencoder.py",
+      "mode": 436,
+      "sha256": "eab098a59f2b71622b041f81ec146bf28d01207e217acb4042be5f683366e9f7"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/register_vjepa_transfer_viewer.py": {
+      "archived_path": "scripts/register_vjepa_transfer_viewer.py",
+      "mode": 436,
+      "sha256": "70a852759acbdff22a030e920576b9b3107b44178521415f77a1c175db2e05d9"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/repair_marker_startup.py": {
+      "archived_path": "scripts/repair_marker_startup.py",
+      "mode": 436,
+      "sha256": "d3d360bb3783164a03cd4910bd34734069f900fc37320d249398811803a8d817"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/resume_vjepa_cached.sh": {
+      "archived_path": "scripts/resume_vjepa_cached.sh",
+      "mode": 509,
+      "sha256": "e36562a8bf28fae8f5d1fb6f9f743b08145f25b729ef4b2b46b1369765be28f9"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/retire_marker_images.py": {
+      "archived_path": "scripts/retire_marker_images.py",
+      "mode": 436,
+      "sha256": "8efb1856859f6bb88c08fa938c423c85711b4da1a0245d88ca934ce0502b869a"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/run_all_sources_joint.py": {
+      "archived_path": "scripts/run_all_sources_joint.py",
+      "mode": 436,
+      "sha256": "f7250269f7a680fabda4a8a16abb2b094ae8a0d224113b3515760c46f232e799"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/run_continuation_study.py": {
+      "archived_path": "scripts/run_continuation_study.py",
+      "mode": 436,
+      "sha256": "364c171eb0f3fd7b58911c6ae8ab437f15ef2b4817be3b0796a5d21823d82783"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/run_dataset_queue.py": {
+      "archived_path": "scripts/run_dataset_queue.py",
+      "mode": 436,
+      "sha256": "0bc57f9e7a07b5b4c804f4e8db5aa3b7f5b6995bc68d237612911a8bcb3b672d"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/run_fgw_study.py": {
+      "archived_path": "scripts/run_fgw_study.py",
+      "mode": 436,
+      "sha256": "3c19dfcd978f767be8839838d50dee70504ebdce81eab9671de29c4eb8f59dae"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/run_invariance_study.py": {
+      "archived_path": "scripts/run_invariance_study.py",
+      "mode": 436,
+      "sha256": "d1bdb93c2c3be4bd24d5980cf6da72a5629f50afbb7cba0b4b1989c1e909a703"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/run_rgb_migration.py": {
+      "archived_path": "scripts/run_rgb_migration.py",
+      "mode": 436,
+      "sha256": "43f44a97c1c8739fedbde17eddc56566460041784d8b74fd3e24eb06b05248f1"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/run_vjepa_markers.sh": {
+      "archived_path": "scripts/run_vjepa_markers.sh",
+      "mode": 436,
+      "sha256": "d414712391a639fd9714db82d6cb1fe12c697cf1cdb5b3034a5926f075d37ce4"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/run_vjepa_pair.sh": {
+      "archived_path": "scripts/run_vjepa_pair.sh",
+      "mode": 509,
+      "sha256": "dc5eb28951d14086191b441f10ff434c666f82c5e9cdb625d55f9166e0456e10"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/run_vjepa_spatial_live.sh": {
+      "archived_path": "scripts/run_vjepa_spatial_live.sh",
+      "mode": 436,
+      "sha256": "6695504d8678049ac686af112b3114fe65195d8777cd1201410daba925b17d61"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/screen_source_transfer.py": {
+      "archived_path": "scripts/screen_source_transfer.py",
+      "mode": 436,
+      "sha256": "f6194dc8256c2f7f270e73c3b5eb085c462f2dd7e70cd0c23003bdfbdf8be49a"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/smoke_joint_alignment.py": {
+      "archived_path": "scripts/smoke_joint_alignment.py",
+      "mode": 436,
+      "sha256": "0ff18a47efa90750e4bed8702a253cc84089ef40ba9549758d7a7dc17502d1a5"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/smoke_joint_six.py": {
+      "archived_path": "scripts/smoke_joint_six.py",
+      "mode": 436,
+      "sha256": "5f8cd046792f11856c0771d6f88e3d59db8a57c7963107e5b3110b4956125814"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/smoke_motiontrans_evaluation.py": {
+      "archived_path": "scripts/smoke_motiontrans_evaluation.py",
+      "mode": 436,
+      "sha256": "9bc715ccb9130e6e8526726f800a78fb19db30c3c216bd31fafc3b579b2fe789"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/snapshot_joint_baseline.py": {
+      "archived_path": "scripts/snapshot_joint_baseline.py",
+      "mode": 436,
+      "sha256": "8e8342918ec04c7c4595a6ff40772a2ded816b1acba459640e85aa15a14c28fb"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/start_vjepa_current.py": {
+      "archived_path": "scripts/start_vjepa_current.py",
+      "mode": 436,
+      "sha256": "8a49cada452a5460d0347286805739b1271943957bd798e5a88a8617ae88b9fc"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/start_vjepa_current128d.py": {
+      "archived_path": "scripts/start_vjepa_current128d.py",
+      "mode": 436,
+      "sha256": "dc067fa3fb3fe35625a5b7dd3ddabb38182846e217aa1de325a8b12d34c224e3"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/stop_spatial_vjepa_after_epoch.py": {
+      "archived_path": "scripts/stop_spatial_vjepa_after_epoch.py",
+      "mode": 436,
+      "sha256": "95a5d89f1ed19c0364993e530e8ffa966c4b58583fc4969c5bae7d34d15f3b63"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/summarize_egotouch_autoencoder_grid.py": {
+      "archived_path": "scripts/summarize_egotouch_autoencoder_grid.py",
+      "mode": 436,
+      "sha256": "0bde48d01c2878072149f38a5332ec7555fdeac609d9f83dc2f67673c518dc0e"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/tensorboard_joint_live.py": {
+      "archived_path": "scripts/tensorboard_joint_live.py",
+      "mode": 436,
+      "sha256": "8ff50e642540ca0f4806fd27361cf089a0160ee7a2a36a6cb096f858e44cff6a"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_16d_pair.py": {
+      "archived_path": "scripts/train_16d_pair.py",
+      "mode": 436,
+      "sha256": "7c516d0352e037c0df70964cdab937e2fab6f14b0145b987b60ebf5402bc54d6"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_acquisition_autoencoders.py": {
+      "archived_path": "scripts/train_acquisition_autoencoders.py",
+      "mode": 436,
+      "sha256": "ce870d90616f2ef8c188de0664e6dbef10f33b2fd0fd2210f3d0afe14c821b2d"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_all_sources_vjepa.py": {
+      "archived_path": "scripts/train_all_sources_vjepa.py",
+      "mode": 436,
+      "sha256": "07bb02a7968e4b9aa8d8450f77d1c7ee1de26e0aee48c0e578e0e11f4d56da71"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_baihu_autoencoder_repair.py": {
+      "archived_path": "scripts/train_baihu_autoencoder_repair.py",
+      "mode": 436,
+      "sha256": "60ececaa20f0d08df81ae8fbb616ca4da2456ff8cc42792d62d842c559e1b5bb"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_balanced_mirror_autoencoders.py": {
+      "archived_path": "scripts/train_balanced_mirror_autoencoders.py",
+      "mode": 436,
+      "sha256": "421411472c8f565f21f593cd57083fc3a6859730fc89dae40ddbe123cb8ce54b"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_egopressure_teacher.py": {
+      "archived_path": "scripts/train_egopressure_teacher.py",
+      "mode": 436,
+      "sha256": "cb96b367f788cf6a59002f91ba60a597070eb181c557fac137f283ce38a7f7ad"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_egotouch_autoencoder_grid.sh": {
+      "archived_path": "scripts/train_egotouch_autoencoder_grid.sh",
+      "mode": 436,
+      "sha256": "c506c62c5cc20333357ba53ad2998c489db6a840b74bc7efdede3a39b1d97f3e"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_egotouch_autoencoder_presets.sh": {
+      "archived_path": "scripts/train_egotouch_autoencoder_presets.sh",
+      "mode": 436,
+      "sha256": "6e7f5ac18b048d4c165da2e5c83bc455c4b9f6dc3bc4c65a3951fe46359aa52c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_egotouch_vae.sh": {
+      "archived_path": "scripts/train_egotouch_vae.sh",
+      "mode": 436,
+      "sha256": "e04c9e700cd88bfab37dccebe4acf604d467708a9e179e0ebc6f3d69beb7aef2"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_expanded_vjepa.py": {
+      "archived_path": "scripts/train_expanded_vjepa.py",
+      "mode": 436,
+      "sha256": "5943ae939fb195e87592233fa39cc865d783ee7f44b24a05a87e324471c24daa"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_freetacman_available_markers.py": {
+      "archived_path": "scripts/train_freetacman_available_markers.py",
+      "mode": 436,
+      "sha256": "fe275a6d0a92b5073bd93519890e8e5a6f1dc32fc1425fda010a8e98e608313c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_invariance.py": {
+      "archived_path": "scripts/train_invariance.py",
+      "mode": 436,
+      "sha256": "603af9d1a384d27021e415e5157f6cf518a5e0bdde6662e5a497c393a5c6c339"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_joint_alignment.py": {
+      "archived_path": "scripts/train_joint_alignment.py",
+      "mode": 436,
+      "sha256": "3e51f0aa0acb41532d8d090fcbada5c21ce3e75a9d152c4ab559b7a84e52a838"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_joint_all_8k_50ep.sh": {
+      "archived_path": "scripts/train_joint_all_8k_50ep.sh",
+      "mode": 509,
+      "sha256": "be8b91e759c1f2da332d53f6c29bdbdd60125d459a43e97a0bfcc1b0e2761902"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_joint_all_holdout.sh": {
+      "archived_path": "scripts/train_joint_all_holdout.sh",
+      "mode": 509,
+      "sha256": "e7ba104c4cf7b4d75de6f1c36fbef7033faf62cb361f3c4964017474e5dbc94c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_joint_alternating_fresh.sh": {
+      "archived_path": "scripts/train_joint_alternating_fresh.sh",
+      "mode": 436,
+      "sha256": "209269c31fcd40b9da295fa87e5197b6fb4476cbc7f152a91efbc7a619771b21"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_joint_grl_fresh.sh": {
+      "archived_path": "scripts/train_joint_grl_fresh.sh",
+      "mode": 436,
+      "sha256": "6c2f8abe7c8103bd18818069cf445e0b85fe4ef09f85a1daf92732402daa03c9"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_joint_sam.sh": {
+      "archived_path": "scripts/train_joint_sam.sh",
+      "mode": 436,
+      "sha256": "52edbfcad019ac4e503dbbb8b5bcf9e0c9c6db85872b50f8bbc70f6e13e51285"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_joint_six_vae.sh": {
+      "archived_path": "scripts/train_joint_six_vae.sh",
+      "mode": 436,
+      "sha256": "a4dbb8cee1575d4491cd1fc69593261284e7d0575936a68b7ba05dd33358d93a"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_mirrored_vjepa.py": {
+      "archived_path": "scripts/train_mirrored_vjepa.py",
+      "mode": 436,
+      "sha256": "f6be616cfe2e70797d56123f13609ef144646385df90df635319d3971ad45dd9"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_motiontrans_sequence.py": {
+      "archived_path": "scripts/train_motiontrans_sequence.py",
+      "mode": 436,
+      "sha256": "fc3013f22f3701c259ccdd7d6b3fc156fed98a7415c6dd24d2f0a4b42f9d7682"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_motiontrans_sequence.sh": {
+      "archived_path": "scripts/train_motiontrans_sequence.sh",
+      "mode": 436,
+      "sha256": "f2cb3877f347aaa3686d8da3bb8dd6c678f49c8371c55fc78433e0fb26abb968"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_sensor_autoencoders.py": {
+      "archived_path": "scripts/train_sensor_autoencoders.py",
+      "mode": 436,
+      "sha256": "82181021375343335ba52c079fd9aa665d5be394b7ce0bb5fbcbf400a9b8b6ac"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/train_vla_touch_direct.sh": {
+      "archived_path": "scripts/train_vla_touch_direct.sh",
+      "mode": 436,
+      "sha256": "ea17f093f0026215e1d348eb0360fef468f88c34e6a69d6b5c7c956e56321489"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/tune_egotouch_autoencoder.py": {
+      "archived_path": "scripts/tune_egotouch_autoencoder.py",
+      "mode": 436,
+      "sha256": "7bd88ab21ef4731d7ee8cb2794dc604195cb00c32a852f5706e6e5ba84d92e7a"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/validate_rgb_migration.py": {
+      "archived_path": "scripts/validate_rgb_migration.py",
+      "mode": 436,
+      "sha256": "09c376c9447a8fd411e9eeafa2874db59717fc8449b992589f6a7e5ca9a5abf8"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/verify_all_mirrored_teachers.py": {
+      "archived_path": "scripts/verify_all_mirrored_teachers.py",
+      "mode": 436,
+      "sha256": "25edfc78bb34b8dae1433b532da142b5dc7275bd2736b59af3a5a0cd1981fe89"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/verify_bimanual_mirror.py": {
+      "archived_path": "scripts/verify_bimanual_mirror.py",
+      "mode": 436,
+      "sha256": "79810611a52f4a298ff584903609344c8bd5d3ac33c973e53a886dcbbda7b67e"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/verify_cached_vjepa_training.py": {
+      "archived_path": "scripts/verify_cached_vjepa_training.py",
+      "mode": 436,
+      "sha256": "ce7befccf6ce32e9cb5be42181be87e2125ae221ce65052b4bcb72f428cd3ec7"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/verify_gel_mirror_mapping.py": {
+      "archived_path": "scripts/verify_gel_mirror_mapping.py",
+      "mode": 436,
+      "sha256": "206c38fd2aa67158767e463c836f3ffdc713d7e14d892d318ec0f3300dae747e"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/verify_joint_acquisitions.py": {
+      "archived_path": "scripts/verify_joint_acquisitions.py",
+      "mode": 436,
+      "sha256": "03fb5bd89d92050f19729143b0729274a6fd3490511b4e4a6d3c5212905abea6"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/verify_vjepa_cache.py": {
+      "archived_path": "scripts/verify_vjepa_cache.py",
+      "mode": 436,
+      "sha256": "0084b0257f05a56a1b91cf5c0b0574346f16f78a14e7df25ab6e007656421e9c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/verify_vjepa_pair.py": {
+      "archived_path": "scripts/verify_vjepa_pair.py",
+      "mode": 436,
+      "sha256": "f8005d47b97d4cf31c3aed3213afb7f8c0d96dbc7294b7738a280cba774dd981"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/view_egotouch_autoencoder.py": {
+      "archived_path": "scripts/view_egotouch_autoencoder.py",
+      "mode": 436,
+      "sha256": "8e5dae0fdab1880f39a4bda1d109cd001fc753b2f1b3e9a1327f56f574366899"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/scripts/view_sensor_autoencoders.py": {
+      "archived_path": "scripts/view_sensor_autoencoders.py",
+      "mode": 436,
+      "sha256": "322bef5dbbca54e3d10cba3bae528389578bcd7982a01cb58d6abbb590340ec4"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/__init__.py": {
+      "archived_path": "src/tactilelatent/__init__.py",
+      "mode": 436,
+      "sha256": "aae02116c9e96febc5567cbc8bb291b5aec045eaa403957f7a94e4ca07afee88"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/acquisition_archives.py": {
+      "archived_path": "src/tactilelatent/acquisition_archives.py",
+      "mode": 436,
+      "sha256": "0eb303ca74430619b1f972bd0a29f89f917a5952ffb2e10f06896cc8e5ac6f7d"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/acquisition_data.py": {
+      "archived_path": "src/tactilelatent/acquisition_data.py",
+      "mode": 436,
+      "sha256": "6891309b469d01f473b225eb9035d1a815f75207596f7f75b8f8abe1dbb38235"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/acquisition_joint.py": {
+      "archived_path": "src/tactilelatent/acquisition_joint.py",
+      "mode": 436,
+      "sha256": "e4ce957a0525dc5eb274cca6a96dc68f5efa3d6403e1360c17c59327073be3c6"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/acquisition_joint_viewer.py": {
+      "archived_path": "src/tactilelatent/acquisition_joint_viewer.py",
+      "mode": 436,
+      "sha256": "439e53068fef91e2e4395e1e226075ab1c85997cf22e327203873acb60f14384"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/acquisition_pilots.py": {
+      "archived_path": "src/tactilelatent/acquisition_pilots.py",
+      "mode": 436,
+      "sha256": "c2f27853d3e24adfdc8d69292885c75ed5b5ad44e33f9e7bac1b09d0c99b3ee5"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/acquisition_quality.py": {
+      "archived_path": "src/tactilelatent/acquisition_quality.py",
+      "mode": 436,
+      "sha256": "1d23b3e89d608f276548f8a39e5be6e0752ab86bca8c15811a2f6096cb8a9299"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/acquisition_queue.py": {
+      "archived_path": "src/tactilelatent/acquisition_queue.py",
+      "mode": 436,
+      "sha256": "d48d2753fa51d8c849353b58e0d399fb5d3a7b720b93cdfdfd6171c353a215f3"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/acquisition_scene_viewer.py": {
+      "archived_path": "src/tactilelatent/acquisition_scene_viewer.py",
+      "mode": 436,
+      "sha256": "18d3d91d8df50a2294e9e956606ed3f5f93ba12dd73a81f115b4eb667a296d4b"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/acquisition_sources.py": {
+      "archived_path": "src/tactilelatent/acquisition_sources.py",
+      "mode": 436,
+      "sha256": "2bc823c4ec8668da9e84713378e5301a3b6109cb3df2530c97f04739d8f72f03"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/acquisition_training.py": {
+      "archived_path": "src/tactilelatent/acquisition_training.py",
+      "mode": 436,
+      "sha256": "187b265711a74d8293587e39958d3df40a3ae62ccc1c79288662fe09f1189b73"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/acquisition_viewer.js": {
+      "archived_path": "src/tactilelatent/acquisition_viewer.js",
+      "mode": 436,
+      "sha256": "5439fa9f31ff2636b28bfad30ebe16d5ff8aa561500189762f9dac775ab2f262"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/acquisition_viewer.py": {
+      "archived_path": "src/tactilelatent/acquisition_viewer.py",
+      "mode": 436,
+      "sha256": "0a29bf7d5d7aa58b9963819f6a0758c2599118f3b10bc6fd94b9aacb9ee8ee37"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/aligned_frames.py": {
+      "archived_path": "src/tactilelatent/aligned_frames.py",
+      "mode": 436,
+      "sha256": "2bb6e26322806018a92c426d8b1a753c2c022520ec436e04754c0343b896b753"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/alignment_data.py": {
+      "archived_path": "src/tactilelatent/alignment_data.py",
+      "mode": 436,
+      "sha256": "065fe76f0263d94f8f115b709a6d12505cbbae3d93b40ee08bf086ea77e910de"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/alignment_model.py": {
+      "archived_path": "src/tactilelatent/alignment_model.py",
+      "mode": 436,
+      "sha256": "681d3144fae5aa2357269570ebe69015c6290bc90368b446a13e13e2f6e7c2bb"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/alternating_adversary.py": {
+      "archived_path": "src/tactilelatent/alternating_adversary.py",
+      "mode": 436,
+      "sha256": "42a8249824ce9724d7c9782896ba5ee3e1142a3b8ea3b5ca4bae766e895f803d"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/attention_viewer.js": {
+      "archived_path": "src/tactilelatent/attention_viewer.js",
+      "mode": 436,
+      "sha256": "e4b7ce6f0aad6f42150bf608099fc2ab831a84f1598b3e85c307061a006724c3"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/attention_viewer.py": {
+      "archived_path": "src/tactilelatent/attention_viewer.py",
+      "mode": 436,
+      "sha256": "8e3b9abb5b7a3d14ae6401c1145bc62c8e648c14325bebdb6cd2b39d91bbd9eb"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/audit.py": {
+      "archived_path": "src/tactilelatent/audit.py",
+      "mode": 436,
+      "sha256": "8fa4fe9208c65d4d95ea2e346eea2cefe7f73fd6d7831376e3e94ef0841857e4"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/audit_alignment.py": {
+      "archived_path": "src/tactilelatent/audit_alignment.py",
+      "mode": 436,
+      "sha256": "7ac9678ed3c71c6cb29bebbef83064e8c3bc424a715acf6daab3b5abc5792a27"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/autoencoder_viewer.html": {
+      "archived_path": "src/tactilelatent/autoencoder_viewer.html",
+      "mode": 436,
+      "sha256": "1df4dee96e4c2383b4898ccd3538b0f7764985422bf9c6b3c3ab5bfe5c4e8a1b"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/autoencoder_viewer.py": {
+      "archived_path": "src/tactilelatent/autoencoder_viewer.py",
+      "mode": 436,
+      "sha256": "dcc193ef02760f6ca0131936a6f32dffd64920bf6bd35f47269199c96f373ca9"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/baihu_ae_data.py": {
+      "archived_path": "src/tactilelatent/baihu_ae_data.py",
+      "mode": 436,
+      "sha256": "80445e46b316348703f1e1ffc1e031f2c33825bc60a8074e035155f2f1e936f3"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/baihu_autoencoder.py": {
+      "archived_path": "src/tactilelatent/baihu_autoencoder.py",
+      "mode": 436,
+      "sha256": "171656c366cf9a61209303c0760c09c258b2416a68287699d5f9b7d2105ae0c5"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/bilateral_autoencoder.py": {
+      "archived_path": "src/tactilelatent/bilateral_autoencoder.py",
+      "mode": 436,
+      "sha256": "5b0c168085941d941324f141f2193c140549ac5dbef4247bd699815ec81c5289"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/bilateral_mirror_preparation.py": {
+      "archived_path": "src/tactilelatent/bilateral_mirror_preparation.py",
+      "mode": 436,
+      "sha256": "c61bf58251cf4a2bfc2b02e7a75df010ad9ae72d8e2cd72867871e3e73e0fbb1"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/bilateral_runtime.py": {
+      "archived_path": "src/tactilelatent/bilateral_runtime.py",
+      "mode": 436,
+      "sha256": "0d229e0346ee4835a7588dab6d16aa39ab0cd3545a6ebe74f274add6b14185e9"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/bimanual_mirror.py": {
+      "archived_path": "src/tactilelatent/bimanual_mirror.py",
+      "mode": 436,
+      "sha256": "5c959115937e7c201afde012f3a25d997ee242f6599fbb814850911a4308b1ab"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/continuation_objectives.py": {
+      "archived_path": "src/tactilelatent/continuation_objectives.py",
+      "mode": 436,
+      "sha256": "97025ad803c3dfa84dfd13595ba92a35bdb643d908b211513c9f177dee8eedac"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/current_frame.py": {
+      "archived_path": "src/tactilelatent/current_frame.py",
+      "mode": 436,
+      "sha256": "fb91f7aed0e32373d87f5ab9ded72f6b772f6f60defc3c9c92f92fa2c1529940"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/data.py": {
+      "archived_path": "src/tactilelatent/data.py",
+      "mode": 436,
+      "sha256": "b9b111dbdd8b96dabd377ad87b34670d32ef5c841a94b610bd849822fdc498f7"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/data_expansion.py": {
+      "archived_path": "src/tactilelatent/data_expansion.py",
+      "mode": 436,
+      "sha256": "4761d5482d4f5345c363bef4c0e3ad91d8b3ff791ddfa326d7f2ee751fb864bb"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/README.md": {
+      "archived_path": "src/tactilelatent/datasets/README.md",
+      "mode": 436,
+      "sha256": "96ba9ba3aef284c2f9be1551d66be79a54729f55be55dbaa8c78f971c0bc4902"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/__init__.py": {
+      "archived_path": "src/tactilelatent/datasets/__init__.py",
+      "mode": 436,
+      "sha256": "ccc7b41c66961beea0042c77d367b08165301b365ef5d6484a0b8dc26bbf8bcf"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/acquisition_archives.py": {
+      "archived_path": "src/tactilelatent/datasets/acquisition_archives.py",
+      "mode": 436,
+      "sha256": "da7ec2a1ae0b89caa5abf9d2344005606a919075dca3114f6e3b0d7ca7b3e14e"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/acquisition_data.py": {
+      "archived_path": "src/tactilelatent/datasets/acquisition_data.py",
+      "mode": 436,
+      "sha256": "0b23ed4b55e4a2fc64b1b3ab063b274d554c094c2dfe18e6a4aaa64b16565aca"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/acquisition_joint.py": {
+      "archived_path": "src/tactilelatent/datasets/acquisition_joint.py",
+      "mode": 436,
+      "sha256": "8ceae7cb79c4009ee0865dd47a01287c7d5f91eee8084add46db1a1b4a341240"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/acquisition_pilots.py": {
+      "archived_path": "src/tactilelatent/datasets/acquisition_pilots.py",
+      "mode": 436,
+      "sha256": "d92efcc4e0650670e1be2b33658b64b80a9f7b23f411aa96700cac6e16f649b4"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/acquisition_quality.py": {
+      "archived_path": "src/tactilelatent/datasets/acquisition_quality.py",
+      "mode": 436,
+      "sha256": "65672d9119edead15616ff060243b32d36738b1e20748628650fb14616c9e453"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/acquisition_queue.py": {
+      "archived_path": "src/tactilelatent/datasets/acquisition_queue.py",
+      "mode": 436,
+      "sha256": "08f1323c7fd051fdaf7d4c9ea310392a75f1f9da8d0701c41dc1fef66dffff43"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/acquisition_sources.py": {
+      "archived_path": "src/tactilelatent/datasets/acquisition_sources.py",
+      "mode": 436,
+      "sha256": "ccc429b536466eca3a320fe11e74499e9068f6aebf6cc255708df0bd904d0038"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/aligned_frames.py": {
+      "archived_path": "src/tactilelatent/datasets/aligned_frames.py",
+      "mode": 436,
+      "sha256": "f37041582312b820730380d858b19d6193e36bf1701a486118da44a2cc1842ef"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/alignment_data.py": {
+      "archived_path": "src/tactilelatent/datasets/alignment_data.py",
+      "mode": 436,
+      "sha256": "2d95307fe162d3f06c5cd50efb52218ef87bb98b385a144a9b0fb53522c75c0c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/baihu_ae_data.py": {
+      "archived_path": "src/tactilelatent/datasets/baihu_ae_data.py",
+      "mode": 436,
+      "sha256": "5f72ae0c10d688983f404c90541bfb6b5750681b3f99d29a6bbe332843097d87"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/bimanual_mirror.py": {
+      "archived_path": "src/tactilelatent/datasets/bimanual_mirror.py",
+      "mode": 436,
+      "sha256": "160b64715d727dbba141a93e28d5ba5aaf94c4577964cc8e222f25ae7305590b"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/current_frame.py": {
+      "archived_path": "src/tactilelatent/datasets/current_frame.py",
+      "mode": 436,
+      "sha256": "66aaed206a3647f8029cd4868977d652da466bb78a3adcaaac1e619249709761"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/data.py": {
+      "archived_path": "src/tactilelatent/datasets/data.py",
+      "mode": 436,
+      "sha256": "8c2a05353e3737901a2d898d521225297a2dafa1a86c3b295dec453995ff2d1f"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/data_expansion.py": {
+      "archived_path": "src/tactilelatent/datasets/data_expansion.py",
+      "mode": 436,
+      "sha256": "7bbd47365c1d02eb2639fac29519ae4bd595ad0895a09f8178af10a32cbde521"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/expand_pilot.py": {
+      "archived_path": "src/tactilelatent/datasets/expand_pilot.py",
+      "mode": 436,
+      "sha256": "5c24dbc366d6653db97a271901d1c94ada5b341bf9eefda7b01aff4d96246116"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/expansion_baihu.py": {
+      "archived_path": "src/tactilelatent/datasets/expansion_baihu.py",
+      "mode": 436,
+      "sha256": "598419b243d30d5088f558f487575dbeb3a6923428dd5d0d2177d910b764372b"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/expansion_joint.py": {
+      "archived_path": "src/tactilelatent/datasets/expansion_joint.py",
+      "mode": 436,
+      "sha256": "01aee752908bac7b1e51745c551b6dcc59251eb158b6030ad6c7151d82050bdb"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/expansion_tracker.py": {
+      "archived_path": "src/tactilelatent/datasets/expansion_tracker.py",
+      "mode": 436,
+      "sha256": "e7696f341ab094cb3259bed014d9d3ab2a5f44d747d132a46263e361d8e24ff4"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/feel_hand_layout.py": {
+      "archived_path": "src/tactilelatent/datasets/feel_hand_layout.py",
+      "mode": 436,
+      "sha256": "1260cee34d0f54f766f553f048f008710825c746a7f374ef4bc1ae0753b293ee"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/fgw_data.py": {
+      "archived_path": "src/tactilelatent/datasets/fgw_data.py",
+      "mode": 436,
+      "sha256": "68182f784fd653faf8bc9cf22b9915c4c9a43d0fd999783398c0f722cebfc3b2"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/joint_all_config.py": {
+      "archived_path": "src/tactilelatent/datasets/joint_all_config.py",
+      "mode": 436,
+      "sha256": "eb8e66936dfe887070e3bf0f0c607ae519037bb43dbadc144db9f4a23b8ad7bb"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/joint_data.py": {
+      "archived_path": "src/tactilelatent/datasets/joint_data.py",
+      "mode": 436,
+      "sha256": "bebe538b5924e34c0d53483c32809f5a8ae6418e2d51d977103c1901518c44a3"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/marker_ae_data.py": {
+      "archived_path": "src/tactilelatent/datasets/marker_ae_data.py",
+      "mode": 436,
+      "sha256": "b3a662bd250b5cbb46e97b2bf8d1305725f23ecbd4426ee7cb24f34316a815a6"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/marker_code_cache.py": {
+      "archived_path": "src/tactilelatent/datasets/marker_code_cache.py",
+      "mode": 436,
+      "sha256": "b92ed1b4756ae5317f951dc803abd74a1cc29728b7e8dcd8fc171c78a7a0939d"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/marker_data.py": {
+      "archived_path": "src/tactilelatent/datasets/marker_data.py",
+      "mode": 436,
+      "sha256": "a631c8ec289a0dad7aea8b66eef03bd48d650de88fe8fc565b330cf4e8850f89"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/marker_storage.py": {
+      "archived_path": "src/tactilelatent/datasets/marker_storage.py",
+      "mode": 436,
+      "sha256": "bd6690ec4bc34c9683d6d28f2cef6dbf0725159be403835b838a02d1a507c54b"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/marker_targets.py": {
+      "archived_path": "src/tactilelatent/datasets/marker_targets.py",
+      "mode": 436,
+      "sha256": "d85ce524504ddb9b5032c8dc5a1d87cf24f511243d55cbeaf007f900af6ec566"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/media.py": {
+      "archived_path": "src/tactilelatent/datasets/media.py",
+      "mode": 436,
+      "sha256": "d53ce6c2a6644db519faa02befa0a5788486afecc580613c88305818ea877685"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/mirror_cache_verification.py": {
+      "archived_path": "src/tactilelatent/datasets/mirror_cache_verification.py",
+      "mode": 436,
+      "sha256": "67c3e81cde808ee2c257efdc4a54e7ebf281a852b93c588455c680c30b38b6c2"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/mirror_joint.py": {
+      "archived_path": "src/tactilelatent/datasets/mirror_joint.py",
+      "mode": 436,
+      "sha256": "58be4e66a0910cf504be9bedeed9e5592b966f50a89d1f93329825773c03b734"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/native_optical.py": {
+      "archived_path": "src/tactilelatent/datasets/native_optical.py",
+      "mode": 436,
+      "sha256": "dae4752d17844bbc25b5f9fc5782a8cadf18976b23119a9629eb8ca22ffbe3af"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/prepare_joint.py": {
+      "archived_path": "src/tactilelatent/datasets/prepare_joint.py",
+      "mode": 436,
+      "sha256": "4c1bf7c560795b13782ce4121518815cf89057c677d1ce41c503b9aa4713d0cb"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/prepare_joint_all.py": {
+      "archived_path": "src/tactilelatent/datasets/prepare_joint_all.py",
+      "mode": 436,
+      "sha256": "7afbbfa4d50ff1f4e970d5f80fb0d1d6b887687c6a3d7159bb46b9fc81738fa2"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/prepare_pilot.py": {
+      "archived_path": "src/tactilelatent/datasets/prepare_pilot.py",
+      "mode": 436,
+      "sha256": "3b916709c54efe23c2b004c17080ae92b7bc97b9a208eb1dc933b9c4d27fecbc"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/prepare_relational.py": {
+      "archived_path": "src/tactilelatent/datasets/prepare_relational.py",
+      "mode": 436,
+      "sha256": "e278ca285bafbf678792375fa41a3cbb605f1244adaf2b88c2a56e0b2e323937"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/pressure_selection.py": {
+      "archived_path": "src/tactilelatent/datasets/pressure_selection.py",
+      "mode": 436,
+      "sha256": "6c42ea3ba944d741743e906025bb9595278f90e498c4389045266d7de1becc38"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/sensor_cache.py": {
+      "archived_path": "src/tactilelatent/datasets/sensor_cache.py",
+      "mode": 436,
+      "sha256": "2c79fbebc8b79f89200750a29354e70fffbf136490fb57406130757652d3be9a"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/sensor_code_cache.py": {
+      "archived_path": "src/tactilelatent/datasets/sensor_code_cache.py",
+      "mode": 436,
+      "sha256": "53110d261a3f74b7ae3c6457a2a36c02a48accc6773184199d79cee77839808f"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/sensor_data.py": {
+      "archived_path": "src/tactilelatent/datasets/sensor_data.py",
+      "mode": 436,
+      "sha256": "179343cde8e0914d3cf11e369c6cb7b12dc91133f18dd7af6574df1ba66b7bdb"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/storage.py": {
+      "archived_path": "src/tactilelatent/datasets/storage.py",
+      "mode": 436,
+      "sha256": "3a84280b3d7957d18c8f5fc0bc54755903bcbbd277a6be1a43b27db1a37bbcb1"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/tar_zarr.py": {
+      "archived_path": "src/tactilelatent/datasets/tar_zarr.py",
+      "mode": 436,
+      "sha256": "f3ca9d589d32ac311fc0025a31f2603ba880e651054106e8db20da9157fecba3"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/vjepa_cache.py": {
+      "archived_path": "src/tactilelatent/datasets/vjepa_cache.py",
+      "mode": 436,
+      "sha256": "67a0347b2f2748b51246f9a9eec0f73b0c2cb0ee449831fcda649a6cb7517536"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/datasets/zero_reference.py": {
+      "archived_path": "src/tactilelatent/datasets/zero_reference.py",
+      "mode": 436,
+      "sha256": "b1abd04da79b4695cd3c521ccc11847106b9f5fefb781eca4a585ea46d7cb46e"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluate.py": {
+      "archived_path": "src/tactilelatent/evaluate.py",
+      "mode": 436,
+      "sha256": "422b4a024216a130479adf6abd6f0b5b45610f40d099cfd557e3bdf2e052b7ee"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluate_dataset_classifier.py": {
+      "archived_path": "src/tactilelatent/evaluate_dataset_classifier.py",
+      "mode": 436,
+      "sha256": "9c9cdaf12122aea1e669a49ee5b4eac7d2cbed3213dd5b608aa1afb8e53704c3"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluate_direct_sensor.py": {
+      "archived_path": "src/tactilelatent/evaluate_direct_sensor.py",
+      "mode": 436,
+      "sha256": "cbee9108cdc0fa7936d6a14c47b65a95037e5318431924df16b3b3071fdbe6f4"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluate_direct_vla_touch.py": {
+      "archived_path": "src/tactilelatent/evaluate_direct_vla_touch.py",
+      "mode": 436,
+      "sha256": "3f4fef8d8ca56156489c3dce26583714a4c8511aa47166a72e7b349b8dc340d5"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluate_feeling_success.py": {
+      "archived_path": "src/tactilelatent/evaluate_feeling_success.py",
+      "mode": 436,
+      "sha256": "e802957f983997070d56982075e2f71b159f8a8d80f1dd36d91f0cb86e803cb7"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluate_fgw_calibration.py": {
+      "archived_path": "src/tactilelatent/evaluate_fgw_calibration.py",
+      "mode": 436,
+      "sha256": "4922465b583420b58578a9aeb9e4610b1ab23c3695318aac31bed5c274b67c60"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluate_holdout_decoder.py": {
+      "archived_path": "src/tactilelatent/evaluate_holdout_decoder.py",
+      "mode": 436,
+      "sha256": "87bc60c9883443d1b6977c40223982f725b7db6d0e5c1fa70f9edc159542122f"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluate_uncertainty.py": {
+      "archived_path": "src/tactilelatent/evaluate_uncertainty.py",
+      "mode": 436,
+      "sha256": "0ab02c769a45bfa94b9f8009fedcb186f0bceb40308a5abe2fef3dac2776d665"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluation/README.md": {
+      "archived_path": "src/tactilelatent/evaluation/README.md",
+      "mode": 436,
+      "sha256": "f529bbdbdaf58af419c063313355b0b38d95199295069c224a57cec639e28d49"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluation/__init__.py": {
+      "archived_path": "src/tactilelatent/evaluation/__init__.py",
+      "mode": 436,
+      "sha256": "7a12f2e11a03b61f2207c212f588085f18db408d0c8d6f3a8307a47b1c70b3a5"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluation/audit.py": {
+      "archived_path": "src/tactilelatent/evaluation/audit.py",
+      "mode": 436,
+      "sha256": "0d74cf94bfdba1eb944d1fb7a2e4701afc9569c008cba7e78e99cfe59dcf25e2"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluation/audit_alignment.py": {
+      "archived_path": "src/tactilelatent/evaluation/audit_alignment.py",
+      "mode": 436,
+      "sha256": "b279413ee635540077ecc910a66f6ec1f0867af7739feae892e233d4ebad746d"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluation/evaluate.py": {
+      "archived_path": "src/tactilelatent/evaluation/evaluate.py",
+      "mode": 436,
+      "sha256": "0559c7f657851dcc4ee55a3f09da558bc154008c02059561bf6ce768e25ecd23"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluation/evaluate_dataset_classifier.py": {
+      "archived_path": "src/tactilelatent/evaluation/evaluate_dataset_classifier.py",
+      "mode": 436,
+      "sha256": "5a4f03cdeada9e5d37ae82d6027a60ed42ea39a5236840286590dfb7d070420b"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluation/evaluate_direct_sensor.py": {
+      "archived_path": "src/tactilelatent/evaluation/evaluate_direct_sensor.py",
+      "mode": 436,
+      "sha256": "37723b698691207c836ff35aa46f7c511c75a60725e463e17743401deb16588d"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluation/evaluate_direct_vla_touch.py": {
+      "archived_path": "src/tactilelatent/evaluation/evaluate_direct_vla_touch.py",
+      "mode": 436,
+      "sha256": "b32642f4e1f3b6c3fd3693e247bc14cb7c575b8ec8bf460382bdc0f4bbf66c3b"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluation/evaluate_feeling_success.py": {
+      "archived_path": "src/tactilelatent/evaluation/evaluate_feeling_success.py",
+      "mode": 436,
+      "sha256": "242e8162977ce9849d4769299c0c2d9aa18222dbdf365d35b4e710b6d9a47183"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluation/evaluate_fgw_calibration.py": {
+      "archived_path": "src/tactilelatent/evaluation/evaluate_fgw_calibration.py",
+      "mode": 436,
+      "sha256": "4c60c23b05f406a5c6f2f36894368e7d9fc9b69e43429a16ad83e557da2d9710"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluation/evaluate_holdout_decoder.py": {
+      "archived_path": "src/tactilelatent/evaluation/evaluate_holdout_decoder.py",
+      "mode": 436,
+      "sha256": "fff6095248d3fa2f5ae350fe23f9f4ae5a6a4f29f4c588720bfb295ea899b8c6"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluation/evaluate_uncertainty.py": {
+      "archived_path": "src/tactilelatent/evaluation/evaluate_uncertainty.py",
+      "mode": 436,
+      "sha256": "4fa069f919ffcbfc1bb48deccd0a57129afe82443df7e4e15c5240628e97617e"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluation/frozen_probe.py": {
+      "archived_path": "src/tactilelatent/evaluation/frozen_probe.py",
+      "mode": 436,
+      "sha256": "300b16bc2874f332fcd805be1ad1129bb3450b9dd16a92c58b4de14efdffa300"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluation/infer.py": {
+      "archived_path": "src/tactilelatent/evaluation/infer.py",
+      "mode": 436,
+      "sha256": "aa1e485f0e6e85a405d897511612c0127812742e51ad4f879f12e2f177bcdd70"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluation/invariance_validation.py": {
+      "archived_path": "src/tactilelatent/evaluation/invariance_validation.py",
+      "mode": 436,
+      "sha256": "7f62ac02a81502118603b23b70be8b6df34d57a5ae52f7b40d7157685eb58a3c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluation/paired_probe_cache.py": {
+      "archived_path": "src/tactilelatent/evaluation/paired_probe_cache.py",
+      "mode": 436,
+      "sha256": "52739c742f08805fc3bc1f58334856e3d2ba542d553e9e3e1c287e954a6ef396"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/evaluation/representation_probe.py": {
+      "archived_path": "src/tactilelatent/evaluation/representation_probe.py",
+      "mode": 436,
+      "sha256": "e5f47fb0fabcd20c540bb00a835c53e4311264b553b6b705ea6fcb4d089318a5"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/expand_pilot.py": {
+      "archived_path": "src/tactilelatent/expand_pilot.py",
+      "mode": 436,
+      "sha256": "f615e8aac81e4ec275c441d009dbfcca6b9930ba38e84e73e9a14dc5feb64edd"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/expansion_baihu.py": {
+      "archived_path": "src/tactilelatent/expansion_baihu.py",
+      "mode": 436,
+      "sha256": "2ca485435ad0b894c4f6a5882b15eb2e8ba66c90e7d8cf500feeb85fdf8e04ad"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/expansion_joint.py": {
+      "archived_path": "src/tactilelatent/expansion_joint.py",
+      "mode": 436,
+      "sha256": "eeccb007bfbb5ceedf93e4bc6ef34e9b14b983cd913f498a215fa58389e996cb"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/expansion_models.py": {
+      "archived_path": "src/tactilelatent/expansion_models.py",
+      "mode": 436,
+      "sha256": "ffea43f0d55c858c95d3dc9c131f10c5cf5ce5aca85bbf1137a1a7968d3fb27b"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/expansion_render.py": {
+      "archived_path": "src/tactilelatent/expansion_render.py",
+      "mode": 436,
+      "sha256": "1d1c1f0f8b01571d70213846430e8c88cf5ad64590f69ccbcd85c3f8ba399005"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/expansion_runtime.py": {
+      "archived_path": "src/tactilelatent/expansion_runtime.py",
+      "mode": 436,
+      "sha256": "8f5af3becdcfcdb5872341737366cb96fd51bc0f8481b60db27842f8527c0448"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/expansion_tracker.py": {
+      "archived_path": "src/tactilelatent/expansion_tracker.py",
+      "mode": 436,
+      "sha256": "eb27f7e46a565fff84431b1ae28b3c14ac8bb253a050fd602d31a61adcdda705"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/expansion_training.py": {
+      "archived_path": "src/tactilelatent/expansion_training.py",
+      "mode": 436,
+      "sha256": "d609b52c18226bfd04229a2df84241557c5d3393d3930ff7d3eb1f9f0e54662c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/expansion_viewer.py": {
+      "archived_path": "src/tactilelatent/expansion_viewer.py",
+      "mode": 436,
+      "sha256": "705558c921ce54af21ab373f5b80e6c3598918c5ee7d0cad3458991b924ee2e3"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/feel_hand_layout.py": {
+      "archived_path": "src/tactilelatent/feel_hand_layout.py",
+      "mode": 436,
+      "sha256": "1be8f9a6fb3d4561cc2c8c82734f0ec500d111941d8816dd92b9602bc0897d49"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/fgw_data.py": {
+      "archived_path": "src/tactilelatent/fgw_data.py",
+      "mode": 436,
+      "sha256": "50c4340a68c536adf2c55112c54912849997490d23751963a06d18a41775813a"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/fgw_mixer.py": {
+      "archived_path": "src/tactilelatent/fgw_mixer.py",
+      "mode": 436,
+      "sha256": "acaa10bce85093cb266e54f077a1f432d1d5e2f70fe1617cc4bbad82da680a15"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/fgw_objective.py": {
+      "archived_path": "src/tactilelatent/fgw_objective.py",
+      "mode": 436,
+      "sha256": "03892dfc7d512fa6db016c2d26a7e296fc099589b99d0a108de4d638aada6cc3"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/fgw_pilot.py": {
+      "archived_path": "src/tactilelatent/fgw_pilot.py",
+      "mode": 436,
+      "sha256": "552feca835d05525ea185feccf289b9e777363a12e75ce5efb51409e07b80786"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/fgw_study.py": {
+      "archived_path": "src/tactilelatent/fgw_study.py",
+      "mode": 436,
+      "sha256": "8fde2a47b990c6542d0d77f9a0e7b95c02a21cc1d95a8a5357739f11f36e89a4"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/frozen_probe.py": {
+      "archived_path": "src/tactilelatent/frozen_probe.py",
+      "mode": 436,
+      "sha256": "4836a24b11b471bbfb8c52ae692ce55c0648d4e3e82b2b67b37612dda0a57e1c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/gel_mirror_preparation.py": {
+      "archived_path": "src/tactilelatent/gel_mirror_preparation.py",
+      "mode": 436,
+      "sha256": "2c8ed3e53fbc428531bfb3a33ae0be21b3a75e2289dcc916dc46bc8caeaee52f"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/infer.py": {
+      "archived_path": "src/tactilelatent/infer.py",
+      "mode": 436,
+      "sha256": "5c0620697297c46aa3037085d55f0a1a48cd95c670b698bfe3593683e0c986cf"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/invariance_validation.py": {
+      "archived_path": "src/tactilelatent/invariance_validation.py",
+      "mode": 436,
+      "sha256": "2ca6c23a2ce76c5ffc99aaadbaa4974077c7ce302f6c8a6597a686571dd3e116"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/joint_all_config.py": {
+      "archived_path": "src/tactilelatent/joint_all_config.py",
+      "mode": 436,
+      "sha256": "cf3da97e8e3e3cddeb0dfa73173676e0597d32b4b121a7bd661731204ab17cbf"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/joint_data.py": {
+      "archived_path": "src/tactilelatent/joint_data.py",
+      "mode": 436,
+      "sha256": "11fd0f9fa895a9439748acc0c8148233d0af84512ff01c61aa3ffa448fc7f939"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/joint_model.py": {
+      "archived_path": "src/tactilelatent/joint_model.py",
+      "mode": 436,
+      "sha256": "7fa7ce9482832916e221f4eba2e367c8600a4aff8de0d909f5470b34d249441f"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/joint_viewer.py": {
+      "archived_path": "src/tactilelatent/joint_viewer.py",
+      "mode": 436,
+      "sha256": "7a37574a39bfa878f32b0441d3f62e439ec9a2f32506551dcee6abada711fe6c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/losses.py": {
+      "archived_path": "src/tactilelatent/losses.py",
+      "mode": 436,
+      "sha256": "28dd6936da3947659f13e62a1662a0cb560bf194957dd28aff517e3dad12e7f1"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/marker_ae_data.py": {
+      "archived_path": "src/tactilelatent/marker_ae_data.py",
+      "mode": 436,
+      "sha256": "5d5178f79d05eea49b528f5a342ff708b1134e0581e9540d5fa32985e3ae8b64"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/marker_autoencoder.py": {
+      "archived_path": "src/tactilelatent/marker_autoencoder.py",
+      "mode": 436,
+      "sha256": "0d267e45055f97fdb83d1b07877d1fa022380a770ec0f638a8b973a689b9e008"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/marker_code_cache.py": {
+      "archived_path": "src/tactilelatent/marker_code_cache.py",
+      "mode": 436,
+      "sha256": "42968f74c7153c91fd8ef32f9f12ee0323d54e10b452d0b13234ee0ef097f382"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/marker_code_model.py": {
+      "archived_path": "src/tactilelatent/marker_code_model.py",
+      "mode": 436,
+      "sha256": "e4dc5328dd88abe04a6569d89b42b4ee760234ff014ca8fcf112211b98f98f40"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/marker_data.py": {
+      "archived_path": "src/tactilelatent/marker_data.py",
+      "mode": 436,
+      "sha256": "bce3537c100edc9b7169040a0089f60a59702a07eb007918fbb38673bba4ea3c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/marker_model.py": {
+      "archived_path": "src/tactilelatent/marker_model.py",
+      "mode": 436,
+      "sha256": "a68b954117d5c0ef7a26831cc571928ecc9c05e007ec8708c463705bfcddd6d9"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/marker_storage.py": {
+      "archived_path": "src/tactilelatent/marker_storage.py",
+      "mode": 436,
+      "sha256": "f37b18bdc2d91fb0de44a9fa094e1b8d3d1ce48af4a3f26959486d1c25164fc4"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/marker_targets.py": {
+      "archived_path": "src/tactilelatent/marker_targets.py",
+      "mode": 436,
+      "sha256": "70ef0e42cdf4f14ae45e3a3fbb5b074097ccfc873856bd1d17cd17f6e2d029c5"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/marker_viewer.html": {
+      "archived_path": "src/tactilelatent/marker_viewer.html",
+      "mode": 436,
+      "sha256": "d64d4b4904b2cf661572ef33a808e8eee665404d040b2d3e6cfd6da39f49c8d0"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/marker_viewer.py": {
+      "archived_path": "src/tactilelatent/marker_viewer.py",
+      "mode": 436,
+      "sha256": "85598568157df6391bddadd45c2535206a7f152789d2b2497583e8a032ed1216"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/media.py": {
+      "archived_path": "src/tactilelatent/media.py",
+      "mode": 436,
+      "sha256": "f37622d779cf74caa8b56a757d7b8724a1d558799867ce0a8dfd1d9ae40ef1dc"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/meta_learning.py": {
+      "archived_path": "src/tactilelatent/meta_learning.py",
+      "mode": 436,
+      "sha256": "dad12d5a498f4ec09b6342901d63fe5b2b41ae2b2baa024086f8ba93f58bc5f6"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/mirror_balanced_training.py": {
+      "archived_path": "src/tactilelatent/mirror_balanced_training.py",
+      "mode": 436,
+      "sha256": "72ecac6dde6db88cb812d13157296970376f34fc936427de7daa6880b5ea734d"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/mirror_cache_verification.py": {
+      "archived_path": "src/tactilelatent/mirror_cache_verification.py",
+      "mode": 436,
+      "sha256": "202b2f7f7d60c478aaaa53caf2c04604e2bee2079e9013d3fa3593a0537f4dd4"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/mirror_joint.py": {
+      "archived_path": "src/tactilelatent/mirror_joint.py",
+      "mode": 436,
+      "sha256": "b40112f84645b12d6a4f4ad751bf65f168f4283241aba67fd085116dc4f08c9a"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/mirror_mapping_review.py": {
+      "archived_path": "src/tactilelatent/mirror_mapping_review.py",
+      "mode": 436,
+      "sha256": "7a1b5c53e770de4c3f0e0ca2559c096e53d9e064a5c02a9b7e1e378601f8d5c6"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/mirror_preparation.py": {
+      "archived_path": "src/tactilelatent/mirror_preparation.py",
+      "mode": 436,
+      "sha256": "66d21cde68974ab49589b60e22079e985c8ee93b57cd082f8c48da61146d8326"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/mirror_viewer.py": {
+      "archived_path": "src/tactilelatent/mirror_viewer.py",
+      "mode": 436,
+      "sha256": "04bbfacbd23401ddfa0a90e52895c31376989d1008775d71f6ffe93661389550"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/model.py": {
+      "archived_path": "src/tactilelatent/model.py",
+      "mode": 436,
+      "sha256": "6b37dab01179ac89262c32403ae6bbb34a1be7e910c669e147186899e866352d"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/models/README.md": {
+      "archived_path": "src/tactilelatent/models/README.md",
+      "mode": 436,
+      "sha256": "2c5a9b730017ecee605e6f34a9810c2574bddafd50ad4d8293340927314e7a46"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/models/__init__.py": {
+      "archived_path": "src/tactilelatent/models/__init__.py",
+      "mode": 436,
+      "sha256": "41c69bf3c3212fb17b22e36167179163f77f271d8e0e08077bfeb4394bd6294e"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/models/alignment_model.py": {
+      "archived_path": "src/tactilelatent/models/alignment_model.py",
+      "mode": 436,
+      "sha256": "8da1917abbc1c0cfb077623d95dbb38ab25706a136dce061276fad7c64189783"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/models/baihu_autoencoder.py": {
+      "archived_path": "src/tactilelatent/models/baihu_autoencoder.py",
+      "mode": 436,
+      "sha256": "91627d8a1a16c479f3620a2e6fba6fa5a6b3d53d46723649bfbe9cc614532759"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/models/bilateral_autoencoder.py": {
+      "archived_path": "src/tactilelatent/models/bilateral_autoencoder.py",
+      "mode": 436,
+      "sha256": "56dd6072622b93154c0bedb0efe086c5364a25b69fb761f1689758c2b1d88f5e"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/models/expansion_models.py": {
+      "archived_path": "src/tactilelatent/models/expansion_models.py",
+      "mode": 436,
+      "sha256": "5a4bf1c6427d4475346df638359636a75947b3d77ff404034f5fed549a340dd3"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/models/joint_model.py": {
+      "archived_path": "src/tactilelatent/models/joint_model.py",
+      "mode": 436,
+      "sha256": "0c68862886282262b0adc16c8782d6f46ef150d3345af9e448f5ae95c1526e1f"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/models/marker_autoencoder.py": {
+      "archived_path": "src/tactilelatent/models/marker_autoencoder.py",
+      "mode": 436,
+      "sha256": "d617d2a083dd51869e754d8f9691ecb0dca6bdd9337f4e71168ae6f1876e19b3"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/models/marker_code_model.py": {
+      "archived_path": "src/tactilelatent/models/marker_code_model.py",
+      "mode": 436,
+      "sha256": "44c575ec722551b6214c94298c7f76c324f43d16ac6b65d789f2151884fb1b57"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/models/marker_model.py": {
+      "archived_path": "src/tactilelatent/models/marker_model.py",
+      "mode": 436,
+      "sha256": "7dd73b188858d714b49dc6f641ebc788bb30873b680bb138129a470266bc925e"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/models/model.py": {
+      "archived_path": "src/tactilelatent/models/model.py",
+      "mode": 436,
+      "sha256": "91078d61e23219049d781ad7aa64a8231348ce73491fd2900772dc210584d73a"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/models/numeric_autoencoder.py": {
+      "archived_path": "src/tactilelatent/models/numeric_autoencoder.py",
+      "mode": 436,
+      "sha256": "e24bd00657f189356dc2b9a95560f9214b98a9c8c91d5965a5b96b0cabc1c031"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/models/sensor_autoencoder.py": {
+      "archived_path": "src/tactilelatent/models/sensor_autoencoder.py",
+      "mode": 436,
+      "sha256": "52849d30fd9dc25f2478350860d9e07a8275a7189ccbc0592771730ec50daa83"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/models/tactile_autoencoder.py": {
+      "archived_path": "src/tactilelatent/models/tactile_autoencoder.py",
+      "mode": 436,
+      "sha256": "ab45c8eb06d20646ea1e828bbe0817a6bea4c8104c5d52d469b74b8660a46ecc"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/models/vjepa_model.py": {
+      "archived_path": "src/tactilelatent/models/vjepa_model.py",
+      "mode": 436,
+      "sha256": "e94080ec5068032a50c026b26fa03f6d96fe8d76f406fd476600a57639038e6f"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/models/vjepa_spatial.py": {
+      "archived_path": "src/tactilelatent/models/vjepa_spatial.py",
+      "mode": 436,
+      "sha256": "847421be85bfb3d4f229e108f06faca1bf0b964f9a3c7dc5fb8d24d129424443"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/native_optical.py": {
+      "archived_path": "src/tactilelatent/native_optical.py",
+      "mode": 436,
+      "sha256": "118a729e3998366682187c2a37b4198bf8b48f28da33c8b5dc279ec0fc82d2e3"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/numeric_autoencoder.py": {
+      "archived_path": "src/tactilelatent/numeric_autoencoder.py",
+      "mode": 436,
+      "sha256": "6fa3359c4e9f27c2b571f59fb9a0bfb30b28f85c2f597f79cc4e446d8c249742"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/opentouch_hand_layout.json": {
+      "archived_path": "src/tactilelatent/opentouch_hand_layout.json",
+      "mode": 436,
+      "sha256": "6bef993345b926a32bb15118941e97afb397b2ee637502e366ec1dfa824fbfd9"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/opentouch_layout.py": {
+      "archived_path": "src/tactilelatent/opentouch_layout.py",
+      "mode": 436,
+      "sha256": "3af44279bd11e90de819ca88fd934025477ae224aa3489b7bfd3e4309aabddb9"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/paired_probe_cache.py": {
+      "archived_path": "src/tactilelatent/paired_probe_cache.py",
+      "mode": 436,
+      "sha256": "759ee66e129d8d9bf934bd6af393e1e28f3954f747acf7d8dc830eaa8ae75eec"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/prepare_joint.py": {
+      "archived_path": "src/tactilelatent/prepare_joint.py",
+      "mode": 436,
+      "sha256": "1b2de4a08573e19beb145a6abdc3f3a72f1d1b3e65bb60ef3c63bbaa15f8c726"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/prepare_joint_all.py": {
+      "archived_path": "src/tactilelatent/prepare_joint_all.py",
+      "mode": 436,
+      "sha256": "d075da410c48c8b1480bcaf016af90b418ede66cf3adc940726cac0b21fb6855"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/prepare_pilot.py": {
+      "archived_path": "src/tactilelatent/prepare_pilot.py",
+      "mode": 436,
+      "sha256": "d3fc7578e3467f63f262c3a930e7fddec1c18ee6f2fcc462d518f5d04a36d51e"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/prepare_relational.py": {
+      "archived_path": "src/tactilelatent/prepare_relational.py",
+      "mode": 436,
+      "sha256": "9a2e6e82391fd59627c9ee87d2ff4fc93d03cc3fd5e456126f656050beab14bd"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/pressure_selection.py": {
+      "archived_path": "src/tactilelatent/pressure_selection.py",
+      "mode": 436,
+      "sha256": "5b77535f9442ba39db6733de57901f11ce3da09df0a4903152fa31e0ab6c8936"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/pressure_surface.py": {
+      "archived_path": "src/tactilelatent/pressure_surface.py",
+      "mode": 436,
+      "sha256": "3ee9ecdbaef15233913a06e0e74a7326c505a82ae57f840355db7357c2eb89c8"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/pressure_surface_viewer.js": {
+      "archived_path": "src/tactilelatent/pressure_surface_viewer.js",
+      "mode": 436,
+      "sha256": "b456bb8378c003b5843bbd3a1d3ccfb788a62dedf048c8c1f47d9bbea24c3c81"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/pressure_teacher.py": {
+      "archived_path": "src/tactilelatent/pressure_teacher.py",
+      "mode": 436,
+      "sha256": "e4d8929f32b8af12be8006f360648906b5548ceeecbe3ab31772fc0d03a5615f"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/pretrain_egotouch_autoencoder.py": {
+      "archived_path": "src/tactilelatent/pretrain_egotouch_autoencoder.py",
+      "mode": 436,
+      "sha256": "1ec2a25aa1e094c21e5d326423507f2116ef1fb76baeaf7aec7f1b5953f1a2b8"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/pretrain_sensor_autoencoder.py": {
+      "archived_path": "src/tactilelatent/pretrain_sensor_autoencoder.py",
+      "mode": 436,
+      "sha256": "10769b0e2d6f388bf235691738d8af31b48371c9ae2fb90247abf20b7ae2b9d7"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/relational.py": {
+      "archived_path": "src/tactilelatent/relational.py",
+      "mode": 436,
+      "sha256": "dc4ff14922e27c328914b4b76e2d52a1a19fd99c54ba51fb7417d6a9f747a287"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/representation_probe.py": {
+      "archived_path": "src/tactilelatent/representation_probe.py",
+      "mode": 436,
+      "sha256": "8d33eaea9a338312ff77ae4e2370297d1a3ccbc3127fe4ec1d3e8ffd1e2339ef"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/sam.py": {
+      "archived_path": "src/tactilelatent/sam.py",
+      "mode": 436,
+      "sha256": "a5b7572be9db176083668c163a45676d29c4d897d2bbfe307e1df72f85b86ccd"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/sensor_autoencoder.py": {
+      "archived_path": "src/tactilelatent/sensor_autoencoder.py",
+      "mode": 436,
+      "sha256": "0ed5d7df21a7abd2bebdbb2eabe98170aff7cccfca5c41b9f18a7417c107f732"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/sensor_cache.py": {
+      "archived_path": "src/tactilelatent/sensor_cache.py",
+      "mode": 436,
+      "sha256": "afe8180ae974630a8ccb86553ebf762fea4856922de7ab73c732045791258ca1"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/sensor_code_cache.py": {
+      "archived_path": "src/tactilelatent/sensor_code_cache.py",
+      "mode": 436,
+      "sha256": "73096f135d555a612cb49583d81d22c2e9077398b4c837a04e2c93c762b53525"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/sensor_data.py": {
+      "archived_path": "src/tactilelatent/sensor_data.py",
+      "mode": 436,
+      "sha256": "40269cd6f514288c48e67499a1a07439df0df4025b9a300fcea93dfb6ea98abd"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/storage.py": {
+      "archived_path": "src/tactilelatent/storage.py",
+      "mode": 436,
+      "sha256": "5cf6176bea6b06503e5243b9b77de68b71a4afb2ff5f2f05410e8337e6cb9b08"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/tacquad_viewer.html": {
+      "archived_path": "src/tactilelatent/tacquad_viewer.html",
+      "mode": 436,
+      "sha256": "c6d8d848208434b95c07c5291181cdced44447629766989a42a9777f31315898"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/tacquad_viewer.py": {
+      "archived_path": "src/tactilelatent/tacquad_viewer.py",
+      "mode": 436,
+      "sha256": "6ab2b62b6c35d68042637dad8ecb66b08061047a29c34d4c00ae3fdda8d5aeb1"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/tactile_autoencoder.py": {
+      "archived_path": "src/tactilelatent/tactile_autoencoder.py",
+      "mode": 436,
+      "sha256": "97880d717748a3dc53bfab45ed914d0b91454ab5c605d89b78a089f88564c05d"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/tactile_teacher.py": {
+      "archived_path": "src/tactilelatent/tactile_teacher.py",
+      "mode": 436,
+      "sha256": "82eca8fd539252e09e0e23abce9a481b259eef80544b7d469bf342ae9876d75c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/tar_zarr.py": {
+      "archived_path": "src/tactilelatent/tar_zarr.py",
+      "mode": 436,
+      "sha256": "c1ac23a6e78cb5665d8e49abe7314b9a10fe9028ae4d14d233a74d119cebae9a"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/train.py": {
+      "archived_path": "src/tactilelatent/train.py",
+      "mode": 436,
+      "sha256": "4b04bb8cf89794803296556b2977d5b61f5aef351baeecdf683ab936ee16109e"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/train_alignment.py": {
+      "archived_path": "src/tactilelatent/train_alignment.py",
+      "mode": 436,
+      "sha256": "f96de6501155f72976abcc0e1c081d8350b38de901fb915fe087e40d79abd0e8"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/train_continuation.py": {
+      "archived_path": "src/tactilelatent/train_continuation.py",
+      "mode": 436,
+      "sha256": "e305dbd8ac2f22679db8a7c08eee7438e57651c4f53c1e08495fa1f463732990"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/train_invariance.py": {
+      "archived_path": "src/tactilelatent/train_invariance.py",
+      "mode": 436,
+      "sha256": "496376a9ab2009fb1b927fd2dcd19bebd553371d1145ca0e1b8764407621f615"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/train_joint.py": {
+      "archived_path": "src/tactilelatent/train_joint.py",
+      "mode": 436,
+      "sha256": "e1fd4f4a7f83a16c4cb76090e9ffef8f3e637a6b11611655cc5bb007de2199c9"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/train_joint_adversarial.py": {
+      "archived_path": "src/tactilelatent/train_joint_adversarial.py",
+      "mode": 436,
+      "sha256": "4beb61c78ff80f183e3c824adaf38a1ae8c08fcc7e21bcd628a13e0d4d23fe6a"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/train_joint_alternating.py": {
+      "archived_path": "src/tactilelatent/train_joint_alternating.py",
+      "mode": 436,
+      "sha256": "c0abcda74f7e33368b5062c0e130e5b1e9eb576a3bd27f3a70e1e4c835b1cad7"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/train_marker_autoencoders.py": {
+      "archived_path": "src/tactilelatent/train_marker_autoencoders.py",
+      "mode": 436,
+      "sha256": "ecfaa61b1e512dad2c76b03a6b168fc1fceec9e6d5bf5751e8214d666db62a29"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/train_vjepa.py": {
+      "archived_path": "src/tactilelatent/train_vjepa.py",
+      "mode": 436,
+      "sha256": "26a3f5e844fc756f0b8618ff3506d5d0ca6d858a3f9fb6888561937df8143beb"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/train_vjepa_markers.py": {
+      "archived_path": "src/tactilelatent/train_vjepa_markers.py",
+      "mode": 436,
+      "sha256": "7096de3e1e37b967eea1079876da086daf2b8fe5d65195d40ba9b3c387faf96c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/train_vjepa_spatial.py": {
+      "archived_path": "src/tactilelatent/train_vjepa_spatial.py",
+      "mode": 436,
+      "sha256": "dec30075fd77f2c1a14c4f46e5f36f13223f9035028e6b682fb448f845fc2eee"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/README.md": {
+      "archived_path": "src/tactilelatent/training/README.md",
+      "mode": 436,
+      "sha256": "dce0058707ce8b432aa26ff5370b04d3ad81885de5a9f76c42e5d8856b4464c7"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/__init__.py": {
+      "archived_path": "src/tactilelatent/training/__init__.py",
+      "mode": 436,
+      "sha256": "fcf5cc23ced31a08b5c19e176e4969d224fb6e6972e69d98c43715b8a1daaaaa"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/acquisition_training.py": {
+      "archived_path": "src/tactilelatent/training/acquisition_training.py",
+      "mode": 436,
+      "sha256": "9f9cdf3375abde300295dfa9a858400d463cbca81b0ff5f1bab192b4602c9ddc"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/alternating_adversary.py": {
+      "archived_path": "src/tactilelatent/training/alternating_adversary.py",
+      "mode": 436,
+      "sha256": "5da607b6d628230cf634bf63542cdf29bc1a3e778867802b722a0085f09053b2"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/bilateral_mirror_preparation.py": {
+      "archived_path": "src/tactilelatent/training/bilateral_mirror_preparation.py",
+      "mode": 436,
+      "sha256": "261a18457e1b8ed00d02627b573a8201bdacd7fa072dca7882d5cf550984aa02"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/continuation_objectives.py": {
+      "archived_path": "src/tactilelatent/training/continuation_objectives.py",
+      "mode": 436,
+      "sha256": "23097681adef6ee65fac326b2fdcb9c81fcdf4afc42d499be2336bc8983f1c8c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/expansion_runtime.py": {
+      "archived_path": "src/tactilelatent/training/expansion_runtime.py",
+      "mode": 436,
+      "sha256": "b2a75735867bcbe1941b78ddd5e9921775c68bbf24938784c85b828a01f9b80f"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/expansion_training.py": {
+      "archived_path": "src/tactilelatent/training/expansion_training.py",
+      "mode": 436,
+      "sha256": "50565ccbcb274e55d652ad70d5aff5753c4229f6f9110dc295eade3cf40729d9"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/fgw_mixer.py": {
+      "archived_path": "src/tactilelatent/training/fgw_mixer.py",
+      "mode": 436,
+      "sha256": "832f0eacfbe38d6e56f1bf9f953b9ee20f41fed153398f5471759aa47e2363a3"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/fgw_objective.py": {
+      "archived_path": "src/tactilelatent/training/fgw_objective.py",
+      "mode": 436,
+      "sha256": "ae48fdd6b74bb9723e25e506f87269f99aed6530c4af596d828d4f937adc5cc5"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/fgw_pilot.py": {
+      "archived_path": "src/tactilelatent/training/fgw_pilot.py",
+      "mode": 436,
+      "sha256": "ceb05991e477e6d9f0884123effe3d036d035735298cca395050dc23adbf9904"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/fgw_study.py": {
+      "archived_path": "src/tactilelatent/training/fgw_study.py",
+      "mode": 436,
+      "sha256": "1731d2773dd6c4f0b2624434bdf6f3fdc7ac3715f2044f79a64c40e767573000"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/gel_mirror_preparation.py": {
+      "archived_path": "src/tactilelatent/training/gel_mirror_preparation.py",
+      "mode": 436,
+      "sha256": "98b84b6bd57abf45038dde90ffc1db6413898aac20aa7ce11f9ed250e386dcb4"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/losses.py": {
+      "archived_path": "src/tactilelatent/training/losses.py",
+      "mode": 436,
+      "sha256": "bc5966b6f64afdb1f3fc99baaafdc9a937a12fc3520e495e3c4262858eba6a9d"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/meta_learning.py": {
+      "archived_path": "src/tactilelatent/training/meta_learning.py",
+      "mode": 436,
+      "sha256": "d4e0fcb0e64159e6462e08523ad0bbb661f3e42586dcf5e7140f22c4fbbad886"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/mirror_balanced_training.py": {
+      "archived_path": "src/tactilelatent/training/mirror_balanced_training.py",
+      "mode": 436,
+      "sha256": "a4dd36a56cfbdf5955d1262c2fc1988e57e19853fafd02b6274f526dffad88b4"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/mirror_preparation.py": {
+      "archived_path": "src/tactilelatent/training/mirror_preparation.py",
+      "mode": 436,
+      "sha256": "e5f92724e090c7fe74cb75c50c0ab9eb38010f64da25dd1d1cf8b9a48e9b3035"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/pressure_teacher.py": {
+      "archived_path": "src/tactilelatent/training/pressure_teacher.py",
+      "mode": 436,
+      "sha256": "1bd7415f8c893648453943a3e8941f280127c2eb30f3c3bc68de506022ef552f"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/pretrain_egotouch_autoencoder.py": {
+      "archived_path": "src/tactilelatent/training/pretrain_egotouch_autoencoder.py",
+      "mode": 436,
+      "sha256": "907a61292251d75708770e193f8d308364865c35811f07b237a8f8c581eb3849"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/pretrain_sensor_autoencoder.py": {
+      "archived_path": "src/tactilelatent/training/pretrain_sensor_autoencoder.py",
+      "mode": 436,
+      "sha256": "d6b33611311e55b137c7c4436508be96d9dfbab046d776160436b78e57cdc318"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/relational.py": {
+      "archived_path": "src/tactilelatent/training/relational.py",
+      "mode": 436,
+      "sha256": "18445a686bafaf5d979708ea3dcb1022641f8c4d9a0b9d97ee47f59fec12bc77"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/sam.py": {
+      "archived_path": "src/tactilelatent/training/sam.py",
+      "mode": 436,
+      "sha256": "ab2530a136aa330d27a12ef160ea4de3d323fadbb88c2e258e048aa7cfa917bd"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/tactile_teacher.py": {
+      "archived_path": "src/tactilelatent/training/tactile_teacher.py",
+      "mode": 436,
+      "sha256": "b1532eedf6a7fc669bbf4dc34ba861c212f8f78111a01c6578607a54834d3963"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/train.py": {
+      "archived_path": "src/tactilelatent/training/train.py",
+      "mode": 436,
+      "sha256": "b4a643108bbc1fc4d5bf7b9cc2463d8d26590f143d323aa8aadf5f68558124c0"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/train_alignment.py": {
+      "archived_path": "src/tactilelatent/training/train_alignment.py",
+      "mode": 436,
+      "sha256": "ce47fc61413358821f62d5e0fa58f82076d08c11cee9df96f061a9ff7ad6574a"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/train_continuation.py": {
+      "archived_path": "src/tactilelatent/training/train_continuation.py",
+      "mode": 436,
+      "sha256": "29a357067369695f68e19e50ed824365e64fe1346a279c0abcc963c509920a41"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/train_invariance.py": {
+      "archived_path": "src/tactilelatent/training/train_invariance.py",
+      "mode": 436,
+      "sha256": "9259a59f15414c081d73928026a25d1daff8de5df915e0f492ce48fafce1968f"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/train_joint.py": {
+      "archived_path": "src/tactilelatent/training/train_joint.py",
+      "mode": 436,
+      "sha256": "92046ea86ee09fba1dcd5b7a6def4a1991a659e9c88828f5cfcfba8837d2cd2d"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/train_joint_adversarial.py": {
+      "archived_path": "src/tactilelatent/training/train_joint_adversarial.py",
+      "mode": 436,
+      "sha256": "011de244ddfbb8927b34ab3190d5d6b2d0ff73add43d9c05903363cf2975fb98"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/train_joint_alternating.py": {
+      "archived_path": "src/tactilelatent/training/train_joint_alternating.py",
+      "mode": 436,
+      "sha256": "fdbb01668beb51c193bfeb9b144f96a408a05cd8983ccdff62597947f79bb511"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/train_marker_autoencoders.py": {
+      "archived_path": "src/tactilelatent/training/train_marker_autoencoders.py",
+      "mode": 436,
+      "sha256": "b948a029bfd7fb85dc24e5523a3691d260b6b77002459edb18387c5e2d963f54"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/train_vjepa.py": {
+      "archived_path": "src/tactilelatent/training/train_vjepa.py",
+      "mode": 436,
+      "sha256": "7190992171be743944c190ba8a118a8cc405a7d19c473dbeede14098513680f8"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/train_vjepa_markers.py": {
+      "archived_path": "src/tactilelatent/training/train_vjepa_markers.py",
+      "mode": 436,
+      "sha256": "02ee8e9ea3ae56f7dc05876ecef93ef5136baf0e21ec6e416c4b07eeb05b2594"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/train_vjepa_spatial.py": {
+      "archived_path": "src/tactilelatent/training/train_vjepa_spatial.py",
+      "mode": 436,
+      "sha256": "e7b310e7d5fd134693e90d1760f067845cf8e5b0b9265f8516745f81a8dfd70f"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/trajectory_matching.py": {
+      "archived_path": "src/tactilelatent/training/trajectory_matching.py",
+      "mode": 436,
+      "sha256": "aa2f8fd381ebdb890a6b50403424331d04f7fe92fea33909f1055ffe2f74c962"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training/vjepa_cached_training.py": {
+      "archived_path": "src/tactilelatent/training/vjepa_cached_training.py",
+      "mode": 436,
+      "sha256": "4176ca1ae10a22b2ddfc84be94187cf79512f60479be8697c883e7f491a03922"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/training_dashboard.py": {
+      "archived_path": "src/tactilelatent/training_dashboard.py",
+      "mode": 436,
+      "sha256": "68757da29bff88092843b6856863d2029cde09c4399949ba164f44e75ba3fa57"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/trajectory_matching.py": {
+      "archived_path": "src/tactilelatent/trajectory_matching.py",
+      "mode": 436,
+      "sha256": "a0521a15264fd890bf64456e2c771c328aafec1ce4ea50010f1d4e6abc1717b5"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/viewer_checkpoints.py": {
+      "archived_path": "src/tactilelatent/viewer_checkpoints.py",
+      "mode": 436,
+      "sha256": "9bbda3224b0781f5e0ec82965a5a3c2976c26c62089648865b2464b43cb21244"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/viewer_transfer.py": {
+      "archived_path": "src/tactilelatent/viewer_transfer.py",
+      "mode": 436,
+      "sha256": "ae5b65068f606bd90dc7dfb5aeb9947b2397d89785077a4412afe39ce4e0612a"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/README.md": {
+      "archived_path": "src/tactilelatent/visualization/README.md",
+      "mode": 436,
+      "sha256": "72f763bb8c33fc0b2a03b5771ec0a5077dadff57e28735b3d16cdc597613e716"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/__init__.py": {
+      "archived_path": "src/tactilelatent/visualization/__init__.py",
+      "mode": 436,
+      "sha256": "26548345678979335cbe9d3425ba15c002521fabc5e5dd1c71b68f6d63f5e42a"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/acquisition_joint_viewer.py": {
+      "archived_path": "src/tactilelatent/visualization/acquisition_joint_viewer.py",
+      "mode": 436,
+      "sha256": "ca65ae7fa0bbba10cc90e3371713b50d249e0003b84a494305f7652f912c73cc"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/acquisition_scene_viewer.py": {
+      "archived_path": "src/tactilelatent/visualization/acquisition_scene_viewer.py",
+      "mode": 436,
+      "sha256": "c89ee3e61517178b06d9230191613a1ed57862783df1901a912c2a07317b30ad"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/acquisition_viewer.py": {
+      "archived_path": "src/tactilelatent/visualization/acquisition_viewer.py",
+      "mode": 436,
+      "sha256": "d2effcc8071c7aaaacb43d9fd3cff7885324f5cb520ffbf4871627ab9f196adc"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/attention_viewer.py": {
+      "archived_path": "src/tactilelatent/visualization/attention_viewer.py",
+      "mode": 436,
+      "sha256": "f79fd45c62ce5dac11270b6d5dce98dc3bfb8b423c3ec2bd91b51829a09877cb"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/autoencoder_viewer.py": {
+      "archived_path": "src/tactilelatent/visualization/autoencoder_viewer.py",
+      "mode": 436,
+      "sha256": "2ebde1b87de169b7acc50d542e061dfeb02c96e357eb657b5e2b8090e047d5a4"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/bilateral_runtime.py": {
+      "archived_path": "src/tactilelatent/visualization/bilateral_runtime.py",
+      "mode": 436,
+      "sha256": "40e2c918e447cb699570f6a76f96d448d109690b4dbedf7720eeb1fa3b3a5768"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/expansion_render.py": {
+      "archived_path": "src/tactilelatent/visualization/expansion_render.py",
+      "mode": 436,
+      "sha256": "d23b2894ec0de240c72233878e0b4b0c4bc219ae82aa618ea4bc392cb020a1d2"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/expansion_viewer.py": {
+      "archived_path": "src/tactilelatent/visualization/expansion_viewer.py",
+      "mode": 436,
+      "sha256": "5b95bca88afaa597717526209d381887ede2c574f803f3b3a9f38d0e9c6a0c2d"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/joint_viewer.py": {
+      "archived_path": "src/tactilelatent/visualization/joint_viewer.py",
+      "mode": 436,
+      "sha256": "85485d3edced5ca5f14817799e9d56aeaef8a5b092a8e62629d6315c8fbc0797"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/marker_viewer.py": {
+      "archived_path": "src/tactilelatent/visualization/marker_viewer.py",
+      "mode": 436,
+      "sha256": "4b2c44dd71a4e7a378e2c32092739e3839b565f069d7330d134afb52f7190ef9"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/mirror_mapping_review.py": {
+      "archived_path": "src/tactilelatent/visualization/mirror_mapping_review.py",
+      "mode": 436,
+      "sha256": "36f126b175ed4763d86e0a0c01fe019b4837736fbca5ef61d99cbca171d11130"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/mirror_viewer.py": {
+      "archived_path": "src/tactilelatent/visualization/mirror_viewer.py",
+      "mode": 436,
+      "sha256": "889cd03c5ea3f08d8e842d46afc0703abc44a330adef2ab659ddcdadd90e4c69"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/opentouch_layout.py": {
+      "archived_path": "src/tactilelatent/visualization/opentouch_layout.py",
+      "mode": 436,
+      "sha256": "a02298cc56178359623badc51856c8e12135f8d2d2008078dbfc6fe9198d7589"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/pressure_surface.py": {
+      "archived_path": "src/tactilelatent/visualization/pressure_surface.py",
+      "mode": 436,
+      "sha256": "b7293d99691ad90a7c317c2661b2292fc5aaaa7179f9f847168070c57d7fa15c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/tacquad_viewer.py": {
+      "archived_path": "src/tactilelatent/visualization/tacquad_viewer.py",
+      "mode": 436,
+      "sha256": "a4733a3e908c8435a10829d253ed8f0652aada81f72051db0b696bbe7aad5b71"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/training_dashboard.html": {
+      "archived_path": "src/tactilelatent/visualization/training_dashboard.html",
+      "mode": 436,
+      "sha256": "399950fc34832d22b1b8ee2596d60af72058566f43d8c6180b7a2f49f619b008"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/training_dashboard.js": {
+      "archived_path": "src/tactilelatent/visualization/training_dashboard.js",
+      "mode": 436,
+      "sha256": "479408d48a7b7143a55f6fe32ae3e6aa808c90fb2e8058d0c4b14e88e9e5c4ef"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/training_dashboard.py": {
+      "archived_path": "src/tactilelatent/visualization/training_dashboard.py",
+      "mode": 436,
+      "sha256": "73af3f8d2e8cc381c71c113755eb38e03fd5b3ef214db37e97c4d59c4738cf01"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/viewer_checkpoints.py": {
+      "archived_path": "src/tactilelatent/visualization/viewer_checkpoints.py",
+      "mode": 436,
+      "sha256": "955421f1fcf9ddac6dbb93c9738d227409fe59a8bca0d1e37e91853ced25b0eb"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/visualization/viewer_transfer.py": {
+      "archived_path": "src/tactilelatent/visualization/viewer_transfer.py",
+      "mode": 436,
+      "sha256": "b118cc73fded98fcb95b3ecc5af3ed15cdb5e61c43091062081ac47e990b74bb"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/vjepa_cache.py": {
+      "archived_path": "src/tactilelatent/vjepa_cache.py",
+      "mode": 436,
+      "sha256": "245cde2b27d28f6e63ce4536c47426531ca3563ccba5599b7f72641b9d06343c"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/vjepa_cached_training.py": {
+      "archived_path": "src/tactilelatent/vjepa_cached_training.py",
+      "mode": 436,
+      "sha256": "07f930f25b10ddb6b3b6ebc5af7c092b0daa71a4bca85c215260c1d600d08d15"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/vjepa_model.py": {
+      "archived_path": "src/tactilelatent/vjepa_model.py",
+      "mode": 436,
+      "sha256": "39c33559da0d67f170f740f1b79376d31ab25d6a9bb08b7c58cbc156bc719d94"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/vjepa_spatial.py": {
+      "archived_path": "src/tactilelatent/vjepa_spatial.py",
+      "mode": 436,
+      "sha256": "aeb73d6db4c7fc17c1261e27bd53649f056080800a863feb7ad4a304021dfdd5"
+    },
+    "/home/codrincrismariu/Documents/TactileLatent/src/tactilelatent/zero_reference.py": {
+      "archived_path": "src/tactilelatent/zero_reference.py",
+      "mode": 436,
+      "sha256": "8b6b413a464ea90393ff63fdb738d576ce9c2c8e836beba46c9d8c98c4e39ca4"
+    }
+  },
+  "original_root": "/home/codrincrismariu/Documents/TactileLatent",
+  "schema": "historical-viewer-relocations-v1"
+}

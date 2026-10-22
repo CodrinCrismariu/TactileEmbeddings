@@ -1,0 +1,22 @@
+{
+  "schema": "tactilelatent-training-v2",
+  "output": "processing/runs/vjepa32_current_all_sources_core_v2",
+  "seed": 45,
+  "epochs": 30,
+  "batch_size": 2,
+  "accumulation": 16,
+  "workers": 4,
+  "train_windows_per_source_per_epoch": 8000,
+  "validation_windows_per_source": 64,
+  "learning_rate": 0.0003,
+  "min_learning_rate": 1e-06,
+  "weight_decay": 0.05,
+  "warmup_epochs": 2,
+  "optimizer_method": "sam_adamw",
+  "sam_rho": 0.05,
+  "wrist_dropout": 0.3,
+  "log_every": 25,
+  "save_viewer_epochs": true,
+  "save_full_epoch_checkpoints": false,
+  "teacher_chunk_frames": 1
+}

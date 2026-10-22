@@ -200,4 +200,4 @@ promise identical random masks to a different fused GPU kernel. The largest
 observed two-layer output difference using trained weights was about `1.4e-15`.
 The report is [verification.json](../processing/attention_block_explained/verification.json).
 The production implementation remains in
-[vjepa_spatial.py](../src/tactilelatent/vjepa_spatial.py).
+[vjepa_spatial.py](../src/tactilelatent/models/attention.py).

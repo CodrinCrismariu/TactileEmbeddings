@@ -1,0 +1,258 @@
+/* Shared native sensor viewer layout; included by viewer.html. */
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, sans-serif;
+  color: #dbe5ef;
+  background: #101720
+}
+
+* {
+  box-sizing: border-box
+}
+
+body {
+  margin: 0
+}
+
+header,
+main {
+  padding: 20px 26px
+}
+
+header {
+  border-bottom: 1px solid #314154;
+  background: #19232f
+}
+
+h1 {
+  font-size: 23px;
+  margin: 0
+}
+
+header p,
+.note {
+  color: #a8bcd0;
+  font-size: 13px;
+  line-height: 1.6
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px
+}
+
+nav a {
+  color: #b7d9ef;
+  text-decoration: none;
+  padding: 10px;
+  border: 1px solid #3b526b;
+  border-radius: 6px
+}
+
+nav a.active {
+  background: #28566d;
+  color: white
+}
+
+.controls,
+.attentionControls,
+.timeline {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+  border: 1px solid #314154;
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 14px
+}
+
+.controls label,
+.attentionControls label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 12px;
+  color: #a8bcd0
+}
+
+.controls .wide {
+  flex: 1;
+  min-width: 280px
+}
+
+select,
+input,
+button {
+  font: inherit;
+  color: #e8f1ff;
+  background: #111c29;
+  border: 1px solid #415973;
+  border-radius: 5px;
+  padding: 9px
+}
+
+button {
+  cursor: pointer
+}
+
+button:hover {
+  background: #2d4d62
+}
+
+select {
+  max-width: 100%;
+  min-width: 125px
+}
+
+label.check {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 0
+}
+
+input[type=checkbox] {
+  accent-color: #60d7be
+}
+
+input[type=range] {
+  accent-color: #60d7be;
+  padding: 0
+}
+
+#slider {
+  width: 100%
+}
+
+#frame {
+  width: 90px
+}
+
+#status {
+  font-size: 13px;
+  color: #80d7c5
+}
+
+#error {
+  color: #ffb2a4;
+  white-space: pre-wrap
+}
+
+#error:empty {
+  display: none
+}
+
+.results {
+  display: grid;
+  grid-template-columns: minmax(300px, 420px) minmax(400px, 1fr);
+  gap: 18px;
+  margin-top: 16px
+}
+
+article {
+  background: #182330;
+  border: 1px solid #33485d;
+  border-radius: 8px;
+  padding: 16px;
+  overflow: hidden
+}
+
+h2 {
+  font-size: 15px;
+  margin: 0 0 14px
+}
+
+canvas#scene,
+canvas#mirrorScene {
+  width: 100%;
+  max-width: 384px;
+  background: #05090f;
+  border: 1px solid #3d5163
+}
+
+.sensorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px
+}
+
+.panel {
+  border: 1px solid #33485d;
+  border-radius: 5px;
+  padding: 8px
+}
+
+.panel h3 {
+  font-size: 12px;
+  color: #c4d7e8;
+  margin: 0 0 8px
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px
+}
+
+.pair img {
+  width: 100%;
+  background: #04070b;
+  image-rendering: pixelated
+}
+
+.pair small {
+  display: block;
+  color: #a5bdd2;
+  margin-bottom: 6px
+}
+
+.marker {
+  width: 100%;
+  max-width: 384px;
+  background: #101720
+}
+
+.numeric {
+  max-height: 760px;
+  overflow: auto
+}
+
+.numeric canvas {
+  width: 100%
+}
+
+.attentionControls[hidden],
+#comparison[hidden],
+[hidden] {
+  display: none !important
+}
+
+#modelNote {
+  margin: 3px 0 14px
+}
+
+a {
+  color: #8ddacb
+}
+
+@media(max-width:950px) {
+  .results {
+    grid-template-columns: 1fr
+  }
+
+  header,
+  main {
+    padding: 14px
+  }
+
+  .controls .wide {
+    min-width: 220px
+  }
+
+  .pair img {
+    max-width: 300px
+  }
+}

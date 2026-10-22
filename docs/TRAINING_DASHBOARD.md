@@ -22,9 +22,9 @@ Training/validation epoch curves update when the trainer appends a completed rec
 
 ## Implementation
 
-- `src/tactilelatent/training_dashboard.py`: discovery, scalar normalization, safe history endpoints, process-status checks, and live journal collector.
+- `src/tactilelatent/visualization/training_dashboard.py`: discovery, scalar normalization, safe history endpoints, process-status checks, and live journal collector.
 - `src/tactilelatent/training_dashboard.html` and `training_dashboard.js`: local interactive page with no external chart/CDN dependency.
-- `scripts/view_egotouch_autoencoder.py`: adds the dashboard handler around the existing viewer handlers.
+- `src/tactilelatent/visualization/server.py`: composes the current viewer with the dashboard handler. The historical viewer is isolated behind `/legacy/`.
 - `GET /api/training/catalog`: available histories and current status.
 - `GET /api/training/history?runs=<id>,<id>`: whitelisted histories and collected live samples. Filesystem paths are not accepted as IDs.
 

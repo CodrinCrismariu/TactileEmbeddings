@@ -5,10 +5,18 @@ inside the manual implementation. PyTorch's block is imported only as a
 reference for the executable verification. This file is an educational example;
 the production model does not import it.
 
-Run from the repository root:
+Inputs:
+    Optional --checkpoint paths select trained current-frame blocks; otherwise
+    synthetic tensors and seed 45 exercise the reference implementation.
+Outputs:
+    JSON verification results on stdout and optionally at --report PATH.
+    No training checkpoints or dataset caches are modified.
+Example:
+    Run from the repository root:
     .venv/bin/python examples/manual_attention_block.py
     .venv/bin/python examples/manual_attention_block.py --checkpoint PATH.pt
 """
+
 import argparse
 import json
 import math
@@ -20,6 +28,13 @@ from torch.nn import functional as F
 
 
 class ManualAttention(nn.Module):
+    """Explicit multi-head attention with separate Q/K/V and output projections.
+
+    Queries [B, T, width] read memory [B, N, width]. Returned pre-dropout maps
+    are [B, heads, T, N], with True [B, N] padding positions excluded. A map
+    measures query-key routing weight, not a causal attribution of the image.
+    """
+
     def __init__(self, width=256, heads=4, dropout=0.1):
         super().__init__()
         if width % heads:
@@ -40,7 +55,7 @@ class ManualAttention(nn.Module):
 
     def forward(self, query, memory, padding_mask=None):
         # query: [B,T,256]; memory: [B,N,256]. Current-frame training has T=1.
-        q = self.split_heads(self.q_proj(query))   # [B,4,T,64]
+        q = self.split_heads(self.q_proj(query))  # [B,4,T,64]
         k = self.split_heads(self.k_proj(memory))  # [B,4,N,64]
         v = self.split_heads(self.v_proj(memory))  # [B,4,N,64]
 
@@ -59,7 +74,7 @@ class ManualAttention(nn.Module):
         # Training dropout zeros individual connections and rescales survivors.
         # It does NOT re-normalize each row to 1. eval() disables this dropout.
         used_weights = self.attention_dropout(probabilities)
-        per_head = used_weights @ v             # [B,4,T,64]
+        per_head = used_weights @ v  # [B,4,T,64]
 
         # Concatenate, then learn how to mix the heads' feature summaries.
         batch, _, queries, _ = per_head.shape
@@ -71,12 +86,18 @@ class ManualAttention(nn.Module):
         # PyTorch packs Q/K/V projections vertically into one [3D,D] matrix.
         for i, destination in enumerate((self.q_proj, self.k_proj, self.v_proj)):
             width = source.embed_dim
-            destination.weight.copy_(source.in_proj_weight[i * width:(i + 1) * width])
-            destination.bias.copy_(source.in_proj_bias[i * width:(i + 1) * width])
+            destination.weight.copy_(source.in_proj_weight[i * width : (i + 1) * width])
+            destination.bias.copy_(source.in_proj_bias[i * width : (i + 1) * width])
         self.out_proj.load_state_dict(source.out_proj.state_dict())
 
 
 class ManualDecoderBlock(nn.Module):
+    """Pre-norm query self-attention, visual cross-attention, and residual MLP.
+
+    Query tokens are updated at each step; memory tokens remain fixed. The
+    output preserves [B, T, width] and includes each attention operation's maps.
+    """
+
     def __init__(self, width=256, heads=4, feedforward=1024, dropout=0.1):
         super().__init__()
         self.norm1 = nn.LayerNorm(width, eps=1e-5)
@@ -118,11 +139,17 @@ class ManualDecoderBlock(nn.Module):
 
 
 def reference_block(width=256, heads=4, feedforward=1024, dropout=0.1):
-    return nn.TransformerDecoderLayer(width, heads, feedforward, dropout,
-        activation="gelu", batch_first=True, norm_first=True).double().eval()
+    return (
+        nn.TransformerDecoderLayer(
+            width, heads, feedforward, dropout, activation="gelu", batch_first=True, norm_first=True
+        )
+        .double()
+        .eval()
+    )
 
 
 def verify_basic():
+    """Compare manual/PyTorch outputs, gradients, masks, and dropout replay."""
     torch.manual_seed(45)
     reference = reference_block()
     manual = ManualDecoderBlock().double().eval().copy_from_pytorch(reference)
@@ -154,23 +181,36 @@ def verify_basic():
         torch.set_rng_state(rng)
         replay, _ = manual(q.detach(), memory.detach(), mask)
     torch.testing.assert_close(first, replay, atol=0, rtol=0)
-    return dict(passed=True, output_max_error=float((actual - expected).abs().max().detach()),
+    return dict(
+        passed=True,
+        output_max_error=float((actual - expected).abs().max().detach()),
         query_gradient_max_error=float((q_manual.grad - q.grad).abs().max()),
         memory_gradient_max_error=float((m_manual.grad - memory.grad).abs().max()),
-        attention_shape=list(maps["cross"].shape), masked_tokens_zero=True,
-        self_attention_single_query_is_one=True, training_dropout_replay=True)
+        attention_shape=list(maps["cross"].shape),
+        masked_tokens_zero=True,
+        self_attention_single_query_is_one=True,
+        training_dropout_replay=True,
+    )
 
 
 @torch.no_grad()
 def verify_checkpoint(path):
+    """Compare trained block weights on synthetic full-size visual memory."""
     state = torch.load(path, map_location="cpu", weights_only=False)
     config, weights = state["model_config"], state["model"]
     if config.get("prediction_mode") != "current_frame":
         raise ValueError("This demonstration expects a current-frame checkpoint")
     width, heads, ff = config["width"], config["heads"], config["feedforward"]
     # Load the actual trained initial query and its current-frame slot tags.
-    query = (weights["visual.frame_queries"][0] + weights["visual.frame_position"][7]
-             + weights["visual.pair_slot.weight"][1]).double()[None, None].expand(2, -1, -1)
+    query = (
+        (
+            weights["visual.frame_queries"][0]
+            + weights["visual.frame_position"][7]
+            + weights["visual.pair_slot.weight"][1]
+        )
+        .double()[None, None]
+        .expand(2, -1, -1)
+    )
     # Synthetic visual memory exercises the real 4 x 3 x 24 x 24 layout. One
     # example uses all cameras; the other masks the two wrist-camera slots.
     torch.manual_seed(45)
@@ -184,20 +224,35 @@ def verify_checkpoint(path):
     for index in range(config["layers"]):
         reference = reference_block(width, heads, ff, config["dropout"])
         prefix = f"visual.decoder.layers.{index}."
-        reference.load_state_dict({k[len(prefix):]: v for k, v in weights.items() if k.startswith(prefix)})
-        manual = ManualDecoderBlock(width, heads, ff, config["dropout"]).double().eval().copy_from_pytorch(reference)
+        reference.load_state_dict(
+            {k[len(prefix) :]: v for k, v in weights.items() if k.startswith(prefix)}
+        )
+        manual = (
+            ManualDecoderBlock(width, heads, ff, config["dropout"])
+            .double()
+            .eval()
+            .copy_from_pytorch(reference)
+        )
         expected = reference(expected, memory, memory_key_padding_mask=mask)
         actual, maps = manual(actual, memory, mask)
         torch.testing.assert_close(actual, expected, atol=1e-9, rtol=1e-9)
         errors.append(float((actual - expected).abs().max()))
         assert (maps["cross"].masked_select(mask[:, None, None, :]) == 0).all()
-    return dict(passed=True, checkpoint=str(path), epoch=state["epoch"] + 1,
-        latent_dim=config["latent_dim"], memory_shape=list(memory.shape),
-        query_shape=list(actual.shape), cross_attention_shape=list(maps["cross"].shape),
-        layer_output_max_errors=errors, note="Trained block weights; synthetic visual memory; CPU float64")
+    return dict(
+        passed=True,
+        checkpoint=str(path),
+        epoch=state["epoch"] + 1,
+        latent_dim=config["latent_dim"],
+        memory_shape=list(memory.shape),
+        query_shape=list(actual.shape),
+        cross_attention_shape=list(maps["cross"].shape),
+        layer_output_max_errors=errors,
+        note="Trained block weights; synthetic visual memory; CPU float64",
+    )
 
 
 def main():
+    """Parse optional checkpoint/report paths and print bounded CPU checks."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--checkpoint", type=Path, action="append", default=[])
     parser.add_argument("--report", type=Path)

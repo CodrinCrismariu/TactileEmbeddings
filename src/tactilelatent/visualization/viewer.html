@@ -1,0 +1,92 @@
+<!doctype html>
+<!--
+  Native reconstruction, prediction, and mirror-quality controls.
+  Inputs: source/model selections; viewer.js requests shared-registry inference.
+  Outputs: scene canvases, native tactile panels, and diagnostic text.
+  Example: tl view --port 8080, then open the reconstruction page.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>TactileLatent · native sensor viewer</title>
+    <link rel="stylesheet" href="viewer.css">
+  </head>
+  <body>
+    <header>
+      <h1>TactileLatent</h1>
+      <p>Native sensor reconstruction and current-frame video predictions</p>
+      <nav>
+        <a href="?page=reconstruction" data-page="reconstruction">Sensor reconstruction</a><a href="?page=prediction" data-page="prediction">Ego → tactile</a><a href="?page=mirror" data-page="mirror">Mirror check</a><a href="?page=training">Training monitor</a><a href="legacy/" target="_blank" rel="noopener">Historical models ↗</a>
+      </nav>
+    </header>
+    <main>
+      <section class="controls">
+        <label>
+          Dataset<select id="source"></select></label><label>Split<select id="split"></select>
+        </label>
+        <label class="wide">
+          Episode<select id="episode"></select>
+        </label>
+        <label>
+          Filter episodes<input id="filter" placeholder="Task or episode name">
+        </label>
+        <label>
+          Model<select id="model"></select></label><label>Epoch<select id="epoch"></select>
+        </label>
+        <button id="refresh">Refresh models</button>
+        <label id="mirrorModeLabel" hidden>
+          Compare<select id="mirrorMode">
+          <option value="reconstruction">Sensor autoencoder</option>
+          <option value="prediction">Ego prediction</option>
+          </select>
+        </label>
+        <label class="check">
+          <input id="mirrored" type="checkbox">Mirror input and target
+        </label>
+      </section>
+      <p id="modelNote" class="note"></p>
+      <section class="timeline">
+        <button id="play">▶ Play</button><button id="previous">←</button><button id="next">→</button><label>Frame
+          <input id="frame" type="number" min="0" value="0"></label><span id="frameLabel"></span><input id="slider" type="range" min="0" max="0" value="0">
+      </section>
+      <section class="attentionControls">
+        <label class="check">
+          <input id="attention"
+                 type="checkbox">Show attention overlay</label><label>Layer<select id="layer"></select></label><label>Head<select id="head"></select></label><label>Temporal group<select id="group">
+            <option value="0">History frames 0–1</option>
+            <option value="1">History frames 2–3</option>
+            <option value="2">History frames 4–5</option>
+            <option value="3" selected>Recent frames 6–7</option>
+          </select></label><label>Camera<select id="camera"></select></label><label>Marker arrows ×<input id="gain" type="range" min="1" max="30" value="5"></label><span id="gainLabel">5 · display only</span>
+        </section>
+        <p id="status" role="status">Loading source registry…</p>
+        <div id="error" role="alert"></div>
+        <section class="results">
+          <article>
+            <h2 id="sceneTitle">Scene RGB · 384×384</h2>
+            <canvas id="scene" width="384" height="384"></canvas>
+            <p id="sceneNote" class="note"></p>
+          </article><article class="sensor">
+            <h2 id="targetTitle">Measured and reconstructed sensor</h2>
+            <div id="target"></div>
+            <p id="metrics" class="note"></p>
+          </article>
+        </section>
+        <section id="comparison" hidden>
+          <h2>Mirrored counterpart</h2>
+          <p class="note">RGB is reflected, wrist slots exchanged, and sensor targets transformed by their verified source policy.</p>
+          <div class="results">
+            <article><canvas id="mirrorScene"
+        width="384"
+        height="384"></canvas></article><article class="sensor">
+              <div id="mirrorTarget"></div>
+              <p id="mirrorMetrics" class="note"></p>
+            </article>
+          </div>
+        </section>
+        <p class="note">Current pages use the shared dataset API and maintained model implementation. Historical models, all earlier autoencoder variants, specialized hand layouts, and the MANO UV hand view remain in the separate Historical models viewer.</p>
+      </main>
+      <script src="viewer.js"></script>
+    </body>
+  </html>

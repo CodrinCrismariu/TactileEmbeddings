@@ -10,7 +10,7 @@ FEEL display update: its default is now one shared linear 0–2.5 detail range,
 chosen from training positive values. Rare larger readings are explicitly flagged,
 and full training ranges remain selectable. This changes only plotting; the saved
 zero offsets and target values below remain unchanged. See
-[FEEL display details](ACQUIRED_DATASETS_VIEWER.md).
+[FEEL display details](archive/superseded_guides/ACQUIRED_DATASETS_VIEWER.md).
 
 The new viewer uses one frozen reference for each sensor layout, applied identically
 to every training and validation episode. It also defaults to a fixed training-derived

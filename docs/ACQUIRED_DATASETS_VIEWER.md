@@ -1,130 +1,41 @@
-# Browsing newly acquired datasets
+# Acquired datasets: targets, reconstruction and visualization
 
-Open the existing viewer on port **8080**, select **Sensor reconstruction**, then
-choose **FEEL**, **T-Rex**, **HRDexDB · Allegro V5**, or
-**HRDexDB · Inspire F1**. These sources currently provide **measured values only**;
-the model selector states that no trained decoder exists and is disabled. This
-integration does not start autoencoder or joint training.
+The viewer on port **8080** supports Baihu, EgoPressure, FEEL Lab/Kitchen, HRDexDB Allegro V5/Inspire F1 and T-Rex alongside the original sources. This October 21, 2026 guide supersedes the [earlier measured-only integration snapshot](archive/superseded_guides/ACQUIRED_DATASETS_VIEWER.md). Available trained reconstruction and joint models are selected separately; a source with four/five scalar values does not need an autoencoder.
 
-The same episode selector, split filter, video slider and camera selector work
-for these sources. Completed, accepted T-Rex episodes appear as its manifest
-grows; use **Refresh datasets / models** to discover additional recordings.
-The automatic catalog refresh also discovers datasets and new checkpoints.
+| Source | Native target | Reconstruction / joint supervision |
+|---|---|---|
+| Baihu | Four-surface signed marker displacement | 32D frozen marker AE; original/mirror teacher |
+| EgoPressure | One active-hand 224×224 UV pressure map | 64D pressure AE; task-only episodes |
+| FEEL Lab | Five processed right-hand contact estimates | Direct numeric prediction, no AE |
+| FEEL Kitchen | Twelve processed left/right contact estimates | 6D numeric AE |
+| HRDexDB Allegro V5 | Four native tactile values | Direct numeric prediction, no AE |
+| HRDexDB Inspire F1 | Eight groups × normal/tangential/direction = 24 values | 12D numeric AE |
+| T-Rex | Ten fingertips × six wrench components = 60 values | 16D numeric AE |
 
-## Native numerical targets
+**Sensor reconstruction** shows measurements and available AE outputs; direct-only sources expose measured values without inventing a decoder. **Ego → tactile prediction** shows a selected visual model's prediction, model/epoch comparison and attention for available cameras. The current model is labeled as 17 sources plus mirroring. **Training monitor** shows source losses and reconstruction histories. Mirror quality checking is available only for supported mappings, including Baihu; unresolved FEEL/T-Rex geometry is not silently guessed.
 
-The numerical view provides signed bars, channel groups, exact native readings,
-and a selected-channel trace over ±150 observations. Gray bars and gaps denote
-missing observations. A measured zero remains a valid zero. Target values are
-never normalized, clipped, resized, or rewritten.
+## Numerical readings, zeros and scales
 
-**T-Rex defaults to fixed training-derived ranges across both hands and all fingers:** one range
-for force components and a separate range for moment components. The selected
-channel trace uses that same range. Numerical range labels are shown above the
-bars. Thus small idle-hand fluctuations remain small beside active-hand contact.
+Native arrays, signs, masks and chronological mappings are preserved. A measured zero is valid; missing observations are gray/gaps rather than fabricated zero. Default display ranges are fixed using training data, so changing episodes cannot magnify idle fluctuations to match active contact. Exact values remain available even beyond the displayed range.
 
-**HRDexDB also defaults to fixed training-derived ranges.** Allegro V5's four native tactile
-channels share one range. Inspire F1 has separate normal-force,
-tangential-force, and direction ranges, with each range shared across all eight
-finger/palm groups. Direction is not plotted on a force scale. Its native values,
-including −1, are preserved rather than reinterpreted as negative force.
+- **T-Rex:** one shared force range and one shared moment range across both hands/fingers. Video addressing includes the episode's offset and length within shared shards. Upstream already tares each episode using its first 15 clean frames; this project does not recover unprovided pre-tare offsets or apply a new episode-specific tare.
+- **HRDexDB:** Allegro channels share one range. Inspire normal, tangential and direction have separate common ranges across eight groups. Native direction values, including `-1`, are preserved; their physical period/sentinel interpretation is unresolved. Fixed scene cameras keep their role and explicit RGB mappings; missing frame maps are not replaced with neighboring images.
+- **FEEL:** the default shared 0–2.5 detail range comes from training positive values and is the same across hands/episodes. Out-of-range values receive markers and exact numbers; full training ranges remain selectable. These are processed contact estimates, not independently calibrated SI force. Lab's five channels are **right hand**, including validation Lab_P11; Kitchen uses explicit left/right CSV mappings.
 
-The new default uses frozen sensor references and fixed training-derived ranges
-across all episodes. Raw readings remain available. See
-[fixed-reference findings and limitations](FIXED_SENSOR_ZERO_REFERENCES.md).
+[Fixed sensor zero references](FIXED_SENSOR_ZERO_REFERENCES.md) distinguish released zero from certified no-contact calibration. HRDex unloaded readings can remain nonzero despite a zero fixed offset. Neither the first frame nor each episode's minimum should automatically define physical zero. Optional episode/per-channel magnification is labeled and changes the display only.
 
-**HRDexDB zero is the released numeric value 0, not an independently verified
-no-contact baseline.** The screened training median offsets were all zero. Some Inspire F1
-channels start nonzero; that does not establish whether they have an offset,
-mechanical preload, or actual contact. The first frame or episode minimum must
-not be automatically used as a physical zero. A baseline correction would need
-documented calibration or a verified unloaded interval, and direction values
-need separate handling. Shared plotting ranges correct visual amplitude
-comparisons in native units; they do not establish a no-contact zero or SI gains.
+## Pressure and marker views
 
-The optional **Per channel · magnifies small fluctuations** mode explicitly
-enlarges each channel's own episode range for inspection; its bars cannot be
-compared across channels. The optional shared-episode ranges cover every frame,
-including short peaks; per-channel episode ranges use a bounded sample. Fixed
-training ranges remain the default for all newly acquired numerical sources.
-No scale is fitted separately to the currently displayed frame.
+EgoPressure is a UV atlas, not a projected image of five fingertips. UV chart seams can split one physical contact into several flat spots. The [3D hand view](EGOPRESSURE_VISUALIZATION.md) uses installed MANO UV meshes and recorded pose, with measured/reconstructed/error textures on identical geometry. The AE is not credited with predicting the hand pose. Missing pose falls back to the atlas. [Calibration-routine episodes are excluded](EGOPRESSURE_DATA_SELECTION.md) from current training, validation and statistics; only native hand-relative UV targets are predicted, not raw pad grids.
 
-**FEEL defaults to a fixed 0–2.5 detail view**, shared across every channel,
-both hands, Lab/Kitchen, and all episodes. The released processed values are
-nonnegative, so zero sits at the bottom of its bars and traces. This replaces a
-default range dominated by rare peaks of 11.94–16.25, which made ordinary changes
-look almost flat. The common upper limit rounds the training-positive 99.9th
-percentile (2.363636) up to 2.5; validation does not fit it. This display policy is
-separate from the saved zero references, which remain unchanged.
+Baihu/Unit marker views use retained reference coordinates, surface IDs, native spacing, validity and signed displacement. Tracking failures stay missing. Deleted tactile source images are not needed for teacher reconstruction or this display. Marker geometry is not an independently certified unloaded state.
 
-Values above 2.5 display an orange triangle and their actual number; trace peaks
-outside the visible range are marked too. **Full training range** shows their full
-heights. Current values appear above each FEEL bar, and the exact table retains
-the full displayed precision. The optional **Shared quantity · this episode**
-mode uses one common range across both hands and includes every frame's peaks.
-Neither mode changes the sensor values or labels contact. FEEL's supplied values
-are processed contact-estimation signals, not independently calibrated force.
-Audit evidence is in `processing/audits/feel_display_v1/` and the fixed policy is
-`configs/feel_display_v1.json`.
+## Availability, evidence and exclusions
 
-| Source | Native targets | Display grouping |
-| --- | --- | --- |
-| FEEL Kitchen / Lab | 12 / 5 processed contact-estimation values | Kitchen: six indices per hand; Lab: five right-hand indices |
-| T-Rex | 60 fingertip wrench estimates | Ten fingers, six released components per finger |
-| HRDexDB Allegro V5 | Four tactile values | Released channel indices; anatomical correspondence unverified |
-| HRDexDB Inspire F1 | 24 tactile values | Eight released anatomical groups, three components each |
+The 17-source integration receipts are linked in [project state](project_state.md). Extra numeric AEs were trained in `processing/acquisition_teachers_v1/`; direct-head exclusions for FEEL Lab/Allegro are intentional. Historical reconstruction models remain distinct from the current visual model.
 
-Taxel-index bars do not assert a physical surface layout. Values with unverified
-physical calibration are labelled accordingly. In particular, FEEL's processed
-values are not labelled as calibrated SI force. Inspire F1 force and direction
-components retain their native values and separate quantity-specific display ranges.
+Incomplete released data remains excluded: FEEL unreadable Kitchen/P05 CSV and missing Lab/P20–P21 CSVs, plus HRDexDB InspireDFTP empty tactile arrays. No force-feedback substitute is silently relabeled as tactile data. T-Rex accepted episodes and frame mappings come from its acquisition manifest, not guessed stream positions.
 
-Scene cameras keep their actual roles. HRDexDB is labelled **Fixed
-scene camera**. T-Rex exposes ego, left wrist and right wrist where available.
-T-Rex frame offsets address the correct episode segment within shared video
-shards. HRDexDB's explicit RGB frame map is honored: a missing mapping displays
-an unavailable-video message without substituting a neighboring frame.
-The displayed timestamp comes from the target artifact, rather than assuming
-all sources share one frame rate.
+FreeTacMan, TacQuad and T-Dex were removed/excluded at the user's request; do not restart their downloads through old configs. Removal ledgers remain under `processing/retired_datasets/`. The active queue is `configs/data_queue_active.json`; acquisition provenance retains older frozen configurations.
 
-FEEL hand ownership is selected per episode, never inferred from the first array
-position. The official Lab preprocessing and project previews identify its five
-channels as **right hand**, including validation Lab_P11. The viewer labels them
-`right_sensor0` through `right_sensor4`; the left hand is explicitly not recorded.
-The native `released_hand_sensor*` identifiers remain available for provenance and
-fixed-reference matching. Kitchen retains its explicit left/right file mappings.
-See [the ownership audit](FEEL_HAND_OWNERSHIP.md).
-
-Unavailable source data remains excluded: FEEL's unreadable Kitchen/P05 CSV and
-missing Lab/P20–P21 CSVs; HRDexDB InspireDFTP's empty released tactile arrays.
-No force-feedback array is silently substituted for a missing tactile target.
-
-## Removed sources: TacQuad and T-Dex
-
-TacQuad was removed at the user's request on 2026-10-21. Its dataset files,
-indexes, image previews and fixed optical templates were deleted. It no longer
-appears in the dataset selector or navigation; old browser/API addresses return
-HTTP 410. The active download queue excludes it. The removal freed 68.2 GB
-(63.5 GiB); the deletion ledger is `processing/retired_datasets/tacquad/removal.json`.
-
-T-Dex was also removed on 2026-10-21. Its 24-episode pilot, verification copy,
-sensor/RGB files, previews and cached reference were deleted, freeing about
-317 MB. It is absent from the viewer and active queue; normal acquisition
-requests for it are rejected. The ledger is `processing/retired_datasets/tdex/removal.json`.
-
-## Implementation and checks
-
-`AcquisitionViewer` extends the existing expansion viewer; the acquisition
-namespace begins at episode ID 1,000,000. Existing episode IDs and historical
-model entries remain available. Target reads verify the published artifact
-SHA-256 and use bounded in-memory caches. New sources do not appear as runnable
-joint prediction models or mirror mappings.
-
-Focused tests cover native signed values, measured zeros versus missing masks,
-XELA tensor ordering, separate HRDexDB morphologies, episode-offset bounds,
-missing RGB frame maps, chronological timestamps, catalog refresh, proxied
-routes, unchanged 16-bit TacQuad images, and independent archive streams.
-Live browser screenshots and acceptance records are under
-`processing/audits/acquisition_viewer_v1/`.
-Removal checks cover direct/proxy HTTP 410 responses, absent dataset/navigation
-entries, and preservation of the other acquisitions.
+Historical visual audits live under `processing/audits/acquisition_viewer_v1/`, `feel_display_v1/`, `egopressure_surface_view_v2/` and the mirror v4 verification. Those records establish what was checked then, not that every newly added frame has been independently inspected. See [FEEL hand ownership](FEEL_HAND_OWNERSHIP.md), [mirroring](BIMANUAL_MIRRORING.md), [dashboard](TRAINING_DASHBOARD.md) and the [script catalog](script_catalog.md).

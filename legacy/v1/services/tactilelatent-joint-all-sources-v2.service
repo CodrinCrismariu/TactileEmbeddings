@@ -1,0 +1,17 @@
+[Unit]
+Description=TactileLatent 17-source 32D deterministic joint training with adapted mirror decoders
+After=default.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/codrincrismariu/Documents/TactileLatent
+ExecStart=/home/codrincrismariu/Documents/TactileLatent/.venv/bin/python -u scripts/run_all_sources_joint.py --config configs/joint_vjepa21_all_sources_32d_mirror_v2.json
+Environment=OMP_NUM_THREADS=4
+Environment=OPENBLAS_NUM_THREADS=1
+Environment=PYTHONUNBUFFERED=1
+StandardOutput=append:/home/codrincrismariu/Documents/TactileLatent/processing/runs/joint_vjepa21_all_sources32d_mirror_v2/train.log
+StandardError=append:/home/codrincrismariu/Documents/TactileLatent/processing/runs/joint_vjepa21_all_sources32d_mirror_v2/train.log
+TimeoutStopSec=30
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,60 @@
+{
+  "schema": "tactilelatent-datasets-v2",
+  "sources": [
+    "egotouch",
+    "opengraph",
+    "egotactile",
+    "opentouch",
+    "ftp_vitamin",
+    "ftp_unit",
+    "ftp_vla_touch",
+    "ftp_unit_bimanual",
+    "baihu",
+    "egopressure",
+    "feel_kitchen",
+    "hrdexdb_inspire_f1",
+    "trex",
+    "ftp_rdp",
+    "ftp_rdp_bimanual",
+    "feel_lab",
+    "hrdexdb_allegro_v5"
+  ],
+  "heldout_source": "ftp_motiontrans",
+  "excluded_sources": [
+    "freetacman",
+    "tacquad",
+    "tdex"
+  ],
+  "clip_frames": 8,
+  "frame_stride": 2,
+  "rgb_size": 384,
+  "registry_paths": {
+    "manifest": "processing/data_expansion_v1/manifest.json",
+    "storage_manifest": "processing/storage_v1/manifest.json",
+    "storage_preparation": "processing/storage_v1/preparation.json",
+    "storage_normalization": "processing/storage_v1/normalization.json",
+    "scene_receipts": "processing/storage_v1",
+    "teachers": "processing/joint_acquisitions_mirrored_v2/teachers.json",
+    "model_config": "processing/joint_acquisitions_mirrored_v2/model_config.json",
+    "code_cache": "processing/sensor_code_cache_storage_v1",
+    "marker_targets": "processing/marker_displacement_storage_v1/targets",
+    "expansion_ready": "processing/data_expansion_v1/ready.json",
+    "acquisition_ready": "processing/joint_acquisitions_mirrored_v2/ready.json",
+    "acquisition_root": "processing/data_queue_v2",
+    "archived_producers": "legacy/v1/src/tactilelatent"
+  },
+  "mirror": {
+    "enabled": true,
+    "probability": 0.5,
+    "policy": "legacy/v1/configs/bimanual_mirror_policy_v3.json",
+    "preparation": "processing/bimanual_mirror_v4",
+    "sources": [
+      "egotouch",
+      "opengraph",
+      "ftp_unit_bimanual",
+      "ftp_rdp_bimanual",
+      "baihu"
+    ]
+  },
+  "cache_imports": "processing/core_v2_cache_imports_standards_v1"
+}

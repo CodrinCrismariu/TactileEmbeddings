@@ -1,0 +1,17 @@
+[Unit]
+Description=Long paired mirror autoencoder continuation with quality and parity checks
+After=network-online.target tactilelatent-bimanual-mirror-v1.service
+
+[Service]
+Type=oneshot
+TimeoutStartSec=infinity
+RemainAfterExit=yes
+WorkingDirectory=/home/codrincrismariu/Documents/TactileLatent
+ExecStart=/home/codrincrismariu/Documents/TactileLatent/.venv/bin/python -u scripts/train_balanced_mirror_autoencoders.py
+Environment=OMP_NUM_THREADS=4
+Environment=OPENBLAS_NUM_THREADS=1
+Restart=no
+Nice=10
+
+[Install]
+WantedBy=default.target

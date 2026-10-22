@@ -1,7 +1,7 @@
 # Approved download and processing queue
 
 Live status: [processing/data_queue_v2/STATUS.md](../processing/data_queue_v2/STATUS.md).
-Active configuration: [configs/data_queue_active.json](../configs/data_queue_active.json).
+Active configuration: [configs/data_queue_active.json](../legacy/v1/configs/data_queue_active.json).
 The original v2 configuration remains frozen for historical acquisition receipts.
 
 The queue acquires and processes these sources with independent workers. It does not start a new

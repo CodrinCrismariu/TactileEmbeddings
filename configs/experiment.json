@@ -1,0 +1,15 @@
+{
+  "schema": "tactilelatent-experiment-v2",
+  "name": "vjepa32_current_all_sources_core_v2",
+  "model": "model.json",
+  "datasets": "datasets.json",
+  "training": "training.json",
+  "transfer": "transfer.json",
+  "reference": {
+    "config": "legacy/v1/configs/joint_vjepa21_all_sources_32d_mirror_v2.json",
+    "config_sha256": "e496a6511edd7c7815e6e87530c7392fb5e8f92a4fdf5503abcbd2cc8f3c5a21",
+    "model_config_artifact": "processing/joint_acquisitions_mirrored_v2/model_config.json",
+    "model_config_sha256": "e66aad968b5462b535e67d6f91dc5b9c379d49d1c6ea1c285c2e15cc70fe9713",
+    "policy": "New-core runs start fresh unless an explicit verified legacy checkpoint import is requested. Original checkpoint and artifact bytes remain unchanged."
+  }
+}
