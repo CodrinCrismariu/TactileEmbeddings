@@ -1,0 +1,321 @@
+{
+  "schema_version": 1,
+  "version": "bilateral-native-coordinates-v3-user-requested-opengraph",
+  "sources": {
+    "egotouch": {
+      "status": "verified",
+      "kind": "grid",
+      "hand_permutation": [
+        1,
+        0
+      ],
+      "flip_width": true,
+      "evidence": [
+        "processing/upstream/TouchAnything/src/utils/vis_pressure.py"
+      ],
+      "verification": "Official 21x21 left/right physical sensor masks are exact horizontal mirrors."
+    },
+    "opengraph": {
+      "kind": "taxels",
+      "hand_permutation": [
+        1,
+        0
+      ],
+      "channel_permutation": [
+        [
+          3,
+          2,
+          1,
+          0,
+          7,
+          6,
+          5,
+          4,
+          11,
+          10,
+          9,
+          8,
+          15,
+          14,
+          13,
+          12,
+          19,
+          18,
+          17,
+          16,
+          23,
+          22,
+          21,
+          20,
+          27,
+          26,
+          25,
+          24,
+          31,
+          30,
+          29,
+          28,
+          35,
+          34,
+          33,
+          32,
+          39,
+          38,
+          37,
+          36,
+          43,
+          42,
+          41,
+          40,
+          47,
+          46,
+          45,
+          44,
+          51,
+          50,
+          49,
+          48,
+          55,
+          54,
+          53,
+          52,
+          59,
+          58,
+          57,
+          56,
+          63,
+          62,
+          61,
+          60,
+          67,
+          66,
+          65,
+          64,
+          71,
+          70,
+          69,
+          68,
+          75,
+          74,
+          73,
+          72,
+          79,
+          78,
+          77,
+          76
+        ],
+        [
+          3,
+          2,
+          1,
+          0,
+          7,
+          6,
+          5,
+          4,
+          11,
+          10,
+          9,
+          8,
+          15,
+          14,
+          13,
+          12,
+          19,
+          18,
+          17,
+          16,
+          23,
+          22,
+          21,
+          20,
+          27,
+          26,
+          25,
+          24,
+          31,
+          30,
+          29,
+          28,
+          35,
+          34,
+          33,
+          32,
+          39,
+          38,
+          37,
+          36,
+          43,
+          42,
+          41,
+          40,
+          47,
+          46,
+          45,
+          44,
+          51,
+          50,
+          49,
+          48,
+          55,
+          54,
+          53,
+          52,
+          59,
+          58,
+          57,
+          56,
+          63,
+          62,
+          61,
+          60,
+          67,
+          66,
+          65,
+          64,
+          71,
+          70,
+          69,
+          68,
+          75,
+          74,
+          73,
+          72,
+          79,
+          78,
+          77,
+          76
+        ]
+      ],
+      "status": "verified",
+      "verification_basis": "user_requested_display_coordinate_mapping",
+      "hardware_geometry_verified": false,
+      "evidence": [
+        "processing/audits/opengraph_mirror_horizontal_v1/user_mapping_request.json",
+        "datasets/OpenGraphLabs-Research__ego-tactile-manipulation/meta/info.json"
+      ],
+      "verification": "The requested horizontal per-finger grid reflection is explicit and involutive, preserving named fingers. Hardware taxel axes have not been independently calibrated."
+    },
+    "ftp_unit_bimanual": {
+      "status": "verified",
+      "kind": "markers",
+      "surface_permutation": [
+        1,
+        0
+      ],
+      "surface_transforms": [
+        [
+          [
+            -1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            -1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ]
+      ],
+      "evidence": [
+        "processing/audits/gel_mirror_user_review_v2.json"
+      ],
+      "verification_basis": "user_visual_review",
+      "verification": "User confirmed horizontal tactile-coordinate reflection and this surface correspondence in the mirror viewer; signed horizontal displacements reverse."
+    },
+    "ftp_rdp_bimanual": {
+      "status": "verified",
+      "kind": "scalar",
+      "hand_permutation": [
+        1,
+        0
+      ],
+      "evidence": [
+        "src/tactilelatent/joint_all_config.py"
+      ],
+      "verification": "Target keys explicitly identify scalar left/right gripper force; reflection swaps ownership without changing scalar sign or magnitude."
+    },
+    "baihu": {
+      "status": "verified",
+      "kind": "markers",
+      "surface_permutation": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "surface_transforms": [
+        [
+          [
+            -1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            -1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            -1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            -1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ]
+      ],
+      "evidence": [
+        "processing/audits/gel_mirror_user_review_v2.json"
+      ],
+      "verification_basis": "user_visual_review",
+      "verification": "User confirmed horizontal tactile-coordinate reflection and this surface correspondence in the mirror viewer; signed horizontal displacements reverse.",
+      "platforms": [
+        "D-WHEEL",
+        "PIKA",
+        "QINGLOONG"
+      ]
+    }
+  }
+}

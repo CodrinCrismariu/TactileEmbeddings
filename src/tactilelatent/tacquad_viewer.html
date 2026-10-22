@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TactileLatent · TacQuad benchmark</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#10141b;color:#e6edf5}*{box-sizing:border-box}body{margin:0}main{max-width:1440px;margin:auto;padding:26px}[hidden]{display:none!important}
+nav{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}a{color:#91d6e7}nav a{padding:9px 14px;border:1px solid #3c4c63;border-radius:6px;text-decoration:none}nav a.active{background:#25403e;border-color:#56cbb6}
+h1{font-size:25px;margin:0 0 8px}h2{font-size:18px;margin:0 0 14px}p{color:#a8b5c6;line-height:1.5;font-size:14px}label{display:block;font-size:13px;color:#a8b5c6;margin:8px 0 6px}
+.panel{background:#19212d;border:1px solid #2c3849;border-radius:12px;padding:18px;margin-top:18px}.controls{display:grid;grid-template-columns:170px 1fr;gap:14px}.streams{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+select,input,button{background:#101722;border:1px solid #3c4c63;color:#e6edf5;padding:9px;border-radius:6px;font:inherit;max-width:100%}select{width:100%}button{cursor:pointer}input[type=range]{width:100%;accent-color:#56cbb6;padding:0}input[type=number]{width:85px}
+.timeline{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:14px}.timeline label{margin:0}.image{width:100%;height:480px;object-fit:contain;background:#080c11;margin-top:15px}.note{font-size:12px;color:#a8b5c6;overflow-wrap:anywhere}#status{color:#85d9c7}.array{max-height:480px;overflow:auto;background:#080c11;padding:12px;white-space:pre-wrap;font:12px ui-monospace,monospace}
+table{width:100%;border-collapse:collapse;font-size:12px}td,th{padding:6px;border-bottom:1px solid #344052;text-align:left}@media(max-width:850px){.streams,.controls{grid-template-columns:1fr}.image{height:350px}main{padding:12px}}
+</style></head><body><main>
+<nav aria-label="Viewer pages"><a id="sensorLink">Sensor reconstruction</a><a id="mirrorLink">Mirror quality check</a><a id="jointLink">Ego → tactile prediction</a><a class="active" aria-current="page">TacQuad benchmark</a></nav>
+<h1>TacQuad · native tactile benchmark</h1>
+<p>Browse native optical tactile images, released scene-camera images, and Tac3D arrays. Each panel has its own frame selector: these streams have no verified frame-by-frame synchronization. Contact annotations describe intervals or spatial correspondence, not exact temporal matches.</p>
+<section class="panel"><div class="controls"><div><label for="subset">Subset</label><select id="subset"><option value="">All subsets</option><option value="contact_fine.csv">Fine</option><option value="contact_indoor.csv">Indoor</option><option value="contact_outdoor.csv">Outdoor</option></select></div><div><label for="contact">Object / annotated contact</label><select id="contact"></select></div></div>
+<p id="description"></p><p id="intervals" class="note"></p><p id="status" role="status">Loading benchmark…</p></section>
+<div id="streams" class="streams"></div>
+</main><script>
+'use strict';
+const $=id=>document.getElementById(id),base=new URL(location.pathname.replace(/\/tacquad\/?$/,'/'),location.origin),api=path=>new URL('api/tacquad/'+path,base).href;
+for(const [id,page] of [['sensorLink','sensor'],['mirrorLink','mirror'],['jointLink','joint']])$(id).href=new URL('?page='+page,base).href;
+let contacts=[],streams=[],contactRevision=0;
+const panels=[];
+const label=id=>({'gelsight':'GelSight Mini · tactile','digit':'DIGIT · tactile','duragel':'DuraGel · tactile','duragel_no':'duragel_no · released image stream','img_gelsight':'GelSight scene-camera stream','img_digit':'DIGIT scene-camera stream','img_duragel':'DuraGel scene-camera stream','img_tac3d':'Tac3D scene-camera stream','test_tac3d':'test_tac3d · released preview'}[id]||id+' · native array');
+async function read(url,signal){const r=await fetch(url,{signal}),data=await r.json();if(!r.ok)throw Error(data.error||r.statusText);return data;}
+function element(tag,text){const e=document.createElement(tag);if(text!=null)e.textContent=text;return e;}
+function makePanel(index){
+ const root=element('section');root.className='panel';const title=element('h2','Independent stream '+(index+1)),l=element('label','Released stream'),select=element('select');select.id='stream'+index;l.htmlFor=select.id;
+ const timeline=element('div');timeline.className='timeline';const play=element('button','▶ Play'),previous=element('button','←'),next=element('button','→'),frameLabel=element('label','Frame index'),input=element('input');input.id='index'+index;input.type='number';input.min=0;input.step=1;frameLabel.htmlFor=input.id;const position=element('span');timeline.append(play,previous,next,frameLabel,input,position);
+ const slider=element('input');slider.id='slider'+index;slider.type='range';slider.min=0;slider.step=1;slider.setAttribute('aria-label','Independent stream '+(index+1)+' frame');
+ const image=element('img');image.className='image';image.alt='Native released TacQuad stream';image.hidden=true;const array=element('div');array.className='array';array.hidden=true;
+ const modeLabel=element('label','Optical zero reference'),mode=element('select');mode.id='referenceMode'+index;modeLabel.htmlFor=mode.id;mode.append(new Option('Unchanged native image','native'),new Option('Difference from fixed sensor background · all episodes','difference'));
+ const note=element('p');note.className='note';const download=element('a','Download unchanged native frame');download.download='';download.hidden=true;
+ root.append(title,l,select,modeLabel,mode,timeline,slider,image,array,note,download);$('streams').append(root);
+ const panel={select,input,slider,image,array,note,position,download,play,mode,index:0,revision:0,playing:false,abort:null,objectUrl:null};panels.push(panel);
+ const pause=()=>{panel.playing=false;play.textContent='▶ Play';};panel.pause=pause;
+ const seek=value=>{pause();panel.index=Math.max(0,Math.min(Number(slider.max),Math.round(Number(value)||0)));clearTimeout(panel.debounce);panel.debounce=setTimeout(()=>draw(panel),70);};
+ input.oninput=()=>seek(input.value);slider.oninput=()=>seek(slider.value);previous.onclick=()=>seek(panel.index-1);next.onclick=()=>seek(panel.index+1);
+ select.onchange=()=>{pause();panel.index=0;draw(panel);};play.onclick=()=>{if(panel.playing){pause();return;}if(panel.index>=Number(slider.max))panel.index=0;panel.playing=true;play.textContent='Ⅱ Pause';draw(panel);};
+ mode.onchange=()=>{pause();draw(panel);};
+ return panel;
+}
+async function draw(panel){
+ const token=++panel.revision,contact=$('contact').value,stream=streams.find(s=>s.id===panel.select.value);if(panel.abort)panel.abort.abort();panel.abort=new AbortController();if(!stream)return;
+ panel.slider.max=panel.input.max=stream.frames-1;panel.input.value=panel.slider.value=panel.index;panel.position.textContent='/ '+(stream.frames-1);panel.note.textContent='Loading '+stream.frame_names[panel.index]+'…';panel.download.hidden=true;
+ const params=new URLSearchParams({contact,stream:stream.id,index:panel.index}),member=api('member?'+params);
+ const optical=['gelsight','digit','duragel'].includes(stream.id),difference=optical&&panel.mode.value==='difference';panel.mode.disabled=!optical;
+ try{
+  if(stream.kind==='array'){
+   const data=await read(api('array?'+params),panel.abort.signal);if(token!==panel.revision)return;panel.image.hidden=true;panel.array.hidden=false;panel.array.replaceChildren();
+   const table=element('table'),head=table.insertRow();head.append(element('th','Flat native index'),element('th','Value'));data.values.slice(0,2000).forEach((v,i)=>{const row=table.insertRow();row.insertCell().textContent=i;row.insertCell().textContent=v==null?'Missing':String(v);});panel.array.append(table);
+   panel.note.textContent=stream.frame_names[panel.index]+' · native shape '+data.shape.join(' × ')+' · '+data.dtype+' · '+data.normalization+(stream.id==='tac3d/pos'?' · absolute marker geometry; numeric zero does not mean no contact':' · nominal numeric zero retained; no independent unloaded Tac3D calibration is available')+(data.values.length>2000?' · showing first 2,000 values; native download contains all values':'');
+  }else{
+   const reference=difference?await read(api('reference?'+params),panel.abort.signal):null;if(token!==panel.revision)return;
+   const response=await fetch(difference?api('residual?'+params):member,{signal:panel.abort.signal});if(!response.ok)throw Error((await response.json()).error);const blob=await response.blob();if(token!==panel.revision)return;
+   const url=URL.createObjectURL(blob),image=new Image();await new Promise((resolve,reject)=>{image.onload=resolve;image.onerror=()=>reject(Error('Native image cannot be displayed'));image.src=url;});if(token!==panel.revision){URL.revokeObjectURL(url);return;}
+   if(panel.objectUrl)URL.revokeObjectURL(panel.objectUrl);panel.objectUrl=url;panel.image.src=url;panel.image.hidden=false;panel.array.hidden=true;
+   panel.note.textContent=stream.frame_names[panel.index]+' · native '+image.naturalWidth+' × '+image.naturalHeight+(reference?' · '+reference.status+' · mean |RGB − fixed background| '+reference.mean_absolute_difference.toFixed(3)+' counts · black = no difference, orange = change; fixed scale 0–'+reference.display_difference_max+' RGB counts. '+reference.explanation:' · unchanged released pixels; optical no-contact is a neutral texture, not a black image');
+  }
+  panel.download.href=member;panel.download.download=stream.frame_names[panel.index];panel.download.hidden=false;
+  if(panel.playing)setTimeout(()=>{if(panel.playing&&token===panel.revision){if(panel.index<stream.frames-1){panel.index++;draw(panel);}else panel.pause();}},1000/15);
+ }catch(error){if(error.name==='AbortError'||token!==panel.revision)return;panel.image.hidden=true;panel.array.hidden=true;panel.note.textContent=error.message;panel.pause();}
+}
+async function chooseContact(){
+ const token=++contactRevision;for(const panel of panels){panel.pause();++panel.revision;if(panel.abort)panel.abort.abort();panel.image.hidden=true;panel.array.hidden=true;panel.download.hidden=true;panel.note.textContent='Loading stream list…';}
+ $('status').textContent='Loading native streams…';
+ try{
+  const data=await read(api('streams?'+new URLSearchParams({contact:$('contact').value})));if(token!==contactRevision)return;streams=data.streams;$('description').textContent=data.description;
+  $('intervals').textContent=Object.entries(data.intervals).map(([sensor,range])=>label(sensor)+': '+(range?range[0]+'–'+range[1]+' (inclusive, annotation indices)':'unavailable')).join(' · ');
+  panels.forEach((panel,i)=>{const old=panel.select.value;panel.select.replaceChildren(...streams.map(s=>new Option(label(s.id)+' · '+s.frames+' frames',s.id)));const preferred=i===0?'gelsight':'img_gelsight';panel.select.value=streams.some(s=>s.id===old)?old:streams.some(s=>s.id===preferred)?preferred:streams[Math.min(i,streams.length-1)]?.id||'';panel.index=0;draw(panel);});
+  $('status').textContent=streams.length+' native streams · selectors are independent · no trained reconstruction model';
+ }catch(error){if(token===contactRevision)$('status').textContent=error.message;}
+}
+function filter(){const old=$('contact').value,visible=contacts.filter(c=>!$('subset').value||c.csv_member===$('subset').value);$('contact').replaceChildren(...visible.map(c=>new Option(c.folder+' · '+c.alignment_level+' · annotation '+c.row,c.id)));if(visible.some(c=>String(c.id)===old))$('contact').value=old;if(visible.length)chooseContact();}
+makePanel(0);makePanel(1);$('contact').onchange=chooseContact;$('subset').onchange=filter;
+read(api('catalog')).then(data=>{if(!data.available)throw Error('TacQuad has not finished downloading');contacts=data.contacts;filter();}).catch(error=>{$('status').textContent=error.message;});
+</script></body></html>

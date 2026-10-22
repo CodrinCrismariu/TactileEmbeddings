@@ -1,0 +1,565 @@
+{
+  "common": {
+    "manifest": "processing/joint_all/manifest.json",
+    "cache": "processing/sensor_ae_cache_native_v2",
+    "batch_size": 128,
+    "weight_decay": 0.0001,
+    "mae_weight": 0.5,
+    "contact_weight": 3.0,
+    "frame_stride": 2,
+    "max_train_frames": 100000,
+    "max_val_frames": 0,
+    "workers": 2,
+    "seed": 45,
+    "device": "cuda"
+  },
+  "screen_epochs": 30,
+  "final_epochs": 100,
+  "bootstrap_epochs": 3,
+  "repeat_seeds": [
+    46,
+    47
+  ],
+  "sources": {
+    "opengraph": {
+      "target_kind": "taxel_vector",
+      "target_shape": [
+        2,
+        1,
+        80
+      ],
+      "trials": [
+        {
+          "name": "compact64_code8",
+          "architecture": "mlp",
+          "sensor_code_dim": 8,
+          "hidden_dims": [
+            64
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "compact64_code16",
+          "architecture": "mlp",
+          "sensor_code_dim": 16,
+          "hidden_dims": [
+            64
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "compact128_code8",
+          "architecture": "mlp",
+          "sensor_code_dim": 8,
+          "hidden_dims": [
+            128
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "compact128_code16",
+          "architecture": "mlp",
+          "sensor_code_dim": 16,
+          "hidden_dims": [
+            128
+          ],
+          "learning_rate": 0.0001
+        }
+      ],
+      "bootstrap": "compact128_code16"
+    },
+    "egotactile": {
+      "target_kind": "taxel_vector",
+      "target_shape": [
+        1,
+        1,
+        256
+      ],
+      "trials": [
+        {
+          "name": "small_code16",
+          "architecture": "mlp",
+          "sensor_code_dim": 16,
+          "hidden_dims": [
+            128
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "small_code32",
+          "architecture": "mlp",
+          "sensor_code_dim": 32,
+          "hidden_dims": [
+            128
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "medium_code16",
+          "architecture": "mlp",
+          "sensor_code_dim": 16,
+          "hidden_dims": [
+            256,
+            128
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "medium_code32",
+          "architecture": "mlp",
+          "sensor_code_dim": 32,
+          "hidden_dims": [
+            256,
+            128
+          ],
+          "learning_rate": 0.0001
+        }
+      ],
+      "bootstrap": "medium_code32"
+    },
+    "opentouch": {
+      "target_kind": "pressure_grid",
+      "target_shape": [
+        1,
+        16,
+        16
+      ],
+      "trials": [
+        {
+          "name": "medium_code16",
+          "architecture": "conv",
+          "sensor_code_dim": 16,
+          "channels": [
+            32,
+            64
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "medium_code32",
+          "architecture": "conv",
+          "sensor_code_dim": 32,
+          "channels": [
+            32,
+            64
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "large_code16",
+          "architecture": "conv",
+          "sensor_code_dim": 16,
+          "channels": [
+            64,
+            128
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "large_code32",
+          "architecture": "conv",
+          "sensor_code_dim": 32,
+          "channels": [
+            64,
+            128
+          ],
+          "learning_rate": 0.0001
+        }
+      ],
+      "bootstrap": "medium_code32"
+    },
+    "ftp_vla_touch": {
+      "target_kind": "optical_rgb",
+      "target_shape": [
+        3,
+        240,
+        320
+      ],
+      "trials": [
+        {
+          "name": "medium_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "medium_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "large_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "large_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        }
+      ],
+      "bootstrap": "medium_code128"
+    },
+    "ftp_unit": {
+      "target_kind": "optical_rgb",
+      "target_shape": [
+        3,
+        240,
+        320
+      ],
+      "trials": [
+        {
+          "name": "medium_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "medium_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "large_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "large_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        }
+      ],
+      "bootstrap": "medium_code128"
+    },
+    "ftp_unit_bimanual": {
+      "target_kind": "optical_rgb",
+      "target_shape": [
+        6,
+        240,
+        320
+      ],
+      "trials": [
+        {
+          "name": "medium_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "medium_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "large_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "large_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        }
+      ],
+      "bootstrap": "medium_code128"
+    },
+    "ftp_vitamin": {
+      "target_kind": "optical_rgb",
+      "target_shape": [
+        6,
+        224,
+        224
+      ],
+      "trials": [
+        {
+          "name": "medium_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "medium_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "large_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "large_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        }
+      ],
+      "bootstrap": "medium_code128"
+    },
+    "freetacman": {
+      "target_kind": "optical_rgb",
+      "target_shape": [
+        6,
+        480,
+        640
+      ],
+      "trials": [
+        {
+          "name": "medium_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 4,
+          "manifest": "processing/joint_all/manifest_sensor_roles_corrected_v2.json"
+        },
+        {
+          "name": "medium_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 4,
+          "manifest": "processing/joint_all/manifest_sensor_roles_corrected_v2.json"
+        },
+        {
+          "name": "large_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 4,
+          "manifest": "processing/joint_all/manifest_sensor_roles_corrected_v2.json"
+        },
+        {
+          "name": "large_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 4,
+          "manifest": "processing/joint_all/manifest_sensor_roles_corrected_v2.json"
+        }
+      ],
+      "bootstrap": "medium_code128"
+    }
+  },
+  "egotouch": "Reuse preserved v4 and initial grid checkpoints",
+  "description": "Four decoder candidates for each of eight image/pressure/glove datasets. Scalar force, bilateral force and six-channel torque excluded from autoencoder pretraining by user request.",
+  "selection_rationale": {
+    "egotouch_evidence": "Matched first60-epoch sigmoid comparisons favor width and larger codes for detailed pressure outputs: wide64/code256 MAE .006845; same width/code128 .008249; code64 .012311; deep/code256 .012190. This guides image capacity, not scalar sensor code size.",
+    "numeric_outputs": "Scalar force, bilateral force and six torque channels use direct prediction heads in future joint training and are excluded from this autoencoder plan.",
+    "pressure_vectors": "Use code8/16 for 160 OpenGraph taxels, and code16/32 for 256 EgoTactile taxels or 16x16 OpenTouch grids. No physical grid is invented for stored-index vectors.",
+    "optical_outputs": "Medium/large five-stage convolutional networks, code128/256, native pixels unchanged.",
+    "preservation": "All old checkpoints stay available; only the four configured candidates participate in promotion. Data splits, preprocessing, per-trial optimization, 30/100 epochs and seed repetitions remain unchanged."
+  },
+  "excluded_autoencoder_sources": {
+    "ftp_motiontrans": "Direct numeric prediction; no sensor reconstruction autoencoder.",
+    "ftp_rdp": "Direct numeric prediction; no sensor reconstruction autoencoder.",
+    "ftp_rdp_bimanual": "Direct numeric prediction; no sensor reconstruction autoencoder."
+  }
+}

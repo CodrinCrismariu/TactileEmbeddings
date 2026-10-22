@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "version": "bilateral-native-coordinates-v2-user-reviewed-gel",
+  "sources": {
+    "egotouch": {
+      "status": "verified",
+      "kind": "grid",
+      "hand_permutation": [
+        1,
+        0
+      ],
+      "flip_width": true,
+      "evidence": [
+        "processing/upstream/TouchAnything/src/utils/vis_pressure.py"
+      ],
+      "verification": "Official 21x21 left/right physical sensor masks are exact horizontal mirrors."
+    },
+    "opengraph": {
+      "status": "blocked",
+      "kind": "taxels",
+      "hand_permutation": [
+        1,
+        0
+      ],
+      "reason": "Left/right finger and r/c channel labels match, but physical within-finger column orientation under reflection is not documented in the available release. Do not assume an identity or reversed channel map.",
+      "evidence": [
+        "datasets/OpenGraphLabs-Research__ego-tactile-manipulation/meta/info.json",
+        "datasets/OpenGraphLabs-Research__ego-tactile-manipulation/README.md"
+      ]
+    },
+    "ftp_unit_bimanual": {
+      "status": "verified",
+      "kind": "markers",
+      "surface_permutation": [
+        1,
+        0
+      ],
+      "surface_transforms": [
+        [
+          [
+            -1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            -1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ]
+      ],
+      "evidence": [
+        "processing/audits/gel_mirror_user_review_v2.json"
+      ],
+      "verification_basis": "user_visual_review",
+      "verification": "User confirmed horizontal tactile-coordinate reflection and this surface correspondence in the mirror viewer; signed horizontal displacements reverse."
+    },
+    "ftp_rdp_bimanual": {
+      "status": "verified",
+      "kind": "scalar",
+      "hand_permutation": [
+        1,
+        0
+      ],
+      "evidence": [
+        "src/tactilelatent/joint_all_config.py"
+      ],
+      "verification": "Target keys explicitly identify scalar left/right gripper force; reflection swaps ownership without changing scalar sign or magnitude."
+    },
+    "baihu": {
+      "status": "verified",
+      "kind": "markers",
+      "surface_permutation": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "surface_transforms": [
+        [
+          [
+            -1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            -1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            -1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            -1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ]
+      ],
+      "evidence": [
+        "processing/audits/gel_mirror_user_review_v2.json"
+      ],
+      "verification_basis": "user_visual_review",
+      "verification": "User confirmed horizontal tactile-coordinate reflection and this surface correspondence in the mirror viewer; signed horizontal displacements reverse.",
+      "platforms": [
+        "D-WHEEL",
+        "PIKA",
+        "QINGLOONG"
+      ]
+    }
+  }
+}

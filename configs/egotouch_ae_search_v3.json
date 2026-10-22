@@ -1,0 +1,261 @@
+{
+  "description": "Single clipped pressure output; independently tuned sensor codes; no zero classifier.",
+  "screen_epochs": 60,
+  "final_epochs": 200,
+  "finalists_per_code": 2,
+  "repeat_top": 2,
+  "repeat_seeds": [
+    46,
+    47
+  ],
+  "common": {
+    "architecture": "conv",
+    "size": "medium",
+    "output_mode": "clamp",
+    "batch_size": 128,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "frame_stride": 2,
+    "max_train_frames": 200000,
+    "max_val_frames": 0,
+    "contact_weight": 3.0,
+    "mae_weight": 0.5,
+    "loss_threshold": 0.1,
+    "evaluation_threshold": 0.05,
+    "selection_metric": "balanced_mae",
+    "scheduler": "plateau",
+    "lr_patience": 8,
+    "lr_factor": 0.5,
+    "min_learning_rate": 1e-06,
+    "workers": 2,
+    "seed": 45,
+    "device": "cuda"
+  },
+  "trials": [
+    {
+      "name": "medium_code64",
+      "sensor_code_dim": 64,
+      "channels": [
+        32,
+        64
+      ]
+    },
+    {
+      "name": "medium_code128",
+      "sensor_code_dim": 128,
+      "channels": [
+        32,
+        64
+      ]
+    },
+    {
+      "name": "medium_code256",
+      "sensor_code_dim": 256,
+      "channels": [
+        32,
+        64
+      ]
+    },
+    {
+      "name": "wide48_code64",
+      "sensor_code_dim": 64,
+      "channels": [
+        48,
+        96
+      ]
+    },
+    {
+      "name": "wide48_code128",
+      "sensor_code_dim": 128,
+      "channels": [
+        48,
+        96
+      ]
+    },
+    {
+      "name": "wide48_code256",
+      "sensor_code_dim": 256,
+      "channels": [
+        48,
+        96
+      ]
+    },
+    {
+      "name": "wide64_code64",
+      "sensor_code_dim": 64,
+      "channels": [
+        64,
+        128
+      ]
+    },
+    {
+      "name": "wide64_code128",
+      "sensor_code_dim": 128,
+      "channels": [
+        64,
+        128
+      ]
+    },
+    {
+      "name": "wide64_code256",
+      "sensor_code_dim": 256,
+      "channels": [
+        64,
+        128
+      ]
+    },
+    {
+      "name": "deep_code64",
+      "sensor_code_dim": 64,
+      "channels": [
+        32,
+        64,
+        128
+      ]
+    },
+    {
+      "name": "deep_code128",
+      "sensor_code_dim": 128,
+      "channels": [
+        32,
+        64,
+        128
+      ]
+    },
+    {
+      "name": "deep_code256",
+      "sensor_code_dim": 256,
+      "channels": [
+        32,
+        64,
+        128
+      ]
+    },
+    {
+      "name": "lr3e5_code128",
+      "sensor_code_dim": 128,
+      "channels": [
+        32,
+        64
+      ],
+      "learning_rate": 3e-05
+    },
+    {
+      "name": "lr5e5_code128",
+      "sensor_code_dim": 128,
+      "channels": [
+        32,
+        64
+      ],
+      "learning_rate": 5e-05
+    },
+    {
+      "name": "lr2e4_code128",
+      "sensor_code_dim": 128,
+      "channels": [
+        32,
+        64
+      ],
+      "learning_rate": 0.0002
+    },
+    {
+      "name": "lr3e4_code128",
+      "sensor_code_dim": 128,
+      "channels": [
+        32,
+        64
+      ],
+      "learning_rate": 0.0003
+    },
+    {
+      "name": "batch64_code128",
+      "sensor_code_dim": 128,
+      "channels": [
+        32,
+        64
+      ],
+      "batch_size": 64
+    },
+    {
+      "name": "batch256_code128",
+      "sensor_code_dim": 128,
+      "channels": [
+        32,
+        64
+      ],
+      "batch_size": 256
+    },
+    {
+      "name": "wd0_code128",
+      "sensor_code_dim": 128,
+      "channels": [
+        32,
+        64
+      ],
+      "weight_decay": 0.0
+    },
+    {
+      "name": "wd1e3_code128",
+      "sensor_code_dim": 128,
+      "channels": [
+        32,
+        64
+      ],
+      "weight_decay": 0.001
+    },
+    {
+      "name": "contact1_code128",
+      "sensor_code_dim": 128,
+      "channels": [
+        32,
+        64
+      ],
+      "contact_weight": 1.0
+    },
+    {
+      "name": "contact5_code128",
+      "sensor_code_dim": 128,
+      "channels": [
+        32,
+        64
+      ],
+      "contact_weight": 5.0
+    },
+    {
+      "name": "mae025_code128",
+      "sensor_code_dim": 128,
+      "channels": [
+        32,
+        64
+      ],
+      "mae_weight": 0.25
+    },
+    {
+      "name": "mae100_code128",
+      "sensor_code_dim": 128,
+      "channels": [
+        32,
+        64
+      ],
+      "mae_weight": 1.0
+    },
+    {
+      "name": "sigmoid_control_code64",
+      "sensor_code_dim": 64,
+      "channels": [
+        32,
+        64
+      ],
+      "output_mode": "sigmoid"
+    },
+    {
+      "name": "sigmoid_control_code128",
+      "sensor_code_dim": 128,
+      "channels": [
+        32,
+        64
+      ],
+      "output_mode": "sigmoid"
+    }
+  ]
+}

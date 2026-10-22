@@ -1,0 +1,73 @@
+{
+  "output": "processing/runs/joint_vjepa21_spatial_storage_32d_v1",
+  "manifest": "processing/storage_v1/manifest.json",
+  "audit": "processing/storage_v1/audit.json",
+  "teachers": "processing/storage_v1/teachers.json",
+  "heldout_source": "ftp_motiontrans",
+  "backbone_repo": "processing/upstream/vjepa2",
+  "backbone_checkpoint": "processing/vjepa2_1/vjepa2_1_vitb_dist_vitG_384.pt",
+  "rgb_size": 384,
+  "video_chunk_size": 2,
+  "seed": 45,
+  "epochs": 30,
+  "latent_dim": 32,
+  "adapter_hidden_dims": [
+    128,
+    128
+  ],
+  "batch_size": 2,
+  "accumulation": 16,
+  "workers": 4,
+  "train_windows_per_source_per_epoch": 8000,
+  "validation_windows_per_source": 64,
+  "learning_rate": 0.0003,
+  "min_learning_rate": 1e-06,
+  "weight_decay": 0.05,
+  "warmup_epochs": 2,
+  "optimizer_method": "sam_adamw",
+  "sam_rho": 0.05,
+  "wrist_dropout": 0.3,
+  "beta_max": 0.0,
+  "beta_warmup_epochs": 10,
+  "save_viewer_epochs": true,
+  "log_every": 25,
+  "normalization": "processing/storage_v1/normalization.json",
+  "model_type": "joint_vjepa21_spatial_marker_codes_v1",
+  "dataset_family": "joint_all",
+  "latent_mode": "deterministic",
+  "latent_objective": "deterministic",
+  "stochastic": false,
+  "teacher_chunk_frames": 1,
+  "attention": {
+    "width": 256,
+    "heads": 4,
+    "layers": 2,
+    "feedforward": 1024,
+    "dropout": 0.1,
+    "grid_size": 24
+  },
+  "marker_targets": "processing/marker_displacement_storage_v1/targets",
+  "marker_hidden": 128,
+  "marker_target_shapes": {
+    "ftp_unit": [
+      3,
+      240,
+      320
+    ],
+    "ftp_unit_bimanual": [
+      6,
+      240,
+      320
+    ],
+    "ftp_vla_touch": [
+      3,
+      240,
+      320
+    ]
+  },
+  "marker_teachers": "processing/storage_v1/marker_teachers.json",
+  "code_cache": "processing/sensor_code_cache_storage_v1",
+  "excluded_sources": [
+    "freetacman"
+  ]
+}

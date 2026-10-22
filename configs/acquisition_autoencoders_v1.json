@@ -1,0 +1,15 @@
+{
+  "version": "native-numeric-ae-v1",
+  "output": "processing/acquisition_teachers_v1",
+  "seed": 45,
+  "epochs": 30,
+  "learning_rate": 0.001,
+  "minimum_learning_rate": 0.00001,
+  "weight_decay": 0.0001,
+  "nonzero_weight": 3.0,
+  "jobs": [
+    {"id": "feel_kitchen", "source": "feel", "acquisition": "feel", "environment": "Kitchen", "input_dim": 12, "latent_dim": 6, "hidden_dims": [64, 32], "batch_size": 2048},
+    {"id": "hrdexdb_inspire_f1", "source": "hrdexdb_inspire_f1", "acquisition": "hrdexdb", "embodiment": "inspire_f1", "input_dim": 24, "latent_dim": 12, "hidden_dims": [96, 48], "batch_size": 256},
+    {"id": "trex", "source": "trex", "acquisition": "trex", "input_dim": 60, "latent_dim": 16, "hidden_dims": [128, 64], "batch_size": 4096}
+  ]
+}

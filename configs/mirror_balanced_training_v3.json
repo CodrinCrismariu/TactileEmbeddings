@@ -1,0 +1,19 @@
+{
+  "output": "processing/bimanual_mirror_v3",
+  "policy": "configs/bimanual_mirror_policy_v2.json",
+  "sources": ["baihu", "egotouch", "ftp_unit_bimanual"],
+  "seed": 45,
+  "epochs": 100,
+  "min_epochs": 20,
+  "patience": 10,
+  "min_delta": 0.0001,
+  "train_frames": 100000,
+  "val_frames": 10000,
+  "resample_every": 5,
+  "batch_size": 128,
+  "learning_rate": 0.00005,
+  "min_learning_rate": 0.000001,
+  "weight_decay": 0.0001,
+  "worse_weight": 0.25,
+  "parity_gap": 0.1
+}

@@ -1,0 +1,19 @@
+{
+  "manifest": "processing/joint_alignment/manifest.json",
+  "marker_targets": "processing/marker_displacement_v2/targets",
+  "output": "processing/runs/marker_autoencoders_freetacman_available_32d_v1",
+  "sources": {"freetacman": [32]},
+  "seed": 45,
+  "screen_epochs": 100,
+  "final_epochs": 100,
+  "batch_size": 128,
+  "width": 128,
+  "queries": 8,
+  "frame_stride": 2,
+  "max_train_frames": 100000,
+  "learning_rate": 0.001,
+  "min_learning_rate": 0.00001,
+  "weight_decay": 0.0001,
+  "snapshot_from": "processing/runs/marker_autoencoders_freetacman_available_v1",
+  "publish_parent": false
+}

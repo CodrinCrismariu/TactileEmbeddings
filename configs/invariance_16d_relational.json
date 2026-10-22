@@ -1,0 +1,79 @@
+{
+  "model_type": "joint_sensor_alignment_v1",
+  "dataset_family": "joint_all",
+  "latent_objective": "vae",
+  "manifest": "processing/joint_alignment/manifest.json",
+  "audit": "processing/joint_alignment/audit.json",
+  "teachers": "processing/joint_alignment/teachers.json",
+  "code_cache": "processing/sensor_code_cache_v1",
+  "output": "processing/runs/invariance_16d_v1/relational",
+  "heldout_source": "ftp_motiontrans",
+  "init_checkpoint": "processing/runs/joint_16d_pair_v1/no_fgw/viewer_epochs/epoch_010.pt",
+  "seed": 45,
+  "epochs": 20,
+  "batch_size": 2,
+  "accumulation": 16,
+  "workers": 4,
+  "train_windows_per_source_per_epoch": 8000,
+  "validation_windows_per_source": 64,
+  "learning_rate": 5e-05,
+  "min_learning_rate": 1e-06,
+  "weight_decay": 0.05,
+  "warmup_epochs": 2,
+  "width": 768,
+  "heads": 8,
+  "temporal_layers": 3,
+  "cross_view_layers": 2,
+  "latent_dim": 16,
+  "adapter_hidden_dims": [
+    128,
+    128
+  ],
+  "dropout": 0.1,
+  "stochastic": true,
+  "beta_max": 0.001,
+  "beta_warmup_epochs": 10,
+  "wrist_dropout": 0.3,
+  "optimizer_method": "sam_adamw",
+  "sam_rho": 0.05,
+  "log_every": 100,
+  "checkpoint_every": 10,
+  "save_viewer_epochs": true,
+  "matched_bank_sampling": {
+    "bank_size": 256,
+    "fraction": 0.25
+  },
+  "preserve_refresh_rng": true,
+  "log_initial_weight_hash": true,
+  "parent_sha256": "59ea77c9acd5d632b741364c239e021ffd87176cfb5924372ca7c8434190f214",
+  "parent_epochs": 10,
+  "relational_floors": "processing/invariance/relational_floors.json",
+  "relational": {
+    "weight": 0.1,
+    "ramp_epochs": 2
+  },
+  "trajectory": {
+    "weight": 0.0,
+    "ramp_epochs": 2,
+    "clips_per_source": 32,
+    "candidates": 4,
+    "epsilon": 0.05,
+    "max_cost": 0.25,
+    "max_entropy": 0.98
+  },
+  "meta": {
+    "enabled": false,
+    "weight": 0.1,
+    "support_episodes": 4,
+    "query_episodes": 4,
+    "inner_steps": 5,
+    "inner_lr": 0.01,
+    "every_updates": 16,
+    "hidden_dims": [
+      512
+    ],
+    "sample_latent": true,
+    "group_field": null
+  },
+  "floor_scale": 1.0
+}

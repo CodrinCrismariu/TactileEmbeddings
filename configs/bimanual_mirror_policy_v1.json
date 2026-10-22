@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "version": "bilateral-native-coordinates-v1",
+  "sources": {
+    "egotouch": {
+      "status": "verified",
+      "kind": "grid",
+      "hand_permutation": [1, 0],
+      "flip_width": true,
+      "evidence": ["processing/upstream/TouchAnything/src/utils/vis_pressure.py"],
+      "verification": "Official 21x21 left/right physical sensor masks are exact horizontal mirrors."
+    },
+    "opengraph": {
+      "status": "blocked",
+      "kind": "taxels",
+      "hand_permutation": [1, 0],
+      "reason": "Left/right finger and r/c channel labels match, but physical within-finger column orientation under reflection is not documented in the available release. Do not assume an identity or reversed channel map.",
+      "evidence": ["datasets/OpenGraphLabs-Research__ego-tactile-manipulation/meta/info.json", "datasets/OpenGraphLabs-Research__ego-tactile-manipulation/README.md"]
+    },
+    "ftp_unit_bimanual": {
+      "status": "blocked",
+      "kind": "markers",
+      "reason": "Left/right tactile ownership is known, but local tactile-camera mounting/reflection axes are not verified. Signed marker vectors must not inherit a guessed horizontal flip.",
+      "evidence": ["src/tactilelatent/prepare_joint.py", "processing/audits/ftp_unit_bimanual_schema.json"]
+    },
+    "ftp_rdp_bimanual": {
+      "status": "verified",
+      "kind": "scalar",
+      "hand_permutation": [1, 0],
+      "evidence": ["src/tactilelatent/joint_all_config.py"],
+      "verification": "Target keys explicitly identify scalar left/right gripper force; reflection swaps ownership without changing scalar sign or magnitude."
+    },
+    "baihu": {
+      "status": "blocked",
+      "kind": "markers",
+      "reason": "Four tactile stream identities are known, but within-gripper reflection correspondence and sensor-image axes need verification for each platform. A completed production teacher is also required before promotion.",
+      "evidence": ["datasets/yxma__tactile-video-pretrain-nc/README.md"]
+    }
+  }
+}

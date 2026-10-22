@@ -1,0 +1,276 @@
+{
+  "default": {
+    "scene": 3,
+    "surface1": 1,
+    "surface2": 2
+  },
+  "overrides": {
+    "SprinkleSesame/SprinkleSesame_1": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_10": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_11": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_12": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_13": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_14": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_15": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_16": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_17": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_18": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_19": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_2": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_20": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_21": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_22": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_23": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_24": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_25": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_26": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_27": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_28": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_29": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_3": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_30": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_31": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_32": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_33": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_34": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_35": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_36": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_37": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_38": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_39": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_4": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_40": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_41": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_42": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_43": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_44": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_45": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_46": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_47": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_48": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_49": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_5": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_50": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_51": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_52": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_53": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_6": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_7": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_8": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    },
+    "SprinkleSesame/SprinkleSesame_9": {
+      "scene": 1,
+      "surface1": 3,
+      "surface2": 2
+    }
+  },
+  "audit": "processing/audits/freetacman_camera_roles/all_episode_roles.json",
+  "note": "5625 episode first frames audited; 3 ambiguous cases checked at first/middle/last. 53 swaps visually confirmed."
+}

@@ -1,0 +1,103 @@
+{
+  "version": 4,
+  "seed": 45,
+  "max_parallel_jobs": 5,
+  "poll_seconds": 5,
+  "retry_initial_seconds": 60,
+  "retry_max_seconds": 900,
+  "storage_retry_seconds": 300,
+  "project_cap_bytes": 700000000000,
+  "experiment_reserve_bytes": 30000000000,
+  "physical_reserve_bytes": 107374182400,
+  "staging_limit_bytes": 65000000000,
+  "rgb": {
+    "size": 384,
+    "codec": "h264",
+    "crf": 18,
+    "preserve_every_frame": true,
+    "default_pixel_format": "yuv420p",
+    "fidelity_fallback_pixel_format": "yuv444p",
+    "max_sample_rgb_mae_255": 8.0
+  },
+  "excluded_sources": [
+    "ftp_motiontrans",
+    "freetacman"
+  ],
+  "launch_joint_training": false,
+  "jobs": [
+    {
+      "id": "trex",
+      "repo": "zekaiwang/trex_dataset",
+      "revision": "8b478400a9167d59ede0fdbfea616cb5e9791885",
+      "budget_bytes": 100000000000,
+      "scope": "full_selected_release",
+      "camera_keys": [
+        "head_left",
+        "left_wrist",
+        "right_wrist"
+      ],
+      "target": "observation.tactile_force",
+      "target_dim": 60,
+      "target_units": "released sensor-derived fingertip wrench estimates",
+      "exclude_tactile_videos": true,
+      "processing": [
+        "verify_pinned_downloads",
+        "native_numeric_targets",
+        "compress_scene_rgb",
+        "validate_episode_frame_offsets",
+        "episode_disjoint_split",
+        "training_manifest"
+      ]
+    },
+    {
+      "id": "feel",
+      "repo": "edessa/feel",
+      "revision": "0f8179649b50afcfd684c87784c67787871db361",
+      "budget_bytes": 12000000000,
+      "scope": "full_available_aligned_release",
+      "reuse_p12": true,
+      "processing": [
+        "inventory_final_aligned_csvs",
+        "preserve_nan_masks",
+        "compress_scene_rgb",
+        "validate_explicit_frame_ids",
+        "participant_disjoint_split",
+        "signal_quality_report",
+        "training_manifest"
+      ]
+    },
+    {
+      "id": "hrdexdb",
+      "repo": "HRDexDB/HRDexDB",
+      "revision": "98b8f8ea2e361a3c7df38b5d8f3f8395913773f2",
+      "budget_bytes": 18000000000,
+      "scope": "pilot",
+      "max_per_embodiment": 50,
+      "embodiments": [
+        "allegro_v5",
+        "inspire_f1",
+        "inspire_dftp"
+      ],
+      "max_scene_cameras": 1,
+      "processing": [
+        "object_balanced_selection",
+        "native_tactile_schema_audit",
+        "timestamp_alignment",
+        "compress_scene_rgb",
+        "object_disjoint_split",
+        "mask_unsupported_empty_targets",
+        "training_manifest"
+      ]
+    }
+  ],
+  "removed_sources": {
+    "tacquad": {
+      "reason": "Removed by user: insufficient interaction dynamics and poor sensor visibility",
+      "date": "2026-10-21"
+    },
+    "tdex": {
+      "reason": "Removed by user",
+      "date": "2026-10-21"
+    }
+  }
+}

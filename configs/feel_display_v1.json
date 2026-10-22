@@ -1,0 +1,13 @@
+{
+  "schema": "feel-display-v1",
+  "revision": "0f8179649b50afcfd684c87784c67787871db361",
+  "detail_upper": 2.5,
+  "nonnegative": true,
+  "fit_split": "train",
+  "fit_episodes": 24,
+  "positive_observations": 2761447,
+  "positive_quantile": 0.999,
+  "positive_quantile_value": 2.3636362552642822,
+  "round_up_step": 0.5,
+  "policy": "One linear 0–2.5 display range across all FEEL channels, hands, environments and episodes. Larger values are marked and remain in exact readouts; the full range is selectable. No change to sensor values, masks, chronology, zero references or training targets."
+}

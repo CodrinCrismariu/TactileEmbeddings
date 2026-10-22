@@ -1,0 +1,24 @@
+{
+  "output": "processing/bimanual_mirror_v4",
+  "policy": "configs/bimanual_mirror_policy_v3.json",
+  "sources": [
+    "opengraph",
+    "ftp_unit_bimanual"
+  ],
+  "seed": 45,
+  "epochs": 100,
+  "min_epochs": 20,
+  "patience": 10,
+  "min_delta": 0.0001,
+  "train_frames": 100000,
+  "val_frames": 10000,
+  "resample_every": 5,
+  "batch_size": 256,
+  "learning_rate": 0.001,
+  "min_learning_rate": 1e-05,
+  "weight_decay": 0.0001,
+  "worse_weight": 0.25,
+  "parity_gap": 0.1,
+  "training_scope": "sensor autoencoders only; joint training prohibited",
+  "shared_hand_code_dim": 8
+}

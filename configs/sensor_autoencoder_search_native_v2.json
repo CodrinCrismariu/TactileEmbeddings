@@ -1,0 +1,1748 @@
+{
+  "common": {
+    "manifest": "processing/joint_all/manifest.json",
+    "cache": "processing/sensor_ae_cache_native_v2",
+    "batch_size": 128,
+    "weight_decay": 0.0001,
+    "mae_weight": 0.5,
+    "contact_weight": 3.0,
+    "frame_stride": 2,
+    "max_train_frames": 100000,
+    "max_val_frames": 0,
+    "workers": 2,
+    "seed": 45,
+    "device": "cuda"
+  },
+  "screen_epochs": 30,
+  "final_epochs": 100,
+  "bootstrap_epochs": 3,
+  "repeat_seeds": [
+    46,
+    47
+  ],
+  "sources": {
+    "ftp_rdp": {
+      "target_kind": "force_tanh",
+      "target_shape": [
+        1,
+        1,
+        1
+      ],
+      "trials": [
+        {
+          "name": "small_code1",
+          "architecture": "mlp",
+          "sensor_code_dim": 1,
+          "hidden_dims": [
+            32
+          ],
+          "learning_rate": 0.001
+        },
+        {
+          "name": "medium_code1",
+          "architecture": "mlp",
+          "sensor_code_dim": 1,
+          "hidden_dims": [
+            128,
+            64
+          ],
+          "learning_rate": 0.001
+        },
+        {
+          "name": "large_code1",
+          "architecture": "mlp",
+          "sensor_code_dim": 1,
+          "hidden_dims": [
+            256,
+            128
+          ],
+          "learning_rate": 0.001
+        },
+        {
+          "name": "lr_low_code1",
+          "architecture": "mlp",
+          "sensor_code_dim": 1,
+          "hidden_dims": [
+            128,
+            64
+          ],
+          "learning_rate": 0.0003
+        },
+        {
+          "name": "lr_high_code1",
+          "architecture": "mlp",
+          "sensor_code_dim": 1,
+          "hidden_dims": [
+            128,
+            64
+          ],
+          "learning_rate": 0.003
+        },
+        {
+          "name": "mae025_code1",
+          "architecture": "mlp",
+          "sensor_code_dim": 1,
+          "hidden_dims": [
+            128,
+            64
+          ],
+          "learning_rate": 0.001,
+          "mae_weight": 0.25
+        }
+      ],
+      "bootstrap": "medium_code1"
+    },
+    "ftp_rdp_bimanual": {
+      "target_kind": "force_tanh",
+      "target_shape": [
+        2,
+        1,
+        1
+      ],
+      "trials": [
+        {
+          "name": "small_code1",
+          "architecture": "mlp",
+          "sensor_code_dim": 1,
+          "hidden_dims": [
+            32
+          ],
+          "learning_rate": 0.001
+        },
+        {
+          "name": "small_code2",
+          "architecture": "mlp",
+          "sensor_code_dim": 2,
+          "hidden_dims": [
+            32
+          ],
+          "learning_rate": 0.001
+        },
+        {
+          "name": "medium_code1",
+          "architecture": "mlp",
+          "sensor_code_dim": 1,
+          "hidden_dims": [
+            128,
+            64
+          ],
+          "learning_rate": 0.001
+        },
+        {
+          "name": "medium_code2",
+          "architecture": "mlp",
+          "sensor_code_dim": 2,
+          "hidden_dims": [
+            128,
+            64
+          ],
+          "learning_rate": 0.001
+        },
+        {
+          "name": "large_code1",
+          "architecture": "mlp",
+          "sensor_code_dim": 1,
+          "hidden_dims": [
+            256,
+            128
+          ],
+          "learning_rate": 0.001
+        },
+        {
+          "name": "large_code2",
+          "architecture": "mlp",
+          "sensor_code_dim": 2,
+          "hidden_dims": [
+            256,
+            128
+          ],
+          "learning_rate": 0.001
+        },
+        {
+          "name": "lr_low_code2",
+          "architecture": "mlp",
+          "sensor_code_dim": 2,
+          "hidden_dims": [
+            128,
+            64
+          ],
+          "learning_rate": 0.0003
+        },
+        {
+          "name": "lr_high_code2",
+          "architecture": "mlp",
+          "sensor_code_dim": 2,
+          "hidden_dims": [
+            128,
+            64
+          ],
+          "learning_rate": 0.003
+        },
+        {
+          "name": "mae025_code2",
+          "architecture": "mlp",
+          "sensor_code_dim": 2,
+          "hidden_dims": [
+            128,
+            64
+          ],
+          "learning_rate": 0.001,
+          "mae_weight": 0.25
+        }
+      ],
+      "bootstrap": "medium_code2"
+    },
+    "ftp_motiontrans": {
+      "target_kind": "torque_tanh",
+      "target_shape": [
+        6,
+        1,
+        1
+      ],
+      "trials": [
+        {
+          "name": "small_code1",
+          "architecture": "mlp",
+          "sensor_code_dim": 1,
+          "hidden_dims": [
+            32
+          ],
+          "learning_rate": 0.001
+        },
+        {
+          "name": "small_code2",
+          "architecture": "mlp",
+          "sensor_code_dim": 2,
+          "hidden_dims": [
+            32
+          ],
+          "learning_rate": 0.001
+        },
+        {
+          "name": "small_code4",
+          "architecture": "mlp",
+          "sensor_code_dim": 4,
+          "hidden_dims": [
+            32
+          ],
+          "learning_rate": 0.001
+        },
+        {
+          "name": "medium_code1",
+          "architecture": "mlp",
+          "sensor_code_dim": 1,
+          "hidden_dims": [
+            128,
+            64
+          ],
+          "learning_rate": 0.001
+        },
+        {
+          "name": "medium_code2",
+          "architecture": "mlp",
+          "sensor_code_dim": 2,
+          "hidden_dims": [
+            128,
+            64
+          ],
+          "learning_rate": 0.001
+        },
+        {
+          "name": "medium_code4",
+          "architecture": "mlp",
+          "sensor_code_dim": 4,
+          "hidden_dims": [
+            128,
+            64
+          ],
+          "learning_rate": 0.001
+        },
+        {
+          "name": "large_code1",
+          "architecture": "mlp",
+          "sensor_code_dim": 1,
+          "hidden_dims": [
+            256,
+            128
+          ],
+          "learning_rate": 0.001
+        },
+        {
+          "name": "large_code2",
+          "architecture": "mlp",
+          "sensor_code_dim": 2,
+          "hidden_dims": [
+            256,
+            128
+          ],
+          "learning_rate": 0.001
+        },
+        {
+          "name": "large_code4",
+          "architecture": "mlp",
+          "sensor_code_dim": 4,
+          "hidden_dims": [
+            256,
+            128
+          ],
+          "learning_rate": 0.001
+        },
+        {
+          "name": "lr_low_code2",
+          "architecture": "mlp",
+          "sensor_code_dim": 2,
+          "hidden_dims": [
+            128,
+            64
+          ],
+          "learning_rate": 0.0003
+        },
+        {
+          "name": "lr_high_code2",
+          "architecture": "mlp",
+          "sensor_code_dim": 2,
+          "hidden_dims": [
+            128,
+            64
+          ],
+          "learning_rate": 0.003
+        },
+        {
+          "name": "mae025_code2",
+          "architecture": "mlp",
+          "sensor_code_dim": 2,
+          "hidden_dims": [
+            128,
+            64
+          ],
+          "learning_rate": 0.001,
+          "mae_weight": 0.25
+        }
+      ],
+      "bootstrap": "medium_code2"
+    },
+    "opengraph": {
+      "target_kind": "taxel_vector",
+      "target_shape": [
+        2,
+        1,
+        80
+      ],
+      "trials": [
+        {
+          "name": "small_code8",
+          "architecture": "mlp",
+          "sensor_code_dim": 8,
+          "hidden_dims": [
+            128
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "small_code32",
+          "architecture": "mlp",
+          "sensor_code_dim": 32,
+          "hidden_dims": [
+            128
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "small_code64",
+          "architecture": "mlp",
+          "sensor_code_dim": 64,
+          "hidden_dims": [
+            128
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "medium_code8",
+          "architecture": "mlp",
+          "sensor_code_dim": 8,
+          "hidden_dims": [
+            256,
+            128
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "medium_code32",
+          "architecture": "mlp",
+          "sensor_code_dim": 32,
+          "hidden_dims": [
+            256,
+            128
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "medium_code64",
+          "architecture": "mlp",
+          "sensor_code_dim": 64,
+          "hidden_dims": [
+            256,
+            128
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "large_code8",
+          "architecture": "mlp",
+          "sensor_code_dim": 8,
+          "hidden_dims": [
+            512,
+            256
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "large_code32",
+          "architecture": "mlp",
+          "sensor_code_dim": 32,
+          "hidden_dims": [
+            512,
+            256
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "large_code64",
+          "architecture": "mlp",
+          "sensor_code_dim": 64,
+          "hidden_dims": [
+            512,
+            256
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "lr_low_code32",
+          "architecture": "mlp",
+          "sensor_code_dim": 32,
+          "hidden_dims": [
+            256,
+            128
+          ],
+          "learning_rate": 3e-05
+        },
+        {
+          "name": "lr_high_code32",
+          "architecture": "mlp",
+          "sensor_code_dim": 32,
+          "hidden_dims": [
+            256,
+            128
+          ],
+          "learning_rate": 0.00030000000000000003
+        },
+        {
+          "name": "mae025_code32",
+          "architecture": "mlp",
+          "sensor_code_dim": 32,
+          "hidden_dims": [
+            256,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "mae_weight": 0.25
+        }
+      ],
+      "bootstrap": "medium_code32"
+    },
+    "egotactile": {
+      "target_kind": "taxel_vector",
+      "target_shape": [
+        1,
+        1,
+        256
+      ],
+      "trials": [
+        {
+          "name": "small_code16",
+          "architecture": "mlp",
+          "sensor_code_dim": 16,
+          "hidden_dims": [
+            128
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "small_code64",
+          "architecture": "mlp",
+          "sensor_code_dim": 64,
+          "hidden_dims": [
+            128
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "small_code128",
+          "architecture": "mlp",
+          "sensor_code_dim": 128,
+          "hidden_dims": [
+            128
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "medium_code16",
+          "architecture": "mlp",
+          "sensor_code_dim": 16,
+          "hidden_dims": [
+            256,
+            128
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "medium_code64",
+          "architecture": "mlp",
+          "sensor_code_dim": 64,
+          "hidden_dims": [
+            256,
+            128
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "medium_code128",
+          "architecture": "mlp",
+          "sensor_code_dim": 128,
+          "hidden_dims": [
+            256,
+            128
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "large_code16",
+          "architecture": "mlp",
+          "sensor_code_dim": 16,
+          "hidden_dims": [
+            512,
+            256
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "large_code64",
+          "architecture": "mlp",
+          "sensor_code_dim": 64,
+          "hidden_dims": [
+            512,
+            256
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "large_code128",
+          "architecture": "mlp",
+          "sensor_code_dim": 128,
+          "hidden_dims": [
+            512,
+            256
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "lr_low_code64",
+          "architecture": "mlp",
+          "sensor_code_dim": 64,
+          "hidden_dims": [
+            256,
+            128
+          ],
+          "learning_rate": 3e-05
+        },
+        {
+          "name": "lr_high_code64",
+          "architecture": "mlp",
+          "sensor_code_dim": 64,
+          "hidden_dims": [
+            256,
+            128
+          ],
+          "learning_rate": 0.00030000000000000003
+        },
+        {
+          "name": "mae025_code64",
+          "architecture": "mlp",
+          "sensor_code_dim": 64,
+          "hidden_dims": [
+            256,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "mae_weight": 0.25
+        }
+      ],
+      "bootstrap": "medium_code64"
+    },
+    "opentouch": {
+      "target_kind": "pressure_grid",
+      "target_shape": [
+        1,
+        16,
+        16
+      ],
+      "trials": [
+        {
+          "name": "small_code16",
+          "architecture": "conv",
+          "sensor_code_dim": 16,
+          "channels": [
+            16,
+            32
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "small_code64",
+          "architecture": "conv",
+          "sensor_code_dim": 64,
+          "channels": [
+            16,
+            32
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "small_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "medium_code16",
+          "architecture": "conv",
+          "sensor_code_dim": 16,
+          "channels": [
+            32,
+            64
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "medium_code64",
+          "architecture": "conv",
+          "sensor_code_dim": 64,
+          "channels": [
+            32,
+            64
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "medium_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            32,
+            64
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "large_code16",
+          "architecture": "conv",
+          "sensor_code_dim": 16,
+          "channels": [
+            64,
+            128
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "large_code64",
+          "architecture": "conv",
+          "sensor_code_dim": 64,
+          "channels": [
+            64,
+            128
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "large_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            64,
+            128
+          ],
+          "learning_rate": 0.0001
+        },
+        {
+          "name": "lr_low_code64",
+          "architecture": "conv",
+          "sensor_code_dim": 64,
+          "channels": [
+            32,
+            64
+          ],
+          "learning_rate": 3e-05
+        },
+        {
+          "name": "lr_high_code64",
+          "architecture": "conv",
+          "sensor_code_dim": 64,
+          "channels": [
+            32,
+            64
+          ],
+          "learning_rate": 0.00030000000000000003
+        },
+        {
+          "name": "mae025_code64",
+          "architecture": "conv",
+          "sensor_code_dim": 64,
+          "channels": [
+            32,
+            64
+          ],
+          "learning_rate": 0.0001,
+          "mae_weight": 0.25
+        }
+      ],
+      "bootstrap": "medium_code64"
+    },
+    "ftp_vla_touch": {
+      "target_kind": "optical_rgb",
+      "target_shape": [
+        3,
+        240,
+        320
+      ],
+      "trials": [
+        {
+          "name": "small_code64",
+          "architecture": "conv",
+          "sensor_code_dim": 64,
+          "channels": [
+            8,
+            16,
+            32,
+            64,
+            64
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "small_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            8,
+            16,
+            32,
+            64,
+            64
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "small_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            8,
+            16,
+            32,
+            64,
+            64
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "medium_code64",
+          "architecture": "conv",
+          "sensor_code_dim": 64,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "medium_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "medium_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "large_code64",
+          "architecture": "conv",
+          "sensor_code_dim": 64,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "large_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "large_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "lr_low_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 3e-05,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "lr_high_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.00030000000000000003,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "mae025_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8,
+          "mae_weight": 0.25
+        }
+      ],
+      "bootstrap": "medium_code128"
+    },
+    "ftp_unit": {
+      "target_kind": "optical_rgb",
+      "target_shape": [
+        3,
+        240,
+        320
+      ],
+      "trials": [
+        {
+          "name": "small_code64",
+          "architecture": "conv",
+          "sensor_code_dim": 64,
+          "channels": [
+            8,
+            16,
+            32,
+            64,
+            64
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "small_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            8,
+            16,
+            32,
+            64,
+            64
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "small_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            8,
+            16,
+            32,
+            64,
+            64
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "medium_code64",
+          "architecture": "conv",
+          "sensor_code_dim": 64,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "medium_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "medium_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "large_code64",
+          "architecture": "conv",
+          "sensor_code_dim": 64,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "large_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "large_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "lr_low_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 3e-05,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "lr_high_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.00030000000000000003,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "mae025_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8,
+          "mae_weight": 0.25
+        }
+      ],
+      "bootstrap": "medium_code128"
+    },
+    "ftp_unit_bimanual": {
+      "target_kind": "optical_rgb",
+      "target_shape": [
+        6,
+        240,
+        320
+      ],
+      "trials": [
+        {
+          "name": "small_code64",
+          "architecture": "conv",
+          "sensor_code_dim": 64,
+          "channels": [
+            8,
+            16,
+            32,
+            64,
+            64
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "small_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            8,
+            16,
+            32,
+            64,
+            64
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "small_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            8,
+            16,
+            32,
+            64,
+            64
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "medium_code64",
+          "architecture": "conv",
+          "sensor_code_dim": 64,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "medium_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "medium_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "large_code64",
+          "architecture": "conv",
+          "sensor_code_dim": 64,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "large_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "large_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "lr_low_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 3e-05,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "lr_high_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.00030000000000000003,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "mae025_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8,
+          "mae_weight": 0.25
+        }
+      ],
+      "bootstrap": "medium_code128"
+    },
+    "ftp_vitamin": {
+      "target_kind": "optical_rgb",
+      "target_shape": [
+        6,
+        224,
+        224
+      ],
+      "trials": [
+        {
+          "name": "small_code64",
+          "architecture": "conv",
+          "sensor_code_dim": 64,
+          "channels": [
+            8,
+            16,
+            32,
+            64,
+            64
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "small_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            8,
+            16,
+            32,
+            64,
+            64
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "small_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            8,
+            16,
+            32,
+            64,
+            64
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "medium_code64",
+          "architecture": "conv",
+          "sensor_code_dim": 64,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "medium_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "medium_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "large_code64",
+          "architecture": "conv",
+          "sensor_code_dim": 64,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "large_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "large_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "lr_low_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 3e-05,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "lr_high_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.00030000000000000003,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8
+        },
+        {
+          "name": "mae025_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 8,
+          "mae_weight": 0.25
+        }
+      ],
+      "bootstrap": "medium_code128"
+    },
+    "freetacman": {
+      "target_kind": "optical_rgb",
+      "target_shape": [
+        6,
+        480,
+        640
+      ],
+      "trials": [
+        {
+          "name": "small_code64",
+          "architecture": "conv",
+          "sensor_code_dim": 64,
+          "channels": [
+            8,
+            16,
+            32,
+            64,
+            64
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 4,
+          "manifest": "processing/joint_all/manifest_sensor_roles_corrected_v2.json"
+        },
+        {
+          "name": "small_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            8,
+            16,
+            32,
+            64,
+            64
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 4,
+          "manifest": "processing/joint_all/manifest_sensor_roles_corrected_v2.json"
+        },
+        {
+          "name": "small_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            8,
+            16,
+            32,
+            64,
+            64
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 4,
+          "manifest": "processing/joint_all/manifest_sensor_roles_corrected_v2.json"
+        },
+        {
+          "name": "medium_code64",
+          "architecture": "conv",
+          "sensor_code_dim": 64,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 4,
+          "manifest": "processing/joint_all/manifest_sensor_roles_corrected_v2.json"
+        },
+        {
+          "name": "medium_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 4,
+          "manifest": "processing/joint_all/manifest_sensor_roles_corrected_v2.json"
+        },
+        {
+          "name": "medium_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 4,
+          "manifest": "processing/joint_all/manifest_sensor_roles_corrected_v2.json"
+        },
+        {
+          "name": "large_code64",
+          "architecture": "conv",
+          "sensor_code_dim": 64,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 4,
+          "manifest": "processing/joint_all/manifest_sensor_roles_corrected_v2.json"
+        },
+        {
+          "name": "large_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 4,
+          "manifest": "processing/joint_all/manifest_sensor_roles_corrected_v2.json"
+        },
+        {
+          "name": "large_code256",
+          "architecture": "conv",
+          "sensor_code_dim": 256,
+          "channels": [
+            32,
+            64,
+            128,
+            256,
+            256
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 4,
+          "manifest": "processing/joint_all/manifest_sensor_roles_corrected_v2.json"
+        },
+        {
+          "name": "lr_low_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 3e-05,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 4,
+          "manifest": "processing/joint_all/manifest_sensor_roles_corrected_v2.json"
+        },
+        {
+          "name": "lr_high_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.00030000000000000003,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 4,
+          "manifest": "processing/joint_all/manifest_sensor_roles_corrected_v2.json"
+        },
+        {
+          "name": "mae025_code128",
+          "architecture": "conv",
+          "sensor_code_dim": 128,
+          "channels": [
+            16,
+            32,
+            64,
+            128,
+            128
+          ],
+          "learning_rate": 0.0001,
+          "native_optical": true,
+          "amp": true,
+          "batch_size": 4,
+          "mae_weight": 0.25,
+          "manifest": "processing/joint_all/manifest_sensor_roles_corrected_v2.json"
+        }
+      ],
+      "bootstrap": "medium_code128"
+    }
+  },
+  "egotouch": "Reuse preserved v4 and initial grid checkpoints"
+}

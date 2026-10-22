@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TactileLatent · Sensor reconstruction viewer</title>
+<style>
+:root { color-scheme: dark; font-family: system-ui, sans-serif; background:#10141b; color:#e6edf5; }
+* { box-sizing:border-box; } body { margin:0; } main { max-width:1440px; margin:auto; padding:26px; }
+[hidden] { display:none !important; }
+nav { display:flex; gap:12px; margin-bottom:20px; } nav a { color:#91d6e7; padding:9px 14px; border:1px solid #3c4c63; border-radius:6px; text-decoration:none; } nav a.active { background:#25403e; border-color:#56cbb6; }
+nav { flex-wrap:wrap; } .mirror-outputs { min-width:0; } #mirrorCameraControl { margin-top:22px; } #mirrorVideoError { color:#f7b886; font-size:12px; } #mirrorAvailability { line-height:1.5; }
+.joint-controls { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:14px; }
+body.comparing main { max-width:1920px; } body.comparing .layout { grid-template-columns:minmax(200px,1fr) repeat(2,minmax(300px,1.5fr)); }
+@media(max-width:1150px) { body.comparing .layout { grid-template-columns:1fr; } .joint-controls { grid-template-columns:1fr; } }
+h1 { font-size:25px; margin:0 0 6px; } p { margin:0; color:#a8b5c6; font-size:14px; }
+.panel { background:#19212d; border:1px solid #2c3849; border-radius:12px; padding:18px; margin-top:18px; }
+.controls { display:grid; grid-template-columns:170px 120px 1fr 1.3fr; gap:14px; }
+label { display:block; font-size:13px; color:#a8b5c6; margin-bottom:6px; }
+select,input[type=search],input[type=number],button { background:#101722; border:1px solid #3c4c63; color:#e6edf5; padding:9px; border-radius:6px; font:inherit; max-width:100%; }
+select,input[type=search] { width:100%; } button { cursor:pointer; } button:hover { border-color:#72c5e3; }
+input[type=range] { width:100%; accent-color:#56cbb6; cursor:pointer; } .search { margin-top:10px; }
+.details { color:#a8b5c6; font-size:13px; margin-top:12px; overflow-wrap:anywhere; }
+.layout { display:grid; grid-template-columns:minmax(230px,1fr) minmax(530px,2fr); gap:18px; }
+.video { width:100%; aspect-ratio:1; object-fit:contain; background:#080c11; border-radius:6px; }
+.camera { margin:10px 0; display:flex; align-items:center; gap:12px; } .camera label { margin:0; white-space:nowrap; }
+.maps { display:grid; grid-template-columns:65px repeat(3,minmax(0,1fr)); align-items:center; gap:10px; }
+.column { text-align:center; font-size:13px; color:#a8b5c6; margin-bottom:2px; } .hand { font-size:13px; }
+canvas { width:100%; aspect-ratio:1; image-rendering:pixelated; border:1px solid #394355; border-radius:3px; }
+.metrics { display:flex; flex-wrap:wrap; gap:18px; margin-top:18px; font-size:13px; color:#a8b5c6; }
+.metrics strong { color:#e6edf5; display:block; margin-top:3px; font-size:19px; }
+.legend { margin:14px 0 0 75px; display:flex; gap:18px; flex-wrap:wrap; font-size:12px; color:#a8b5c6; }
+.gradient { height:8px; border-radius:3px; background:linear-gradient(to right,#050a14,#147b9d,#1bb4bd,#9adb67,#fff19b); width:140px; }
+.scales { display:flex; gap:20px; margin-top:16px; }.scales>div { flex:1; }
+.timeline { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }.timeline label { margin:0; } #frameNumber { width:90px; }
+#frameSlider { margin-top:14px; } #status { margin-left:auto; font-size:13px; color:#85d9c7; }
+#readout { min-height:38px; padding-top:12px; font:12px ui-monospace,monospace; color:#b9d5e2; }
+#videoError { color:#f7b886; font-size:12px; } .note { font-size:12px; margin-top:12px; line-height:1.5; }
+table { width:100%; border-collapse:collapse; margin-top:15px; font-size:12px; } th,td { text-align:left; padding:7px; border-bottom:1px solid #344052; }
+#training { font-size:12px; margin-top:10px; color:#9eb5cd; } #refresh { padding:5px 10px; margin-left:10px; font-size:12px; }
+.native-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:14px; }
+.native-grid img { width:100%; height:auto; background:#080c11; border:1px solid #394355; }
+.native-grid p { margin-bottom:6px; } #nativeControl { margin-top:14px; } #nativeControl label { display:inline; }
+.attention-toggle { margin-top:14px; } .attention-toggle label { display:inline; color:#d4e5f2; }
+.attention-controls { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:14px; margin-top:14px; }
+.attention-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px; margin-top:16px; }
+.attention-grid figure { margin:0; } .attention-grid figcaption { font-size:14px; margin-bottom:8px; }
+.attention-grid canvas { image-rendering:auto; max-height:480px; object-fit:contain; background:#080c11; }
+#attentionPanel h2 { font-size:18px; margin:0; } #attentionStatus { min-height:20px; }
+.attention-legend { display:flex; align-items:center; gap:10px; margin-top:14px; font-size:12px; color:#b9c9dc; }
+.attention-gradient { width:170px; height:10px; border-radius:3px; background:linear-gradient(to right,#14288c,#00dcff,#ffff3c,#ff7814,#ff2814); }
+.pressure-toolbar { display:flex; align-items:end; gap:14px; flex-wrap:wrap; margin-bottom:10px; }
+.pressure-toolbar label { margin-bottom:3px; }.pressure-toolbar .contrast { min-width:180px; flex:1; }
+.pressure-toolbar .check label { display:inline; }.pressure-toolbar button { font-size:12px; }
+.pressure-assets { display:flex; gap:7px; align-items:baseline; flex-wrap:wrap; font-size:12px; color:#a8b5c6; line-height:1.5; margin-bottom:12px; }
+.pressure-assets a { color:#91d6e7; }.pressure-assets button { padding:3px 7px; font-size:11px; }
+.pressure-mesh-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+.pressure-mesh-grid figure { margin:0; }.pressure-mesh-grid figcaption { text-align:center; color:#a8b5c6; font-size:13px; margin-bottom:8px; }
+.pressure-mesh-grid canvas { image-rendering:auto; touch-action:none; cursor:grab; }.pressure-mesh-grid canvas:active { cursor:grabbing; }
+.pressure-modal-open { overflow:hidden; }.panel.pressure-expanded { position:fixed; inset:12px; margin:0; z-index:100; overflow:auto; box-shadow:0 0 0 40px #080c11ee; }
+.pressure-expanded .maps { grid-template-columns:75px repeat(3,minmax(0,1fr)); }.pressure-expanded .pressure-mesh-grid { margin:0 35px; }
+.pressure-expanded .maps canvas { max-height:65vh; object-fit:contain; background:#050a14; }
+#pressureContext { width:112px; height:112px; object-fit:contain; border:1px solid #394355; border-radius:5px; }
+#pressureExpandedTimeline { margin:12px 0; } #pressureSurfaceStatus { margin:8px 0 14px; }
+@media(max-width:950px) { .attention-controls { grid-template-columns:1fr 1fr; } }
+@media(max-width:950px) { .layout { grid-template-columns:1fr; } .video { max-height:320px; } .controls { grid-template-columns:1fr; } }
+@media(max-width:550px) { main { padding:12px; } .panel { padding:12px; } .maps { grid-template-columns:40px repeat(3,minmax(0,1fr)); gap:5px; } .column,.hand { font-size:11px; } .legend { margin-left:45px; } }
+</style>
+</head>
+<body><main>
+<nav aria-label="Viewer pages"><a id="sensorPage" href="?page=sensor">Sensor reconstruction</a><a id="mirrorPage" href="?page=mirror">Mirror quality check</a><a id="jointPage" href="?page=joint">Ego → tactile prediction</a><a href="markers">Marker tracking</a><a href="?page=training">Training monitor</a></nav>
+<h1 id="heading">Sensor reconstruction viewer</h1>
+<p id="introduction">Compare recorded sensor outputs with their autoencoder reconstructions at the same video frame.</p>
+<section class="panel">
+ <div class="controls">
+  <div><label for="dataset">Dataset / sensor</label><select id="dataset"></select></div>
+  <div><label for="split">Dataset split</label><select id="split"><option value="val">Validation</option><option value="train">Training</option><option value="test_seen">Test · seen</option><option value="test_unseen">Test · unseen</option><option value="">All splits</option></select></div>
+  <div><label for="episode">Video / episode</label><select id="episode"></select><input class="search" id="search" type="search" placeholder="Filter videos by activity or episode name" aria-label="Filter videos"></div>
+  <div><label id="modelLabel" for="model">Autoencoder architecture / checkpoint</label><select id="model"></select><div id="epochControl" hidden><label for="epoch">Model A · saved epoch</label><select id="epoch"></select></div></div>
+ </div>
+ <div id="jointControls" class="joint-controls" hidden>
+  <div><label for="views">Model input cameras</label><select id="views"><option value="ego">Ego camera only</option><option value="all">All available scene cameras</option></select></div>
+  <div><label for="modelB">Compare with model B (optional)</label><select id="modelB"></select></div>
+  <div><label for="epochB">Model B · saved epoch</label><select id="epochB"></select></div>
+ </div>
+ <div id="comparisonDetails" class="details" hidden></div>
+ <p id="mirrorAvailability" class="note" hidden></p>
+ <div id="mirrorCandidateControl" hidden><label for="mirrorCandidate">Unverified coordinate hypothesis · visual review only</label><select id="mirrorCandidate"></select><p class="note">These previews are not enabled for training. A good reconstruction or a reversible transform does not verify the physical mounting.</p></div>
+ <div id="sensorDetails" class="details"></div><div id="modelDetails" class="details"></div>
+ <div><span id="training"></span><button id="refresh">Refresh datasets / models</button></div>
+</section>
+<section class="panel">
+ <div class="timeline">
+  <button id="play" aria-label="Play frames">▶ Play</button><button id="previous" aria-label="Previous frame">←</button><button id="next" aria-label="Next frame">→</button>
+  <label for="frameNumber">Frame</label><input id="frameNumber" type="number" value="0" min="0" step="1">
+  <span id="position">/ —</span><span id="timestamp"></span><span id="status" role="status" aria-live="polite">Loading videos…</span>
+ </div>
+ <input id="frameSlider" type="range" min="0" max="0" step="1" value="0" aria-label="Video frame">
+</section>
+<div class="layout">
+ <section class="panel">
+  <div class="camera"><label for="camera">Video camera</label><select id="camera"></select></div>
+  <img id="video" class="video" alt="Recorded RGB video at the selected tactile frame">
+  <div id="videoError"></div>
+  <div id="mirrorCameraControl" hidden>
+   <div class="camera"><label for="mirrorCamera">Mirrored camera</label><select id="mirrorCamera"></select></div>
+   <img id="mirrorVideo" class="video" alt="Horizontally mirrored scene with exchanged wrist-camera roles">
+   <div id="mirrorVideoError"></div>
+   <p id="mirrorVideoNote" class="note"></p>
+  </div>
+  <p id="inputNote" class="note">The recorded sensor output is the autoencoder input. The scene video provides context.</p><p id="clipDetails" class="note" hidden></p>
+  <div id="attentionToggle" class="attention-toggle" hidden><label><input id="showAttention" type="checkbox"> Show attention overlay</label><p id="attentionHint" class="note"></p></div>
+ </section>
+ <section id="outputPanel" class="panel">
+  <p id="outputTitle" hidden>Model A</p>
+  <div id="pressureTools" hidden>
+   <div class="pressure-toolbar">
+    <div id="pressureViewChoice" hidden><label for="pressureViewMode">Pressure display</label><select id="pressureViewMode"><option value="atlas">UV atlas</option></select></div>
+    <button id="pressureExpand" aria-expanded="false">Enlarge comparison</button>
+    <div class="contrast"><label for="pressureContrast">Color contrast: <span id="pressureContrastValue">0.50</span> · display only</label><input id="pressureContrast" type="range" min="0.25" max="1" step="0.05" value="0.5"></div>
+    <div class="check"><input id="pressureGrid" type="checkbox"><label for="pressureGrid">UV grid</label></div>
+    <img id="pressureContext" hidden alt="Scene RGB at the selected tactile frame">
+   </div>
+   <div class="pressure-assets"><span id="pressureAssetNote"></span><a id="pressureAssetLink" target="_blank" rel="noopener">Hand model setup</a><button id="pressureRefreshAssets">Check hand models</button></div>
+   <div id="pressureExpandedTimeline" hidden><label id="pressureFrameLabel" for="pressureFrameSlider">Frame</label><input id="pressureFrameSlider" type="range" min="0" max="0" value="0" aria-label="EgoPressure enlarged view frame"></div>
+   <div id="pressureOrbitControls" hidden><button id="pressureResetView">Reset view</button> <button id="pressureTurnOver">Turn hand over</button></div>
+   <p id="pressureSurfaceStatus" class="note" role="status"></p>
+  </div>
+  <div class="maps">
+   <div></div><div class="column">Original · stored resolution</div><div class="column">Reconstruction</div><div class="column">Absolute error</div>
+  </div>
+  <div id="pressureMeshGrid" class="pressure-mesh-grid" hidden>
+   <figure><figcaption>Measured · recorded hand pose</figcaption><canvas id="pressureMeshoriginal" data-pressure-mesh="true" width="512" height="512" aria-label="Measured EgoPressure on the recorded 3D hand"></canvas></figure>
+   <figure><figcaption>Reconstructed · same hand pose</figcaption><canvas id="pressureMeshreconstruction" data-pressure-mesh="true" width="512" height="512" aria-label="Reconstructed EgoPressure on the recorded 3D hand"></canvas></figure>
+   <figure><figcaption>Absolute error · same hand pose</figcaption><canvas id="pressureMesherror" data-pressure-mesh="true" width="512" height="512" aria-label="EgoPressure absolute error on the recorded 3D hand"></canvas></figure>
+  </div>
+  <div class="legend"><div><div class="gradient"></div><span>0 → selected scale maximum</span></div><span>Gray cells: unavailable sensor values</span></div>
+  <div class="scales">
+   <div><label for="pressureScale"><span id="sensorScaleLabel">Sensor scale maximum</span>: <span id="pressureScaleValue">1.00</span></label><input id="pressureScale" type="range" min="0.05" max="1" step="0.05" value="1"></div>
+   <div><label for="errorScale">Error scale maximum: <span id="errorScaleValue">0.05</span></label><input id="errorScale" type="range" min="0.01" max="1" step="0.01" value="0.05"></div>
+  </div>
+  <div class="metrics"><div>Frame MAE<strong id="mae">—</strong></div><div><span id="leftLabel">Left MAE</span><strong id="leftMae">—</strong></div><div><span id="rightLabel">Right MAE</span><strong id="rightMae">—</strong></div><div>Contact MAE<strong id="contactMae">—</strong></div><div>Contact F1<strong id="f1">—</strong></div></div>
+  <div id="rawValues"></div>
+  <div id="readout">Hover over a sensor cell to compare exact values.</div>
+  <p id="units" class="note"></p>
+  <div id="nativeControl" hidden><input id="inspectNative" type="checkbox"><label for="inspectNative">Inspect source resolution and temporal changes</label></div>
+ </section>
+</div>
+<section id="attentionPanel" class="panel" hidden>
+ <h2>Where the tactile query attends</h2>
+ <div class="attention-controls">
+  <div><label for="attentionCamera">Input camera</label><select id="attentionCamera"></select></div>
+  <div><label for="attentionHistory">Image to overlay</label><select id="attentionHistory"></select></div>
+  <div><label for="attentionLayer">Attention layer</label><select id="attentionLayer"></select></div>
+  <div><label for="attentionHead">Attention head</label><select id="attentionHead"></select></div>
+  <div><label for="attentionOpacity">Heatmap opacity: <span id="attentionOpacityValue">90%</span></label><input id="attentionOpacity" type="range" min="0" max="100" step="1" value="90"></div>
+  <div><label for="attentionBrightness">Image brightness: <span id="attentionBrightnessValue">35%</span></label><input id="attentionBrightness" type="range" min="0" max="100" step="1" value="35"></div>
+ </div>
+ <p id="attentionStatus" class="note" role="status" aria-live="polite"></p>
+ <div class="attention-legend" aria-label="Heatmap color scale: blue is lower attention, red is higher attention"><span>Lower attention</span><span class="attention-gradient"></span><span>Higher attention</span></div>
+ <div class="attention-grid">
+  <figure id="attentionFigure"><figcaption id="attentionTitle">Model A</figcaption><canvas id="attentionCanvas" width="384" height="384" aria-label="Model A attention overlay"></canvas><p id="attentionReadout" class="note"></p></figure>
+  <figure id="attentionFigureB" hidden><figcaption id="attentionTitleB">Model B</figcaption><canvas id="attentionCanvasB" width="384" height="384" aria-label="Model B attention overlay"></canvas><p id="attentionReadoutB" class="note"></p></figure>
+ </div>
+ <p class="note">These are the tactile prediction query’s cross-attention weights, not proof of which pixels caused its output. Each pair of input images shares one 24 × 24 temporal-token map; those tokens contain context from the whole clip. Colors use a shared scale across models and all input cameras/time pairs, with a square-root contrast curve to make weaker attention visible. Brightness and opacity change only this display; the percentage readout uses the original attention weights.</p>
+</section>
+<section id="nativePanel" class="panel" hidden>
+ <p>Source-resolution tactile images · same selected frame</p>
+ <p class="note">Change images show absolute RGB difference from episode frame 0. Frame 0 may already contain contact; this is not a pressure estimate or a contact detector.</p>
+ <label for="changeGain" class="note">Change amplification: <span id="changeGainValue">8</span>×</label><input id="changeGain" type="range" min="1" max="32" step="1" value="8">
+ <div id="nativeStatus" class="details"></div><div id="nativeImages" class="native-grid"></div>
+</section>
+</main>
+<script src="attention-viewer.js"></script>
+<script src="pressure-surface-viewer.js"></script>
+<script src="acquisition-viewer.js"></script>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const requestedPage=new URLSearchParams(location.search).get('page');
+const mirrorMode=requestedPage==='mirror';
+const jointMode=!mirrorMode&&(requestedPage==='joint'||(requestedPage!=='sensor'&&/\/joint\/?$/.test(location.pathname)));
+let currentDataB=null;
+const apiBase=new URL(location.pathname.replace(/\/?$/, '/'),location.origin);
+const api=path=>new URL('api/'+path,apiBase).href;
+let catalog,currentData,frame=0,fps=30,playing=false,controller,revision=0,videoUrl,mirrorVideoUrl,debounce;
+let initialSensorSelection=true;
+const palette=[[5,10,20],[20,123,157],[27,180,189],[154,219,103],[255,241,155]];
+const format=value=>value===null||value===undefined?'—':value.toFixed(5);
+const selectedDataset=()=>{const d=catalog.datasets.find(d=>d.id===$('dataset').value),e=catalog.episodes.find(e=>e.id===Number($('episode').value));return e?.measured_only&&e.source===d?.id?{...d,target_shape:e.target_shape,direct_prediction_only:e.direct_prediction_only,reconstruction_available:e.reconstruction_available}:d;};
+const openGraphFingers=['index','middle','pinky','ring','thumb'];
+function drawOpenGraphGrid(ctx,values,offset,maximum){
+ ctx.fillStyle='#080e18';ctx.fillRect(0,0,320,160);ctx.font='10px system-ui';
+ for(let finger=0;finger<5;finger++){
+  ctx.fillStyle='#c7d5e3';ctx.fillText(openGraphFingers[finger],4+finger*64,17);
+  for(let row=0;row<4;row++)for(let col=0;col<4;col++){
+   const v=values[offset+finger*16+row*4+col];ctx.fillStyle=v===null?'#3c414a':'rgb('+color(v,maximum).join(',')+')';
+   ctx.fillRect(4+finger*64+col*14,30+row*25,12,23);
+  }
+ }
+ ctx.fillStyle='#9caec2';ctx.fillText('Acquisition rows/columns; anatomical axes unverified',4,149);
+}
+function mirrorControls(){
+ const source=catalog.mirror_sources[selectedDataset().id],review=source.review_available;
+ $('mirrorCandidateControl').hidden=!review;
+ const old=$('mirrorCandidate').value;
+ $('mirrorCandidate').replaceChildren(...(source.review_candidates||[]).map(c=>new Option(c.label,c.id)));
+ if([...$('mirrorCandidate').options].some(o=>o.value===old))$('mirrorCandidate').value=old;
+ $('mirrorAvailability').textContent=review?'UNVERIFIED MAPPING PREVIEW — '+source.reason+(selectedDataset().id==='baihu'?' Each episode retains its platform identity; a preview does not verify that platform.':''):source.description;
+ if(!review&&source.enabled&&!source.training_enabled)$('mirrorAvailability').textContent+=' · Teacher/code preparation pending';
+ $('mirrorAvailability').style.color=review?'#ffbf77':'';
+ if(source.verification_basis==='user_requested_display_coordinate_mapping')$('mirrorAvailability').textContent+=' · user-requested grid mapping';
+}
+function color(value,maximum){const pos=Math.max(0,Math.min(1,value/maximum))*4,low=Math.min(3,Math.floor(pos)),t=pos-low;return palette[low].map((x,i)=>Math.round(x*(1-t)+palette[low+1][i]*t));}
+function pause(){playing=false;$('play').textContent='▶ Play';}
+function updatePosition(){$('frameSlider').value=frame;$('frameNumber').value=frame;$('timestamp').textContent=fps?(frame/fps).toFixed(2)+' s':'sample index · timestamps unavailable';}
+function panelsFor(d){if(d.target_kind==='optical_rgb')return d.target_shape[0]/3;if(d.target_kind.includes('tanh'))return 1;return d.target_shape[0];}
+// Preserve upstream x/y orientation and aspect ratio; one dot per mapped channel.
+function handGeometry(canvas,layout){
+ const [x0,y0,x1,y1]=layout.bounds,pad=20,scale=Math.min(canvas.width/(x1-x0+2*pad),canvas.height/(y1-y0+2*pad));
+ const ox=(canvas.width-scale*(x1-x0+2*pad))/2,oy=(canvas.height-scale*(y1-y0+2*pad))/2;
+ return {radius:Math.max(3,3*scale),point:n=>[ox+scale*(n.x-x0+pad),oy+scale*(n.y-y0+pad)]};
+}
+function setupPanels(suffix=''){
+ const d=selectedDataset(),maps=$(suffix?'comparisonPanel':'outputPanel').querySelector('.maps');
+ if(!suffix){NativeSensor.setup(d);if(d.measured_only){PressureSurface.setup(d);maps.hidden=true;return;}$('clipDetails').hidden=!jointMode;}
+ while(maps.children.length>4)maps.lastChild.remove();
+ const vector=d.target_kind==='taxel_vector'||d.target_kind.includes('tanh');
+ for(let panel=0;panel<panelsFor(d);panel++){
+  const label=document.createElement('div');label.className='hand';label.textContent=d.target_kind.includes('tanh')?'Sensor channels':d.labels[panel];maps.append(label);
+  for(const kind of ['original','reconstruction','error']){
+   const canvas=document.createElement('canvas');canvas.id=kind+suffix+panel;canvas.dataset.panel=panel;canvas.dataset.comparison=suffix;
+   canvas.width=d.hand_layout?384:vector?320:d.target_shape[2];canvas.height=d.hand_layout?512:vector?160:d.target_shape[1];
+   canvas.style.aspectRatio=String(canvas.width/canvas.height);if(d.hand_layout)canvas.style.imageRendering='auto';canvas.setAttribute('aria-label',kind+' '+label.textContent);canvas.onmousemove=hover;maps.append(canvas);
+  }
+ }
+ $('pressureScale').disabled=d.target_kind==='optical_rgb';
+ if(d.marker_only)$('inspectNative').checked=false;
+ $('nativeControl').hidden=d.target_kind!=='optical_rgb'||d.marker_only;$('nativePanel').hidden=d.target_kind!=='optical_rgb'||d.marker_only||!$('inspectNative').checked;
+ $('nativeImages').replaceChildren();$('nativeStatus').textContent='';
+ maps.children[1].textContent=d.hand_layout?'Original · mapped hand':'Original · stored resolution';
+ $('sensorScaleLabel').textContent=d.hand_layout?'Touch response scale maximum':'Sensor scale maximum';
+ for(const id of ['contactMae','f1'])$(id+suffix).parentElement.hidden=Boolean(d.hand_layout);
+ $('rightMae'+suffix).parentElement.hidden=d.target_kind.includes('tanh')?d.target_shape[0]<2:panelsFor(d)<2;
+ $('units'+suffix).textContent=d.hand_layout?'Official OpenTouch right-hand coordinates: 169 mapped channels; 87 excluded nodes are omitted. Colors show relative touch response = 1 − raw / 3072, with a fixed global scale shared by original and reconstruction (no per-frame normalization). Hover shows the stored readings. MAE uses mapped channels only. This response is not calibrated force; the generic contact threshold does not apply.':d.target_kind==='optical_rgb'?'Original sensor images and decoder outputs retain the complete stored resolution. RGB intensities are in [0,1]; error maps show mean absolute RGB-channel error. Hover reconstruction values are rounded to the displayed 8-bit RGB; reported metrics use full-precision predictions.':d.target_kind.includes('tanh')?'Signed sensor values use the existing bounded representation: raw zero = 0.5. The table also shows the inverse transform in source reading units; SI calibration is not established.':d.target_kind==='taxel_vector'?'Values are shown in stored sensor-index order. The chart does not imply a physical taxel layout. Contact threshold = 0.05; invalid values are excluded.':'Original and reconstructed pressure share one normalized scale. Contact threshold = 0.05; gray cells are invalid and excluded.';
+ if(d.id==='egopressure')$('units'+suffix).textContent='Native 224 × 224 UV texture atlas of the hand surface. Chart cuts can split one fingertip contact into separate spots: spots are not a finger count. This is not a camera or pad-coordinate image. Original and reconstruction share a reversible normalized pressure scale. Contact MAE includes measured positive pixels; missing observations are excluded.';
+ if(d.hand_layout){const a=document.createElement('a');a.href=d.hand_layout.source_url;a.target='_blank';a.rel='noopener';a.textContent=' Official channel mapping';$('units'+suffix).append(a);}
+ if(!jointMode)$('inputNote').textContent=d.hand_layout?'The autoencoder receives the complete stored 16 × 16 electrical channel grid. The comparison below places its outputs at the official hand coordinates; the scene video provides context.':'The recorded sensor output is the autoencoder input. The scene video provides context.';
+ $('rawValues'+suffix).replaceChildren();$('readout'+suffix).textContent='Hover over a sensor cell to compare exact values.';
+ $('leftLabel'+suffix).textContent=(d.labels[0]||'Channel 1')+' MAE';$('rightLabel'+suffix).textContent=(d.labels[1]||'Panel 2')+' MAE';
+ if(!suffix)PressureSurface.setup(d);
+}
+function render(data=currentData,suffix=''){
+ if(data?.acquisition&&!suffix){NativeSensor.render(data);return;}
+ if(suffix){
+  let numeric=$('numericComparison'+suffix);
+  if(data?.acquisition){
+   if(!numeric){numeric=document.createElement('div');numeric.id='numericComparison'+suffix;$('comparisonPanel').append(numeric);}
+   numeric.hidden=false;numeric.replaceChildren();
+   for(const selector of ['.maps','.legend','.scales','.metrics']){$('comparisonPanel').querySelector(selector).hidden=true;}
+   const summary=document.createElement('p');summary.textContent='Native prediction MAE '+format(data.mae);numeric.append(summary);
+   const table=document.createElement('table'),header=table.insertRow();
+   for(const label of ['Channel','Measured','Prediction','Absolute error']){const cell=document.createElement('th');cell.textContent=label;header.append(cell);}
+   data.labels.forEach((label,i)=>{const row=table.insertRow();for(const value of [label,format(data.original[i]),format(data.reconstruction?.[i]),format(data.error?.[i])])row.insertCell().textContent=value;});numeric.append(table);return;
+  }
+  if(numeric)numeric.hidden=true;
+ }
+ if(!data)return;const d=selectedDataset(),[C,H,W]=d.target_shape,vector=d.target_kind==='taxel_vector'||d.target_kind.includes('tanh');
+ if(d.target_kind==='optical_rgb'){
+  $('mae'+suffix).parentElement.firstChild.textContent=data.marker_displacement?'Marker MAE (px)':'Frame MAE';
+  if(data.marker_displacement){
+   const m=data.marker_displacement;
+   if(!jointMode)$('inputNote').textContent='The autoencoder receives measured marker displacement, validity masks, and static reference geometry. Its decoder reconstructs vectors through the sensor-specific bottleneck.';
+   $('units'+suffix).textContent='Marker displacement relative to surface reference frames '+(m.reference_frames||[0]).join(', ')+' (not verified unloaded). Cyan: measured vectors. Orange: predicted vectors. Both are drawn on the retained sensor geometry. Arrows are displayed ×'+m.arrow_gain+'; targets and MAE remain native pixels. Positive dx is right, positive dy is down. Tracked '+(100*m.tracked_fraction).toFixed(1)+'%. Error-map values are endpoint error / marker spacing; missing tracks are excluded. Hover near a reference dot for exact vectors.';
+  }else $('units'+suffix).textContent='Original sensor images and decoder outputs retain the complete stored resolution. RGB intensities are in [0,1]; error maps show mean absolute RGB-channel error. Reported metrics use full-precision predictions.';
+ }
+ for(const kind of ['original','reconstruction','error'])for(let panel=0;panel<panelsFor(d);panel++){
+  const canvas=$(kind+suffix+panel),ctx=canvas.getContext('2d'),maximum=Number($(kind==='error'?'errorScale':'pressureScale').value),values=data[kind];
+  if(d.id==='egopressure'&&!suffix){PressureSurface.atlas(canvas,values,maximum);continue;}
+  if(d.hand_layout){
+   const geometry=handGeometry(canvas,d.hand_layout);ctx.fillStyle='#080e18';ctx.fillRect(0,0,canvas.width,canvas.height);
+   for(const node of d.hand_layout.nodes){
+    const value=values[node.index],p=geometry.point(node);
+    ctx.fillStyle=value===null?'#3c414a':'rgb('+color(kind==='error'?value:1-value,maximum).join(',')+')';
+    ctx.beginPath();ctx.arc(p[0],p[1],geometry.radius,0,Math.PI*2);ctx.fill();
+    ctx.strokeStyle='#526078';ctx.lineWidth=.65;ctx.stroke();
+   }
+   continue;
+  }
+  if(d.target_kind==='optical_rgb'){
+   const p=data.optical_panels[panel],image=p[kind+'Image'];
+   ctx.fillStyle='#3c414a';ctx.fillRect(0,0,W,H);
+   if(kind!=='error'){if(image)ctx.drawImage(image,0,0,W,H);continue;}
+   if(!p.errorValues)continue;const pixels=ctx.createImageData(W,H);
+   for(let i=0;i<W*H;i++)pixels.data.set([...color(p.errorValues[i]/65535,maximum),255],i*4);
+   ctx.putImageData(pixels,0,0);continue;
+  }
+  if(vector){
+   if(mirrorMode&&d.id==='opengraph'){drawOpenGraphGrid(ctx,values,panel*W,maximum);continue;}
+   const count=d.target_kind.includes('tanh')?C:W,offset=d.target_kind.includes('tanh')?0:panel*W;
+   ctx.fillStyle='#080e18';ctx.fillRect(0,0,320,160);ctx.strokeStyle='#43536a';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(25,10);ctx.lineTo(25,138);ctx.lineTo(310,138);ctx.stroke();
+   ctx.fillStyle='#9caec2';ctx.font='11px system-ui';ctx.fillText('0',5,142);ctx.fillText(maximum.toFixed(2),2,14);
+   for(let i=0;i<count;i++){
+    const v=values[offset+i],x=26+i*282/count,width=Math.max(1,282/count-1);
+    if(v===null){ctx.fillStyle='#3c414a';ctx.fillRect(x,12,width,125);continue;}
+    const height=Math.max(1,Math.min(1,v/maximum)*125);ctx.fillStyle='rgb('+color(v,maximum).join(',')+')';ctx.fillRect(x,137-height,width,height);
+   }
+   if(d.target_kind.includes('tanh')&&kind!=='error'){const y=137-.5/maximum*125;if(y>=12){ctx.setLineDash([4,4]);ctx.strokeStyle='#d7ced0';ctx.beginPath();ctx.moveTo(26,y);ctx.lineTo(310,y);ctx.stroke();ctx.setLineDash([]);}}
+   ctx.fillStyle='#9caec2';ctx.fillText('stored index 0 → '+(count-1),90,155);continue;
+  }
+  const image=ctx.createImageData(W,H);
+  for(let i=0;i<H*W;i++){
+   let rgb;
+   if(d.target_kind==='optical_rgb'){
+    const channels=[0,1,2].map(c=>values[(panel*3+c)*H*W+i]);
+    rgb=channels.some(v=>v===null)?[60,65,74]:kind==='error'?color(channels.reduce((a,b)=>a+b,0)/3,maximum):channels.map(v=>Math.round(Math.max(0,Math.min(1,v))*255));
+   }else{const v=values[panel*H*W+i];rgb=v===null?[60,65,74]:color(v,maximum);}
+   image.data.set([...rgb,255],i*4);
+  }
+  ctx.putImageData(image,0,0);
+ }
+}
+function hover(event){
+ const suffix=event.currentTarget.dataset.comparison||'',data=suffix?currentDataB:currentData;
+ if(!data)return;const d=selectedDataset(),canvas=event.currentTarget,rect=canvas.getBoundingClientRect(),panel=Number(canvas.dataset.panel),[C,H,W]=d.target_shape;
+ let indices,label;
+ if(data.marker_displacement){
+  const m=data.marker_displacement,x=(event.clientX-rect.left)/rect.width*W,y=(event.clientY-rect.top)/rect.height*H;
+  let nearest=-1,distance=Infinity;
+  m.reference_px.forEach((p,i)=>{if(m.surface[i]!==panel)return;const delta=Math.hypot(x-p[0],y-p[1]);if(delta<distance){nearest=i;distance=delta;}});
+  if(nearest<0||distance>20){$('readout'+suffix).textContent='Hover near a reference dot to inspect native-pixel displacement.';return;}
+  const vec=v=>v?v.map(format).join(', '):'missing / masked';
+  $('readout'+suffix).textContent=d.labels[panel]+' · marker '+nearest+' · measured (dx,dy) px: '+vec(m.measured_px[nearest])+' · predicted: '+vec(m.predicted_px?.[nearest]);return;
+ }
+ if(d.hand_layout){
+  const geometry=handGeometry(canvas,d.hand_layout),x=(event.clientX-rect.left)/rect.width*canvas.width,y=(event.clientY-rect.top)/rect.height*canvas.height;
+  let nearest=null,distance=Infinity;
+  for(const node of d.hand_layout.nodes){const p=geometry.point(node),delta=Math.hypot(x-p[0],y-p[1]);if(delta<distance){nearest=node;distance=delta;}}
+  if(distance>geometry.radius+3){$('readout'+suffix).textContent='Hover over a mapped hand channel to compare values.';return;}
+  const i=nearest.index,original=data.original[i],predicted=data.reconstruction[i];
+  $('readout'+suffix).textContent='Right hand · official channel '+nearest.id+' · row '+nearest.row+', column '+nearest.column+' · stored reading / 3072: original '+format(original)+', reconstruction '+format(predicted)+' · touch response: original '+format(original===null?null:1-original)+', reconstruction '+format(predicted===null?null:1-predicted)+' · error '+format(data.error[i]);return;
+ }
+ if(d.target_kind==='optical_rgb'){
+  const col=Math.min(W-1,Math.max(0,Math.floor((event.clientX-rect.left)/rect.width*W))),row=Math.min(H-1,Math.max(0,Math.floor((event.clientY-rect.top)/rect.height*H)));
+  const p=data.optical_panels[panel],index=row*W+col;
+  const rgb=kind=>{const canvas=$(kind+suffix+panel);if(!p[kind+'Image'])return '—';return [...canvas.getContext('2d').getImageData(col,row,1,1).data].slice(0,3).map(v=>format(v/255)).join(', ');};
+  $('readout'+suffix).textContent=d.labels[panel]+' · row '+row+', column '+col+' · original '+rgb('original')+' · reconstruction (display RGB) '+rgb('reconstruction')+' · mean RGB error '+format(p.errorValues?p.errorValues[index]/65535:null);return;
+ }
+ if(d.target_kind==='taxel_vector'||d.target_kind.includes('tanh')){
+  if(mirrorMode&&d.id==='opengraph'){
+   const x=(event.clientX-rect.left)/rect.width*320,y=(event.clientY-rect.top)/rect.height*160;
+   const finger=Math.floor(x/64),col=Math.floor((x-finger*64-4)/14),row=Math.floor((y-30)/25);
+   if(finger<0||finger>4||col<0||col>3||row<0||row>3)return;
+   const i=panel*80+finger*16+row*4+col;
+   $('readout'+suffix).textContent=d.labels[panel]+' · '+openGraphFingers[finger]+'_r'+row+'c'+col+' · '+['original','reconstruction','error'].map(k=>k+' '+format(data[k][i])).join(' · ');return;
+  }
+  const count=d.target_kind.includes('tanh')?C:W,x=(event.clientX-rect.left)/rect.width*320;
+  const i=Math.max(0,Math.min(count-1,Math.floor((x-26)/282*count)));indices=[d.target_kind.includes('tanh')?i:panel*W+i];label=d.target_kind.includes('tanh')?d.labels[i]:d.labels[panel]+' · index '+i;
+ }else{
+  const col=Math.min(W-1,Math.max(0,Math.floor((event.clientX-rect.left)/rect.width*W))),row=Math.min(H-1,Math.max(0,Math.floor((event.clientY-rect.top)/rect.height*H)));
+  indices=d.target_kind==='optical_rgb'?[0,1,2].map(c=>(panel*3+c)*H*W+row*W+col):[panel*H*W+row*W+col];label=d.labels[panel]+' · row '+row+', column '+col;
+ }
+ $('readout'+suffix).textContent=label+' · '+['original','reconstruction','error'].map(k=>k+' '+indices.map(i=>format(data[k][i])).join(', ')).join(' · ');
+}
+function rawTable(data=currentData,suffix=''){
+ $('rawValues'+suffix).replaceChildren();if(!data.raw_original)return;
+ const table=document.createElement('table'),header=table.insertRow();
+ for(const text of ['Channel','Original (raw)','Reconstruction (raw)','Absolute difference']){const cell=document.createElement('th');cell.textContent=text;header.append(cell);}
+ data.raw_original.forEach((value,i)=>{const predicted=data.raw_reconstruction[i],row=table.insertRow();
+  for(const text of [data.labels[i],format(value),format(predicted),format(value!==null&&predicted!==null?Math.abs(value-predicted):null)])row.insertCell().textContent=text;
+ });$('rawValues'+suffix).append(table);
+}
+async function readJson(url,signal){const response=await fetch(url,{signal}),data=await response.json();if(!response.ok)throw new Error(data.error||'Request failed');return data;}
+async function prepareOptical(data){
+ if(!data.optical_panels)return;
+ await Promise.all(data.optical_panels.flatMap(p=>['original','reconstruction'].map(async kind=>{
+  if(!p[kind])return;const image=new Image();await new Promise((resolve,reject)=>{image.onload=resolve;image.onerror=reject;image.src=p[kind];});p[kind+'Image']=image;
+ })));
+ for(const p of data.optical_panels)if(p.error_u16){const bytes=Uint8Array.from(atob(p.error_u16),c=>c.charCodeAt(0)),view=new DataView(bytes.buffer);p.errorValues=new Uint16Array(bytes.length/2);for(let i=0;i<p.errorValues.length;i++)p.errorValues[i]=view.getUint16(i*2,true);}
+}
+function renderNative(data){
+ $('nativeImages').replaceChildren();$('nativeStatus').textContent='Frame '+data.frame+' · reference frame '+data.reference_frame+' · '+data.gain+'× change amplification';
+ for(const panel of data.panels)for(const [kind,title] of [['original','Source original'],['change','Change from frame 0']]){
+  const box=document.createElement('div'),label=document.createElement('p'),img=document.createElement('img');
+  label.textContent=panel.label+' · '+title+' · '+panel.width+'×'+panel.height;
+  img.src=panel[kind];img.alt=label.textContent;box.append(label,img);
+  if(kind==='change'){const note=document.createElement('p');note.className='note';note.textContent='Unamplified RGB change MAE: '+format(panel.change_mae)+(panel.identical_to_reference?' · exactly identical to frame 0':'');box.append(note);}
+  $('nativeImages').append(box);
+ }
+}
+async function showFrame(){
+ if(!$('episode').value)return;const myRevision=++revision;if(controller)controller.abort();controller=new AbortController();
+ if(jointMode){resetAttention();updateAttentionAvailability();}
+ const signal=controller.signal,requestedFrame=frame;updatePosition();$('status').textContent='Loading frame…';
+ const params=new URLSearchParams({episode:$('episode').value,frame,model:$('model').value,camera:$('camera').value});
+ if(mirrorMode&&catalog.mirror_sources[selectedDataset().id].review_available)params.set('candidate',$('mirrorCandidate').value);
+ if(jointMode){params.set('epoch',$('epoch').value);params.set('views',$('views').value);}
+ const inspect=selectedDataset().target_kind==='optical_rgb'&&$('inspectNative').checked;
+ $('nativePanel').hidden=!inspect;if(inspect){$('nativeStatus').textContent='Loading source-resolution frame…';$('nativeImages').replaceChildren();}
+ try{
+  const requests=[readJson(api((jointMode?'joint/frame?':'frame?')+params),signal),fetch(api('video?'+params),{signal}).then(async response=>{if(!response.ok)throw new Error((await response.json()).error);return response.blob();})];
+  if(inspect)requests.push(readJson(api('optical?'+new URLSearchParams({episode:$('episode').value,frame,gain:$('changeGain').value})),signal));
+  const compare=mirrorMode||(jointMode&&$('modelB').value!=='-1');
+  const comparisonIndex=requests.length;
+  if(compare){const second=new URLSearchParams(params);if(jointMode){second.set('model',$('modelB').value);second.set('epoch',$('epochB').value);}requests.push(readJson(api((mirrorMode?'mirror/frame?':'joint/frame?')+second),signal));}
+  const mirrorVideoIndex=requests.length;
+  if(mirrorMode){const second=new URLSearchParams(params);second.set('camera',$('mirrorCamera').value);requests.push(fetch(api('mirror/video?'+second),{signal}).then(async response=>{if(!response.ok)throw new Error((await response.json()).error);return response.blob();}));}
+  const results=await Promise.allSettled(requests);
+  if(myRevision!==revision)return;if(results[0].status==='rejected')throw results[0].reason;
+  const data=results[0].value;await prepareOptical(data);if(myRevision!==revision)return;
+  currentData=data;render();rawTable();
+  if(compare){
+   const second=results[comparisonIndex];
+   if(second.status==='fulfilled'){await prepareOptical(second.value);if(myRevision!==revision)return;currentDataB=second.value;render(currentDataB,'B');rawTable(currentDataB,'B');updateMetrics(currentDataB,'B');$('outputTitleB').textContent=mirrorMode?(currentDataB.mirror.verified===false?'UNVERIFIED mapping preview'+(currentDataB.mirror.platform?' · '+currentDataB.mirror.platform:''):(currentDataB.mirror.kind==='scalar'?'Mirrored force measurements · direct targets':'Mirrored measurements → same frozen AE')):predictionTitle(currentDataB,'Model B');if(mirrorMode&&currentDataB.mirror.reconstruction_note)$('outputTitleB').textContent+=' · '+currentDataB.mirror.reconstruction_note;}
+   else{currentDataB=null;clearComparison();$('outputTitleB').textContent=(mirrorMode?'Mirrored target: ':'Model B: ')+second.reason.message;}
+  }
+  if(jointMode){$('outputTitle').textContent=predictionTitle(data,'Model A');$('clipDetails').textContent=data.joint?'Temporal input frames: '+data.joint.clip_frames.join(', ')+' · selected frame '+data.frame+' · '+(data.joint.views==='ego'?'ego camera':'camera slots '+data.joint.camera_slots.join(', '))+' · '+data.joint.seconds.toFixed(2)+' s':'';}
+  const d=selectedDataset();let errors=currentData.hand_mae;
+  if(d.target_kind==='optical_rgb')errors=currentData.optical_panels.map(p=>p.mae);
+  for(const [id,value]of[['mae',currentData.mae],['leftMae',errors[0]],['rightMae',errors[1]],['contactMae',currentData.contact_mae],['f1',currentData.contact_f1]])$(id).textContent=format(value);
+  if(results[1].status==='fulfilled'){const old=videoUrl;videoUrl=URL.createObjectURL(results[1].value);$('video').src=videoUrl;if(old)URL.revokeObjectURL(old);$('videoError').textContent='';}
+  else{$('video').removeAttribute('src');$('videoError').textContent='Video unavailable: '+results[1].reason.message;}
+  if(mirrorMode){
+   const mirrored=results[mirrorVideoIndex];
+   if(mirrored.status==='fulfilled'){const old=mirrorVideoUrl;mirrorVideoUrl=URL.createObjectURL(mirrored.value);$('mirrorVideo').src=mirrorVideoUrl;if(old)URL.revokeObjectURL(old);$('mirrorVideoError').textContent='';}
+   else{$('mirrorVideo').removeAttribute('src');$('mirrorVideoError').textContent='Mirrored video unavailable: '+mirrored.reason.message;}
+   const sourceCamera=currentDataB?.mirror?.recorded_camera_by_mirrored_camera?.[$('mirrorCamera').value];
+   $('mirrorVideoNote').textContent='Horizontal reflection'+(sourceCamera===undefined?'':' of recorded '+({'0':'ego','1':'left wrist','2':'right wrist'}[sourceCamera]||sourceCamera))+' · missing cameras stay unavailable.';
+  }
+  if(inspect){if(results[2].status==='fulfilled')renderNative(results[2].value);else $('nativeStatus').textContent='Source image unavailable: '+results[2].reason.message;}
+  PressureSurface.update(currentData,$('episode').value);
+  $('status').textContent='Frame '+requestedFrame+' ready'+($('model').value==='-1'?(mirrorMode?' · direct measurements':' · awaiting trained model'):'');
+  if(data.acquisition)$('status').textContent='Frame '+requestedFrame+' · native measured values';
+  if(mirrorMode&&!currentDataB)$('status').textContent='Mirrored reconstruction unavailable; see its panel for the error';
+  if(jointMode)await loadAttention(myRevision);
+  if(playing)setTimeout(()=>{if(playing&&myRevision===revision){if(frame<Number($('frameSlider').max)){frame++;showFrame();}else pause();}},1000/15);
+ }catch(error){if(error.name==='AbortError'||myRevision!==revision)return;$('status').textContent=error.message;currentData=null;PressureSurface.clear();clearOutput();if(jointMode||mirrorMode){currentDataB=null;clearComparison();}if(mirrorMode)$('mirrorVideo').removeAttribute('src');pause();}
+}
+function fillModels(){
+ if(jointMode){fillJointModels();return;}
+ $('model').disabled=!!selectedDataset().measured_only&&!selectedDataset().reconstruction_available;
+ const episode=catalog.episodes.find(e=>e.id===Number($('episode').value));
+ const old=$('model').value,models=catalog.models.filter(m=>m.source===$('dataset').value&&!m.reduced_resolution&&(!m.native_numeric_teacher||m.target_shape.join(',')===(episode?.target_shape||selectedDataset().target_shape).join(','))).sort((a,b)=>(mirrorMode?Number(!!b.mirror_adapted)-Number(!!a.mirror_adapted):0)||Number(!!b.preferred)-Number(!!a.preferred)||(a.representation!=='marker_displacement')-(b.representation!=='marker_displacement')||(a.score??Infinity)-(b.score??Infinity));
+ $('model').replaceChildren(...models.map(m=>{const c=m.config,widths=c.architecture==='marker_set'?[c.width]:c.architecture==='conv'?c.channels:c.hidden_dims;const option=new Option(m.name+' · '+c.latent_dim+'D code · '+c.architecture.toUpperCase()+' widths '+(widths.length?widths.join(' → '):'affine')+' · '+(c.architecture==='marker_set'?'signed vectors':c.output_mode||'sigmoid'),m.id);return option;}));
+ const usable=models.filter(m=>!m.reduced_resolution);
+ const linked=initialSensorSelection?usable.find(m=>m.name===new URLSearchParams(location.search).get('model')):null;
+ initialSensorSelection=false;
+ if(!usable.length){$('model').add(new Option(selectedDataset().direct_prediction_only?'Direct tactile values · no autoencoder':selectedDataset().measured_only?'Measured values · no trained decoder':mirrorMode&&selectedDataset().target_kind.includes('tanh')?'Direct force measurements · no autoencoder':'Measured targets · awaiting trained checkpoint','-1'));$('model').value='-1';}
+ else $('model').value=linked?linked.id:usable.some(m=>String(m.id)===old)?old:usable[0].id;
+ modelDetails();
+}
+function modelDetails(){
+ if(jointMode){jointDetails();return;}
+ if(selectedDataset()?.direct_prediction_only){$('modelDetails').textContent=selectedDataset().target_shape.join(' × ')+' native tactile values are direct prediction targets; no autoencoder or sensor code is used.';return;}
+ if(selectedDataset()?.measured_only){const numeric=catalog.models.find(m=>String(m.id)===$('model').value&&m.native_numeric_teacher);$('modelDetails').textContent=numeric?'Native numeric MLP · '+numeric.config.latent_dim+'D code · hidden '+numeric.config.hidden_dims.join(' → ')+' · '+numeric.completed_epochs+' epochs (best '+numeric.best_epoch+') · normalized validation MAE '+format(numeric.normalized_mae)+' · '+Object.entries(numeric.per_quantity_mae).map(([k,v])=>k+' native MAE '+format(v)).join(' · '):'Native measurements and paired RGB are available. No saved autoencoder for this episode layout yet.';return;}
+ const m=catalog.models.find(m=>String(m.id)===$('model').value);
+ if(!m){$('modelDetails').textContent=mirrorMode&&selectedDataset().target_kind.includes('tanh')?'Compare left/right force values and camera roles; no autoencoder is needed.':'Recorded values and video are available. Reconstructions will appear when a trained checkpoint is saved.';return;}
+ const c=m.config,width=c.architecture==='marker_set'?'point width '+c.width+' · '+c.queries+' learned attention queries':c.architecture==='conv'?'channels '+c.channels.join(' → '):'hidden widths '+c.hidden_dims.join(' → ');
+ $('modelDetails').textContent=c.architecture.toUpperCase()+' · '+width+' · '+c.latent_dim+'D sensor code · '+(c.architecture==='marker_set'?'signed displacement · MAE in native pixels':c.output_mode||'sigmoid')+' · '+(m.completed_epochs??'—')+' epochs trained (best '+(m.best_epoch??'—')+') · validation MAE '+format(m.validation_mae);
+ if(m.contact_mae!=null)$('modelDetails').textContent+=' · contact MAE '+format(m.contact_mae)+' · background MAE '+format(m.background_mae);
+ if(m.mirror_adapted)$('modelDetails').textContent+=' · '+m.training_note+' · mirrored validation MAE '+format(m.mirrored_validation_mae);
+ if(m.mirror_parity_ratios)$('modelDetails').textContent+=' · worst original/mirrored error ratio '+Math.max(...Object.values(m.mirror_parity_ratios)).toFixed(2)+'×'+(m.mirror_parity_achieved?' · parity target met':' · parity target pending');
+}
+async function episodeChanged(){
+ pause();PressureSurface.clear();if(controller)controller.abort();revision++;const e=catalog.episodes.find(x=>x.id===Number($('episode').value));if(!e)return;
+ $('status').textContent='Loading episode…';$('video').removeAttribute('src');$('rawValues').replaceChildren();
+ if(selectedDataset()?.measured_only){fillModels();trainingStatus();}
+ $('nativeImages').replaceChildren();$('nativeStatus').textContent='';
+ for(const id of ['mae','leftMae','rightMae','contactMae','f1'])$(id).textContent='—';
+ frame=0;currentData=null;$('frameSlider').max=e.frames-1;$('frameNumber').max=e.frames-1;$('position').textContent='/ '+(e.frames-1);
+ if(jointMode){const oldViews=$('views').value;$('views').replaceChildren(...(e.cameras.includes('0')?[new Option('Ego camera only','ego')]:[]),new Option('All available scene cameras','all'));if([...$('views').options].some(option=>option.value===oldViews))$('views').value=oldViews;}
+ $('camera').replaceChildren(...e.cameras.map(c=>new Option(e.camera_labels?.[c]||{'0':'Main / ego','1':'Left / scene','2':'Right wrist'}[c]||c,c)));
+ if(mirrorMode){const previous=$('mirrorCamera').value;$('mirrorCamera').replaceChildren(...(e.mirror_cameras||[]).map(c=>new Option({'0':'Mirrored ego','1':'Mirrored left wrist · from right','2':'Mirrored right wrist · from left'}[c]||c,c)));if([...$('mirrorCamera').options].some(o=>o.value===previous))$('mirrorCamera').value=previous;$('mirrorVideo').removeAttribute('src');}
+ const d=selectedDataset();$('sensorDetails').textContent=d.sensor+' · target '+d.target_shape.join(' × ')+(e.sensor_videos?.length?' · '+e.sensor_videos.map((p,i)=>'Surface '+(i+1)+': '+p).join(' · '):'')+(e.tactile_chronology?' · '+e.tactile_chronology:'');
+ const myRevision=revision;try{const meta=await readJson(api('metadata?'+new URLSearchParams({episode:e.id,camera:$('camera').value})));if(myRevision!==revision)return;fps=meta.fps;}catch(error){if(myRevision!==revision)return;fps=null;}showFrame();
+}
+function filterEpisodes(keepPosition=false){
+ const markerModel=!jointMode&&catalog.models.find(m=>String(m.id)===$('model').value)?.representation==='marker_displacement';
+ pause();const old=$('episode').value,episodes=catalog.episodes.filter(e=>e.source===$('dataset').value&&(!markerModel||e.marker_ready!==false)&&(!$('split').value||e.split===$('split').value)&&e.name.toLowerCase().includes($('search').value.toLowerCase()));
+ $('episode').replaceChildren(...episodes.map(e=>new Option(e.name+' · '+e.frames+' frames',e.id)));
+ if(episodes.some(e=>String(e.id)===old))$('episode').value=old;
+ if(episodes.length){if(keepPosition===true&&episodes.some(e=>String(e.id)===old))return;episodeChanged();}else{if(controller)controller.abort();revision++;$('status').textContent='No matching videos';}
+}
+function datasetChanged(){
+ pause();currentData=null;currentDataB=null;const d=selectedDataset();$('sensorDetails').textContent=d.sensor+' · target '+d.target_shape.join(' × ');
+ const oldSplit=$('split').value,splits=[...new Set(catalog.episodes.filter(e=>e.source===d.id).map(e=>e.split))];
+ const splitLabels={val:'Validation',train:'Training',test_seen:'Test · seen',test_unseen:'Test · unseen'};
+ $('split').replaceChildren(...Object.keys(splitLabels).filter(split=>splits.includes(split)).map(split=>new Option(splitLabels[split],split)),...splits.filter(split=>!splitLabels[split]).map(split=>new Option(split,split)),new Option('All splits',''));
+ if([...$('split').options].some(option=>option.value===oldSplit))$('split').value=oldSplit;
+ $('search').value='';setupPanels();if(jointMode||mirrorMode){setupPanels('B');clearComparison();}if(mirrorMode){const numeric=d.target_kind.includes('tanh');$('inputNote').textContent='Recorded view above; reflected view below. Wrist-camera slots and availability swap. '+(numeric?'Force values swap hands without an autoencoder.':'Both targets keep native resolution; the selected AE encodes each target independently.');$('outputTitle').textContent=numeric?'Recorded force measurements · direct targets':'Recorded measurements → frozen AE';mirrorControls();$('comparisonPanel').querySelector('.maps').children[1].textContent='Measured mirrored target';}fillModels();filterEpisodes();trainingStatus();
+}
+function seek(value){pause();frame=Math.max(0,Math.min(Number($('frameSlider').max),Math.round(Number(value)||0)));updatePosition();clearTimeout(debounce);debounce=setTimeout(showFrame,70);}
+function trainingStatus(){if(mirrorMode){const t=catalog.mirror_training;$('training').textContent='Paired mirror audit · same frame, same teacher · fresh AE inference'+(t?' · '+t.stage+(t.source?' · '+t.source:'')+(t.epoch!=null?' · epoch '+t.epoch+'/'+t.total_epochs:''):'');return;}if(jointMode){$('training').textContent=catalog.models.length+' visual models · only completed, saved epochs are selectable · refresh every 30 s';return;}const d=selectedDataset();if(d?.direct_prediction_only){$('training').textContent=d.target_shape.join(' × ')+' direct tactile targets · autoencoder training excluded';return;}if(d?.measured_only){const count=catalog.episodes.filter(e=>e.source===d.id).length;$('training').textContent=count+' verified recordings available · '+(d.acquisition_complete===false?'acquisition continues; completed episodes appear on refresh':'native measurements ready')+(d.reconstruction_available?' · saved numeric teacher':' · awaiting saved teacher');const numeric=catalog.numeric_teacher_training;if(numeric){const jobs=(numeric.jobs||[]).filter(j=>j.source===d.id||j.job===d.id||d.id==='feel'&&j.job.startsWith('feel_'));if(jobs.length)$('training').textContent+=' · '+jobs.map(j=>j.job+': '+j.stage+(j.epoch?' '+j.epoch+'/'+j.epochs:'')).join(' · ');}return;}const t=catalog.training;$('training').textContent='Training: '+t.status+(t.source?' · '+t.source:'')+(t.stage?' · '+t.stage:'')+' · '+catalog.models.length+' checkpoints available';}
+async function refreshCatalog(){try{const old=$('model').value,oldDataset=$('dataset').value,stamp=jointMode?selectedStamp(''):null,stampB=jointMode?selectedStamp('B'):null;catalog=await readJson(api(jointMode?'joint/catalog':'catalog'));trainingStatus();fillDatasets();if(oldDataset!==$('dataset').value){datasetChanged();return;}fillModels();if(!playing)filterEpisodes(true);if(mirrorMode)mirrorControls();if(!playing&&(old!==$('model').value||(jointMode&&(stamp!==selectedStamp('')||stampB!==selectedStamp('B')))))showFrame();}catch(error){$('training').textContent=error.message;}}
+function fillDatasets(){
+ const old=$('dataset').value,datasets=catalog.datasets.filter(d=>mirrorMode?(catalog.mirror_sources?.[d.id]?.enabled||catalog.mirror_sources?.[d.id]?.review_available):(!jointMode&&d.measurements_available)||catalog.models.some(m=>jointMode?!m.smoke&&m.snapshots.length&&m.source_shapes[d.id]?.join(',')===d.target_shape.join(','):m.source===d.id&&!m.reduced_resolution));
+ $('dataset').replaceChildren(...datasets.map(d=>new Option(d.name,d.id)));
+ if([...$('dataset').options].some(o=>o.value===old))$('dataset').value=old;
+}
+function predictionTitle(data,label){return data?.joint?label+' · '+data.joint.model+' · epoch '+data.joint.epoch:label+' · original only';}
+function updateMetrics(data,suffix){
+ let errors=data.hand_mae;if(data.optical_panels)errors=data.optical_panels.map(p=>p.mae);
+ for(const [id,value]of[['mae',data.mae],['leftMae',errors[0]],['rightMae',errors[1]],['contactMae',data.contact_mae],['f1',data.contact_f1]])$(id+suffix).textContent=format(value);
+}
+function clearOutput(suffix=''){
+ for(const canvas of $(suffix?'comparisonPanel':'outputPanel').querySelectorAll('canvas:not([data-pressure-mesh])')){const ctx=canvas.getContext('2d');ctx.fillStyle='#3c414a';ctx.fillRect(0,0,canvas.width,canvas.height);}
+ for(const id of ['mae','leftMae','rightMae','contactMae','f1'])$(id+suffix).textContent='—';
+ $('rawValues'+suffix).replaceChildren();$('readout'+suffix).textContent='Hover over a sensor cell to compare exact values.';
+}
+function clearComparison(){clearOutput('B');}
+function selectedRun(suffix=''){return catalog.models.find(m=>String(m.id)===$('model'+suffix).value);}
+function selectedStamp(suffix){const run=selectedRun(suffix);return JSON.stringify(run?.snapshots.find(s=>s.id===$('epoch'+suffix).value)?.stamp);}
+function unavailableReason(run){
+ const shape=run.source_shapes[$('dataset').value],native=selectedDataset().target_shape;
+ if(!shape)return 'held out / no sensor head';
+ if(shape.join(',')!==native.join(','))return 'output '+shape.join('×')+'; native '+native.join('×');
+ if(!run.snapshots.length)return 'awaiting first saved epoch';
+ return '';
+}
+function fillEpochs(suffix=''){
+ const select=$('epoch'+suffix),old=select.value,run=selectedRun(suffix);
+ select.replaceChildren(...(run?.snapshots||[]).map(s=>new Option(s.label,s.id)));
+ if(run?.snapshots.some(s=>s.id===old))select.value=old;
+ select.disabled=!run?.snapshots.length;
+}
+function fillJointModels(){
+ $('model').disabled=false;
+ const usable=catalog.models.filter(m=>!m.smoke&&!unavailableReason(m));
+ for(const suffix of ['', 'B']){
+  const select=$('model'+suffix),old=select.value;
+  select.replaceChildren(...usable.map(m=>new Option(m.name,m.id)));
+  if(suffix){select.insertBefore(new Option('No comparison','-1'),select.firstChild);select.value=usable.some(m=>m.id===old)?old:'-1';}
+  else if(!usable.length){select.insertBefore(new Option('Original only · no compatible checkpoint','-1'),select.firstChild);select.value='-1';}
+  else select.value=usable.some(m=>m.id===old)?old:(usable.find(m=>!m.smoke&&m.name.includes('_sam_'))||usable[0]).id;
+  fillEpochs(suffix);
+ }
+ jointDetails();toggleComparison();
+}
+function jointDetails(){
+ const describe=suffix=>{const m=selectedRun(suffix);if(!m)return 'No compatible saved checkpoint for this sensor.';const s=m.snapshots.find(s=>s.id===$('epoch'+suffix).value);if(s?.decoder_widths)return m.kind+' · encoder epoch '+s.epoch+' · decoder '+s.decoder_widths.join(' → ')+' · trained '+s.head_epochs+' epochs · prediction from latent mean';return m.kind+' · '+m.config.latent_dim+'D common latent · '+(m.completed_epochs??'—')+'/'+(m.total_epochs??'—')+' epochs saved'+(m.smoke?' · smoke test only':'');};
+ $('modelDetails').textContent=describe('');$('comparisonDetails').textContent=describe('B');
+ updateAttentionAvailability();
+}
+function toggleComparison(){const compare=$('modelB').value!=='-1';$('comparisonPanel').hidden=!compare;$('comparisonDetails').hidden=!compare;document.body.classList.toggle('comparing',compare);}
+function makeComparisonPanel(){
+ const panel=$('outputPanel').cloneNode(true);panel.id='comparisonPanel';panel.hidden=true;
+ for(const node of panel.querySelectorAll('[id]'))node.id+='B';
+ for(const node of panel.querySelectorAll('.scales,#nativeControlB'))node.remove();
+ panel.querySelector('.maps').replaceChildren(...Array.from($('outputPanel').querySelector('.maps').children).slice(0,4).map(n=>n.cloneNode(true)));
+ $('outputPanel').after(panel);return panel;
+}
+function initializeJointPage(){
+ $('sensorPage').classList.toggle('active',!jointMode&&!mirrorMode);$('jointPage').classList.toggle('active',jointMode);$('mirrorPage').classList.toggle('active',mirrorMode);
+ if(!jointMode)return;
+ document.title='TactileLatent · Ego to tactile prediction';$('heading').textContent='Ego → tactile prediction';
+ $('introduction').textContent='Compare measured tactile data with predictions from visual models. Select saved epochs and optionally compare two models on the same frame.';
+ $('modelLabel').textContent='Visual model A';$('jointControls').hidden=false;$('epochControl').hidden=false;$('clipDetails').hidden=false;$('outputTitle').hidden=false;
+ $('inputNote').textContent='Predictions use scene images only, with eight sampled frames at stride two. Current-frame models use seven past images plus the selected image; earlier models can include future images. The preview camera and model input cameras are selected separately.';
+ makeComparisonPanel();$('outputTitleB').textContent='Model B';
+ $('epoch').onchange=()=>{pause();jointDetails();showFrame();};$('epochB').onchange=()=>{pause();jointDetails();showFrame();};
+ $('views').onchange=()=>{pause();showFrame();};
+ $('modelB').onchange=()=>{pause();$('epochB').value='';fillEpochs('B');jointDetails();toggleComparison();showFrame();};
+}
+function initializeMirrorPage(){
+ if(!mirrorMode)return;
+ document.title='TactileLatent · Mirror quality check';$('heading').textContent='Mirror quality check';
+ $('introduction').textContent='Inspect verified mirrors and explicitly unverified mapping hypotheses. Autoencoders reconstruct each transformed input independently. Review hypotheses never enable training augmentation.';
+ $('mirrorCameraControl').hidden=false;$('mirrorAvailability').hidden=false;$('outputTitle').hidden=false;$('outputTitle').textContent='Recorded measurements → frozen AE';
+ const comparison=makeComparisonPanel();comparison.hidden=false;$('outputTitleB').hidden=false;$('outputTitleB').textContent='Mirrored measurements → same frozen AE';
+ const pairs=document.createElement('div');pairs.className='mirror-outputs';$('outputPanel').before(pairs);pairs.append($('outputPanel'),comparison);
+ $('mirrorCamera').onchange=()=>{pause();showFrame();};
+ $('mirrorCandidate').onchange=()=>{pause();showFrame();};
+}
+initializeJointPage();
+initializeMirrorPage();
+initializeAttentionControls();
+PressureSurface.init({api,pause,redraw:()=>render()});
+NativeSensor.init({api});
+$('frameSlider').addEventListener('input',e=>seek(e.target.value));$('frameNumber').addEventListener('input',e=>seek(e.target.value));
+$('previous').onclick=()=>seek(frame-1);$('next').onclick=()=>seek(frame+1);
+$('play').onclick=()=>{if(playing){pause();return;}if(frame>=Number($('frameSlider').max))frame=0;playing=true;$('play').textContent='Ⅱ Pause';showFrame();};
+$('dataset').onchange=datasetChanged;$('episode').onchange=episodeChanged;$('model').onchange=()=>{pause();if(jointMode){$('epoch').value='';fillEpochs();}else filterEpisodes(true);modelDetails();showFrame();};$('split').onchange=filterEpisodes;
+$('camera').onchange=()=>{pause();showFrame();};$('search').oninput=()=>{clearTimeout(debounce);debounce=setTimeout(filterEpisodes,200);};$('refresh').onclick=refreshCatalog;
+$('inspectNative').onchange=()=>{pause();showFrame();};
+$('changeGain').oninput=()=>{$('changeGainValue').textContent=$('changeGain').value;pause();clearTimeout(debounce);debounce=setTimeout(showFrame,100);};
+for(const id of ['pressureScale','errorScale'])$(id).oninput=()=>{$(id+'Value').textContent=Number($(id).value).toFixed(2);render();if(jointMode||mirrorMode)render(currentDataB,'B');PressureSurface.redraw();};
+async function init(){try{catalog=await readJson(api(jointMode?'joint/catalog':'catalog'));fillDatasets();const requestedDataset=new URLSearchParams(location.search).get('dataset');if([...$('dataset').options].some(o=>o.value===requestedDataset))$('dataset').value=requestedDataset;trainingStatus();if(!$('dataset').value){$('status').textContent='No compatible saved models available';return;}datasetChanged();setInterval(refreshCatalog,30000);}catch(error){$('status').textContent=error.message;}}
+init();
+</script></body></html>
